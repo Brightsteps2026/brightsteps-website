@@ -4,7 +4,7 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>BrightSteps International School | Grand Bassam</title>
-<meta name="description" content="BrightSteps International School accueille des élèves curieux de la Pré-maternelle à la classe de 5e, à Grand Bassam, Côte d'Ivoire, à travers l'apprentissage par l'investigation." />
+<meta name="description" content="BrightSteps International School accueille des élèves curieux de la Petite Section à la classe de 5e, à Grand Bassam, Côte d'Ivoire, à travers l'apprentissage par l'investigation." />
 <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png" />
 <link rel="icon" type="image/png" sizes="16x16" href="favicon-16.png" />
 <link rel="apple-touch-icon" href="apple-touch-icon.png" />
@@ -25,9 +25,20 @@
     </a>
     <ul class="nav-links" id="navLinks">
       <li><a href="about-us-fr.html">Qui sommes-nous</a></li>
-      <li><a href="academic-approach.html">Approche</a></li>
-      <li><a href="academic-program.html">Programme</a></li>
-      <li><a href="admissions.html">Inscriptions</a></li>
+      <li class="nav-dropdown">
+        <button type="button" aria-haspopup="true">Académique</button>
+        <div class="nav-dropdown-menu">
+          <a href="academic-approach.html">Notre approche</a>
+          <a href="academic-program.html">Programme</a>
+        </div>
+      </li>
+      <li class="nav-dropdown">
+        <button type="button" aria-haspopup="true">Inscriptions</button>
+        <div class="nav-dropdown-menu">
+          <a href="admissions.html">Inscriptions</a>
+          <a href="#enroll">Inscrivez-vous</a>
+        </div>
+      </li>
       <li class="nav-dropdown">
         <button type="button" aria-haspopup="true">La vie scolaire</button>
         <div class="nav-dropdown-menu">
@@ -38,7 +49,6 @@
           <a href="uniform.html">Uniforme scolaire</a>
         </div>
       </li>
-      <li><a href="#enroll">Inscrivez-vous</a></li>
       <li><a href="contact-us.html">Contactez-nous</a></li>
       <li><a href="https://hub.bischoolci.org" target="_blank" rel="noopener" class="nav-portal-link">Portail Parents</a></li>
       <li><a href="index.html" class="nav-lang-link">EN</a></li>
@@ -64,7 +74,7 @@
     <p class="eyebrow">Grand Bassam, Côte d'Ivoire</p>
     <div class="hero-banner-announce">Rentrée scolaire : jeudi 27 août 2026</div>
     <h1>Chaque grande idée commence par un premier pas</h1>
-    <p class="hero-banner-lede">BrightSteps International School accueille des élèves curieux de la Pré-maternelle à la classe de 5e. Nos salles de classe sont conçues pour l'émerveillement, l'exploration, et des esprits confiants et compétents.</p>
+    <p class="hero-banner-lede">BrightSteps International School accueille des élèves curieux de la Petite Section à la classe de 5e. Nos salles de classe sont conçues pour l'émerveillement, l'exploration, et des esprits confiants et compétents.</p>
     <div class="hero-banner-actions">
       <a class="btn btn-primary" href="#enroll">Faire une demande d'inscription</a>
       <a class="btn btn-ghost" style="border-color:var(--color-paper); color:var(--color-paper)" href="about-us-fr.html">Découvrir l'école</a>
@@ -150,7 +160,7 @@
       <div class="program-card reveal block-sky">
         <div>
           <span>De 2 à 5 ans</span>
-          <h4>Pré-maternelle et Maternelle</h4>
+          <h4>Petite, Moyenne et Grande Section</h4>
         </div>
         <span>Apprentissage précoce par le jeu</span>
       </div>
@@ -234,8 +244,8 @@
             <label for="gradeLevel">Classe demandée</label>
             <select id="gradeLevel" name="gradeLevel" required>
               <option value="" disabled selected>Sélectionnez un niveau</option>
-              <option>Pré-maternelle</option>
               <option>Petite Section</option>
+              <option>Moyenne Section</option>
               <option>Grande Section</option>
               <option>CP</option>
               <option>CE1</option>
