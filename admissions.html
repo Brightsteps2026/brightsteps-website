@@ -5,7 +5,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Admissions | BrightSteps International School</title>
 <meta name="description" content="Admissions and tuition information for BrightSteps International School, Pre K through Grade 7." />
-<link rel="icon" href="bis-logo.png" />
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png" />
+<link rel="icon" type="image/png" sizes="16x16" href="favicon-16.png" />
+<link rel="apple-touch-icon" href="apple-touch-icon.png" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,600;1,9..144,600&family=Source+Serif+4:ital,opsz@0,8..60;1,8..60&family=Inter:wght@500;600&display=swap" rel="stylesheet" />
 <link rel="stylesheet" href="styles.css" />
@@ -15,7 +17,10 @@
   <nav class="nav">
     <a class="nav-brand" href="index.html">
       <img src="bis-logo.png" alt="BrightSteps International School logo" />
-      BrightSteps
+      <span class="nav-brand-text">
+        <span class="name">BrightSteps</span>
+        <span class="sub">International School</span>
+      </span>
     </a>
     <ul class="nav-links" id="navLinks">
       <li><a href="about-us.html">About</a></li>
@@ -34,6 +39,7 @@
       </li>
       <li><a href="index.html#enroll">Enroll</a></li>
       <li><a href="contact-us.html">Contact</a></li>
+      <li><a href="https://hub.bischoolci.org" target="_blank" rel="noopener" class="nav-portal-link">Parents Portal</a></li>
     </ul>
     <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false">
       <svg width="16" height="16" viewBox="0 0 20 20" fill="none" class="nav-toggle-arrow"><path d="M5 7L10 13L15 7" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
@@ -55,8 +61,9 @@
         <li>Registration fee: 150,000 FCFA, non refundable</li>
       </ul>
     </div>
-    <div class="table-scroll reveal">
-      <p class="eyebrow" style="margin-top:8px">Full Payment</p>
+    <div class="tuition-card reveal">
+      <div class="tuition-card-header"><span class="plan-name">Full Payment</span><span class="plan-note">Pay the full year at registration</span></div>
+      <div class="table-scroll">
       <table class="tuition-table">
         <thead>
           <tr><th>Grade</th><th>Annual Tuition (FCFA)</th></tr>
@@ -73,6 +80,7 @@
           <tr><td>Grade 7</td><td>2,200,000</td></tr>
         </tbody>
       </table>
+      </div>
     </div>
 
     <div class="prose reveal">
@@ -80,8 +88,9 @@
       <p>Tuition may be paid in full at registration, or divided evenly into 2, 3, or 4 installments, whichever suits your family best. All fees are quoted in FCFA and may be paid by Mobile Money, Wave, Orange Money, cash, check, or bank transfer. Checks should be made payable to BRIGHTSTEPS INTERNATIONAL SCHOOL.</p>
     </div>
 
-    <div class="table-scroll reveal">
-      <p class="eyebrow" style="margin-top:8px">2 Installments</p>
+    <div class="tuition-card reveal">
+      <div class="tuition-card-header"><span class="plan-name">2 Installments</span><span class="plan-note">Split into 2 easy payments</span></div>
+      <div class="table-scroll">
       <table class="tuition-table">
         <thead><tr><th>Grade</th><th>1st Payment (FCFA)</th><th>2nd Payment (FCFA)</th></tr></thead>
         <tbody>
@@ -96,10 +105,12 @@
           <tr><td>Grade 7</td><td>1,100,000</td><td>1,100,000</td></tr>
         </tbody>
       </table>
+      </div>
     </div>
 
-    <div class="table-scroll reveal">
-      <p class="eyebrow" style="margin-top:32px">3 Installments</p>
+    <div class="tuition-card reveal">
+      <div class="tuition-card-header"><span class="plan-name">3 Installments</span><span class="plan-note">Split into 3 easy payments</span></div>
+      <div class="table-scroll">
       <table class="tuition-table">
         <thead><tr><th>Grade</th><th>1st Payment (FCFA)</th><th>2nd Payment (FCFA)</th><th>3rd Payment (FCFA)</th></tr></thead>
         <tbody>
@@ -114,10 +125,12 @@
           <tr><td>Grade 7</td><td>733,334</td><td>733,333</td><td>733,333</td></tr>
         </tbody>
       </table>
+      </div>
     </div>
 
-    <div class="table-scroll reveal">
-      <p class="eyebrow" style="margin-top:32px">4 Installments</p>
+    <div class="tuition-card reveal">
+      <div class="tuition-card-header"><span class="plan-name">4 Installments</span><span class="plan-note">Split into 4 easy payments</span></div>
+      <div class="table-scroll">
       <table class="tuition-table">
         <thead><tr><th>Grade</th><th>1st Payment (FCFA)</th><th>2nd Payment (FCFA)</th><th>3rd Payment (FCFA)</th><th>4th Payment (FCFA)</th></tr></thead>
         <tbody>
@@ -132,6 +145,7 @@
           <tr><td>Grade 7</td><td>550,000</td><td>550,000</td><td>550,000</td><td>550,000</td></tr>
         </tbody>
       </table>
+      </div>
     </div>
   </div>
 </section>
@@ -171,7 +185,10 @@
       <div>
         <a class="nav-brand" href="index.html" style="color:var(--color-paper)">
           <img src="bis-logo.png" alt="BrightSteps International School logo" />
-          BrightSteps International School
+          <span class="nav-brand-text">
+            <span class="name">BrightSteps</span>
+            <span class="sub">International School</span>
+          </span>
         </a>
         <p style="margin-top:14px;max-width:36ch;color:rgba(254,253,251,0.7)">Grand Bassam, Cote d'Ivoire</p>
       </div>
@@ -202,7 +219,7 @@
         </ul>
       </div>
     </div>
-    <div class="footer-bottom">&copy; 2026 BrightSteps International School, CI. All rights reserved.</div>
+    <div class="footer-bottom">&copy; 2026 BrightSteps International School. All rights reserved.</div>
   </div>
 </footer>
 

@@ -128,17 +128,13 @@ img { max-width: 100%; display: block; }
 .nav-brand {
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 14px;
   text-decoration: none;
-  font-family: var(--font-nav);
-  font-weight: 600;
-  font-size: 1.2rem;
-  letter-spacing: -0.01em;
   color: var(--color-paper);
 }
 
 .nav-brand img {
-  height: 42px;
+  height: 44px;
   width: auto;
   display: block;
   background: var(--color-paper);
@@ -146,8 +142,27 @@ img { max-width: 100%; display: block; }
   padding: 3px;
 }
 
-.nav-brand .mark {
-  display: none;
+.nav-brand-text {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.15;
+}
+
+.nav-brand-text .name {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-weight: 600;
+  font-size: 1.3rem;
+  letter-spacing: 0.01em;
+}
+
+.nav-brand-text .sub {
+  font-family: var(--font-nav);
+  font-weight: 500;
+  font-size: 0.68rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: rgba(254, 253, 251, 0.75);
 }
 
 .footer-grid .nav-brand img {
@@ -162,6 +177,10 @@ img { max-width: 100%; display: block; }
 .footer-grid .nav-brand {
   flex-direction: column;
   align-items: flex-start;
+}
+
+.footer-grid .nav-brand-text .sub {
+  color: rgba(254, 253, 251, 0.55);
 }
 
 .nav-links {
@@ -184,6 +203,19 @@ img { max-width: 100%; display: block; }
   color: var(--color-paper);
 }
 .nav-links a:hover { border-bottom-color: var(--color-marigold); }
+
+.nav-portal-link {
+  background: rgba(254, 253, 251, 0.14);
+  border: 1px solid rgba(254, 253, 251, 0.5);
+  border-radius: 999px;
+  padding: 8px 16px !important;
+  font-size: 0.88rem;
+}
+.nav-portal-link:hover {
+  background: var(--color-marigold);
+  border-color: var(--color-marigold);
+  color: var(--color-ink) !important;
+}
 
 .nav-dropdown {
   position: relative;
@@ -955,13 +987,43 @@ img { max-width: 100%; display: block; }
 /* ---------- Tuition table ---------- */
 
 .admissions-tuition-wrap {
-  max-width: 760px;
+  max-width: 800px;
   margin: 0 auto;
+}
+
+.tuition-card {
+  border-radius: 18px;
+  border: 1px solid var(--color-line);
+  overflow: hidden;
+  box-shadow: var(--shadow-card);
+  margin: 28px 0;
+  background: var(--color-paper);
+}
+
+.tuition-card-header {
+  background: linear-gradient(115deg, #9C1E38, var(--color-berry) 70%, #5C1220);
+  padding: 18px 26px;
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+}
+
+.tuition-card-header .plan-name {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-weight: 600;
+  font-size: 1.15rem;
+  color: var(--color-paper);
+}
+
+.tuition-card-header .plan-note {
+  font-family: var(--font-nav);
+  font-size: 0.8rem;
+  color: rgba(254, 253, 251, 0.75);
 }
 
 .table-scroll {
   overflow-x: auto;
-  margin: 28px 0 12px;
 }
 
 .tuition-table {
@@ -969,27 +1031,36 @@ img { max-width: 100%; display: block; }
   min-width: 480px;
   border-collapse: collapse;
   font-family: var(--font-body);
-  font-size: 0.95rem;
+  font-size: 0.98rem;
 }
 
 .tuition-table th,
 .tuition-table td {
-  padding: 12px 18px;
+  padding: 14px 26px;
   text-align: left;
-  border-bottom: 1px solid var(--color-line);
 }
 
 .tuition-table th {
-  font-family: var(--font-mono);
-  text-transform: uppercase;
-  font-size: 0.7rem;
-  letter-spacing: 0.06em;
-  color: var(--color-berry);
-  border-bottom: 2px solid var(--color-berry);
+  font-family: var(--font-nav);
+  font-weight: 500;
+  font-size: 0.78rem;
+  letter-spacing: 0.04em;
+  color: rgba(27, 27, 47, 0.55);
+  background: var(--color-sky-tint);
+}
+
+.tuition-table tbody tr:nth-child(even) {
+  background: rgba(234, 244, 252, 0.4);
 }
 
 .tuition-table tbody tr:hover {
   background: var(--color-sky-tint);
+}
+
+.tuition-table td:not(:first-child) {
+  font-family: var(--font-nav);
+  color: var(--color-berry);
+  font-weight: 500;
 }
 
 /* ---------- Reveal on scroll ---------- */
