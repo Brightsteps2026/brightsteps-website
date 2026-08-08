@@ -7,15 +7,15 @@
 <meta name="description" content="Canteen and meal information for BrightSteps International School families." />
 <link rel="icon" href="bis-logo.png" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,600;1,9..144,600&family=Source+Serif+4:ital,opsz@0,8..60;1,8..60&family=Inter:wght@500;600&family=IBM+Plex+Mono:wght@400;600&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,600;1,9..144,600&family=Source+Serif+4:ital,opsz@0,8..60;1,8..60&family=Inter:wght@500;600&display=swap" rel="stylesheet" />
 <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
 <header class="site-header">
   <nav class="nav">
     <a class="nav-brand" href="index.html">
+      <img src="bis-logo.png" alt="BrightSteps International School logo" />
       BrightSteps
-      <span class="mark">INTL SCHOOL</span>
     </a>
     <ul class="nav-links" id="navLinks">
       <li><a href="about-us.html">About</a></li>
@@ -36,7 +36,7 @@
       <li><a href="contact-us.html">Contact</a></li>
     </ul>
     <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false">
-      <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M2 5H18M2 10H18M2 15H18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+      <svg width="16" height="16" viewBox="0 0 20 20" fill="none" class="nav-toggle-arrow"><path d="M5 7L10 13L15 7" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
     </button>
   </nav>
 </header>
@@ -47,20 +47,42 @@
   <p>Nourishing the body is an essential part of supporting children's overall wellbeing and learning. Our on site canteen provides balanced, wholesome meals prepared with care in a safe and welcoming environment.</p>
 </section>
 
-<section class="section container reveal">
-  <div class="calendar-image">
-    <img src="canteen-lunch.jpg" alt="Wooden letter tiles spelling lunch" />
+<section class="section container">
+  <div class="values-grid reveal">
+    <div class="photo-card" style="--swatch-color: var(--color-sky)">
+      <img src="canteen-meal-1.jpg" alt="Fried plantains and seasoned chicken with tomato sauce" />
+      <div class="photo-card-body">
+        <h3>Hearty Mains</h3>
+        <p>Fried plantains, seasoned chicken, and a rich tomato sauce, freshly prepared on campus.</p>
+      </div>
+    </div>
+    <div class="photo-card" style="--swatch-color: var(--color-berry)">
+      <img src="canteen-meal-2.jpg" alt="Sweet potato fries with crispy bites and a dipping sauce" />
+      <div class="photo-card-body">
+        <h3>Wholesome Sides</h3>
+        <p>Sweet potato fries and crispy bites, served with a light dipping sauce.</p>
+      </div>
+    </div>
+    <div class="photo-card" style="--swatch-color: var(--color-marigold)">
+      <img src="canteen-meal-3.jpg" alt="Golden baked pastries with a creamy dip" />
+      <div class="photo-card-body">
+        <h3>Homemade Treats</h3>
+        <p>Golden, freshly baked pastries, a favorite treat during break time.</p>
+      </div>
+    </div>
   </div>
 </section>
 
-<section class="section container prose reveal">
-  <h3>Balanced, Wholesome Meals</h3>
-  <p>Our in house chef prepares balanced and flavorful meals using fresh, quality ingredients, including seasonal fruits and herbs grown in our own school garden.</p>
-  <h3>Flexible Meal Options</h3>
-  <p>Families may provide a packed lunch from home, or select our freshly prepared school lunch made on campus. During break times, students can also enjoy healthy snacks including fresh fruit, homemade treats, and smoothies.</p>
-  <a class="btn btn-primary" href="https://docs.google.com/document/d/1jWV-U4l8p7Y507LQrYNfOG4L2IQpTADkOBXsDt43Wfk/edit?usp=sharing">View this week's menu</a>
-  <h3 style="margin-top:40px">Food Safety and Dietary Considerations</h3>
-  <p>Our canteen follows careful food preparation, hygiene, and safety practices. Families are encouraged to share allergies or dietary requirements so we can support each child's needs.</p>
+<section class="section section-alt prose reveal">
+  <div class="container">
+    <h3>Balanced, Wholesome Meals</h3>
+    <p>Our in house chef prepares balanced and flavorful meals using fresh, quality ingredients, including seasonal fruits and herbs grown in our own school garden.</p>
+    <h3>Flexible Meal Options</h3>
+    <p>Families may provide a packed lunch from home, or select our freshly prepared school lunch made on campus. During break times, students can also enjoy healthy snacks including fresh fruit, homemade treats, and smoothies.</p>
+    <a class="btn btn-primary" href="https://docs.google.com/document/d/1jWV-U4l8p7Y507LQrYNfOG4L2IQpTADkOBXsDt43Wfk/edit?usp=sharing">View this week's menu</a>
+    <h3 style="margin-top:40px">Food Safety and Dietary Considerations</h3>
+    <p>Our canteen follows careful food preparation, hygiene, and safety practices. Families are encouraged to share allergies or dietary requirements so we can support each child's needs.</p>
+  </div>
 </section>
 <footer class="site-footer" id="contact">
   <div class="container">

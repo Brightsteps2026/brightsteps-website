@@ -15,7 +15,7 @@
   --font-display: 'Fraunces', 'Georgia', serif;
   --font-body: 'Source Serif 4', Georgia, serif;
   --font-nav: 'Inter', -apple-system, sans-serif;
-  --font-mono: 'IBM Plex Mono', 'Courier New', monospace;
+  --font-mono: 'Inter', -apple-system, sans-serif;
 
   --radius-card: 20px;
   --shadow-card: 0 18px 40px -20px rgba(27, 27, 47, 0.35);
@@ -57,10 +57,11 @@ a { color: inherit; }
 img { max-width: 100%; display: block; }
 
 .eyebrow {
-  font-family: var(--font-mono);
-  text-transform: uppercase;
-  letter-spacing: 0.14em;
-  font-size: 0.72rem;
+  font-family: var(--font-display);
+  font-style: italic;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  font-size: 1rem;
   color: var(--color-berry);
   margin: 0 0 0.75em;
 }
@@ -127,30 +128,34 @@ img { max-width: 100%; display: block; }
 .nav-brand {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 12px;
   text-decoration: none;
   font-family: var(--font-nav);
   font-weight: 600;
-  font-size: 1.3rem;
+  font-size: 1.2rem;
   letter-spacing: -0.01em;
   color: var(--color-paper);
 }
 
-.nav-brand .mark {
-  font-family: var(--font-nav);
-  font-weight: 500;
-  font-size: 0.72rem;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: rgba(254, 253, 251, 0.7);
+.nav-brand img {
+  height: 42px;
+  width: auto;
+  display: block;
+  background: var(--color-paper);
+  border-radius: 6px;
+  padding: 3px;
 }
 
-.nav-brand img { display: none; }
+.nav-brand .mark {
+  display: none;
+}
 
 .footer-grid .nav-brand img {
   display: block;
   height: 34px;
   width: auto;
+  background: none;
+  padding: 0;
   margin-bottom: 10px;
 }
 
@@ -256,6 +261,14 @@ img { max-width: 100%; display: block; }
   align-items: center;
   justify-content: center;
   cursor: pointer;
+}
+
+.nav-toggle-arrow {
+  transition: transform 0.2s ease;
+}
+
+.nav-toggle[aria-expanded="true"] .nav-toggle-arrow {
+  transform: rotate(180deg);
 }
 
 @media (max-width: 780px) {
@@ -515,11 +528,14 @@ img { max-width: 100%; display: block; }
   border-radius: 4px;
   overflow: hidden;
   box-shadow: var(--shadow-card);
+  width: 100%;
+  margin: 0 auto;
 }
 .hero-photo img {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  object-position: center;
   display: block;
   aspect-ratio: 4 / 5;
 }
@@ -900,6 +916,23 @@ img { max-width: 100%; display: block; }
   margin: 28px 0;
 }
 .calendar-image img { width: 100%; display: block; }
+
+.calendar-image-small {
+  max-width: 360px;
+  margin: 0 auto 12px;
+}
+
+.food-icon {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: var(--color-sky-tint);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--swatch-color, var(--color-berry));
+  margin-bottom: 18px;
+}
 
 /* ---------- Contact form ---------- */
 

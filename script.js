@@ -60,11 +60,7 @@ if ('IntersectionObserver' in window) {
    to be seen. */
 
 /* ---------- Enrollment form submission ---------- */
-// TODO: replace these two values with your project's own Supabase URL
-// and anon (public) key. Both are safe to expose in client side code,
-// the same way they already appear in the BrightSteps Hub app.
-const SUPABASE_URL = 'YOUR_SUPABASE_PROJECT_URL';
-const SUPABASE_ANON_KEY = 'YOUR_SUPABASE_ANON_KEY';
+const ENROLLMENT_FORM_ENDPOINT = 'https://formspree.io/f/xbgrdaqo';
 
 const form = document.getElementById('enrollForm');
 const statusEl = document.getElementById('formStatus');
@@ -89,17 +85,11 @@ form?.addEventListener('submit', async (event) => {
   statusEl.className = 'form-status';
 
   try {
-    if (SUPABASE_URL === 'YOUR_SUPABASE_PROJECT_URL') {
-      throw new Error('Supabase is not configured yet.');
-    }
-
-    const response = await fetch(`${SUPABASE_URL}/rest/v1/enrollment_inquiries`, {
+    const response = await fetch(ENROLLMENT_FORM_ENDPOINT, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
-        apikey: SUPABASE_ANON_KEY,
-        Authorization: `Bearer ${SUPABASE_ANON_KEY}`,
-        Prefer: 'return=minimal',
+        Accept: 'application/json',
       },
       body: JSON.stringify(payload),
     });
@@ -121,6 +111,8 @@ form?.addEventListener('submit', async (event) => {
 });
 
 /* ---------- Contact form submission ---------- */
+const CONTACT_FORM_ENDPOINT = 'https://formspree.io/f/mvkpzbdg';
+
 const contactForm = document.getElementById('contactForm');
 const contactStatusEl = document.getElementById('contactFormStatus');
 const contactSubmitBtn = document.getElementById('contactSubmitBtn');
@@ -141,17 +133,11 @@ contactForm?.addEventListener('submit', async (event) => {
   contactStatusEl.className = 'form-status';
 
   try {
-    if (SUPABASE_URL === 'YOUR_SUPABASE_PROJECT_URL') {
-      throw new Error('Supabase is not configured yet.');
-    }
-
-    const response = await fetch(`${SUPABASE_URL}/rest/v1/contact_messages`, {
+    const response = await fetch(CONTACT_FORM_ENDPOINT, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
-        apikey: SUPABASE_ANON_KEY,
-        Authorization: `Bearer ${SUPABASE_ANON_KEY}`,
-        Prefer: 'return=minimal',
+        Accept: 'application/json',
       },
       body: JSON.stringify(payload),
     });

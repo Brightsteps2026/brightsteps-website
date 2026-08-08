@@ -2,54 +2,50 @@
 
 A plain HTML, CSS, and JavaScript site. No build step, no framework, so
 you can edit and upload it the same way you already do for BrightSteps
-Hub.
+Hub. All files, including every image, sit flat in one folder, there
+are no subfolders anywhere, to keep GitHub uploads simple.
 
 ## Files
 
 - `index.html` — the homepage
+- `about-us.html`, `admissions.html`, `academic-approach.html`,
+  `academic-program.html`, `contact-us.html`, `blog.html`,
+  `school-calendar.html`, `asa.html`, `canteen.html`, `uniform.html`,
+  `careers.html` — the rest of the site
 - `styles.css` — all styling
-- `script.js` — mobile menu, scroll animations, and the enrollment form
-- `assets/bis-logo.png` — the school logo
-- `enrollment_inquiries_setup.sql` — run once in Supabase to create the
-  form's database table
+- `script.js` — the nav menu, hero photo slideshow, scroll animations,
+  and both forms
+- `bis-logo.png` and every `.jpg` file — the school logo and photos
 
-## Connect the enrollment form to Supabase
+## Forms
 
-1. Open your Supabase project dashboard, the same one used by
-   BrightSteps Hub.
-2. Go to SQL Editor, paste the contents of
-   `enrollment_inquiries_setup.sql`, and run it. This creates a
-   dedicated table just for website inquiries. It does not touch your
-   student or parent data.
-3. Go to Project Settings then API. Copy the Project URL and the
-   anon public key.
-4. Open `script.js` and replace `YOUR_SUPABASE_PROJECT_URL` and
-   `YOUR_SUPABASE_ANON_KEY` near the top with those two values.
+Both the enrollment form and the contact form send directly to
+Formspree, a free service that emails submissions straight to your
+inbox. No dashboard or database needed. The two Formspree endpoint
+links are already set inside `script.js`, near the top of the
+enrollment and contact form sections. If you ever need to change
+which email receives them, log into formspree.io and update the
+form's settings there, nothing on the website itself needs to change.
 
 ## Publishing to GitHub
 
-1. Create a new repository, for example `brightsteps-website`, in your
-   Brightsteps2026 GitHub organization.
-2. Upload these files using GitHub's Add file then Upload files, the
-   same way you already update the Hub.
-3. Connect the repository to Vercel, or turn on GitHub Pages in the
-   repository's Settings under Pages, to get a live link.
-4. In Hostinger, point your domain bischoolci.org at that new link
-   following the host's instructions for a custom domain.
+1. Go to your `brightsteps-website` repository in the Brightsteps2026
+   GitHub organization.
+2. Delete all existing files first, so nothing old is left behind.
+3. Click Add file, then Upload files, and drag in every file from
+   this folder at once.
+4. Commit the changes. Vercel will redeploy automatically within a
+   minute or two.
 
-## Pages included
+## Going live on your domain
 
-- `index.html` — Home
-- `about-us.html` — About Us
-- `admissions.html` — Admissions
-- `academic-approach.html` — Academic Approach
-- `academic-program.html` — Academic Program
-- `contact-us.html` — Contact Us
+When you're ready to replace the current bischoolci.org site with
+this one, go to your Vercel project's Settings, then Domains, and add
+bischoolci.org. Vercel will show you which DNS records to add in
+Hostinger. This will take the old site offline once it takes effect,
+so only do this once you're fully happy with everything here.
 
 ## What is not built yet
 
 - A French translation, to match the current site's language toggle
-- Blog, School Calendar, After School Activities, Canteen, Uniform,
-  and Careers pages, which existed on the old site
-- A way for staff to view submitted enrollment inquiries inside
-  BrightSteps Hub itself
+- Additional real photography throughout the remaining pages
