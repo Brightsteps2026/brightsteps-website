@@ -644,8 +644,20 @@ img { max-width: 100%; display: block; }
   gap: 24px;
 }
 
+.values-grid-4 {
+  grid-template-columns: repeat(4, 1fr);
+}
+
 @media (max-width: 860px) {
   .values-grid { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 700px) {
+  .values-grid-4 { grid-template-columns: 1fr; }
+}
+
+@media (min-width: 701px) and (max-width: 860px) {
+  .values-grid-4 { grid-template-columns: repeat(2, 1fr); }
 }
 
 .value-card {
