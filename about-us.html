@@ -24,9 +24,20 @@
     </a>
     <ul class="nav-links" id="navLinks">
       <li><a href="about-us.html">About</a></li>
-      <li><a href="academic-approach.html">Approach</a></li>
-      <li><a href="academic-program.html">Programs</a></li>
-      <li><a href="admissions.html">Admissions</a></li>
+      <li class="nav-dropdown">
+        <button type="button" aria-haspopup="true">Academics</button>
+        <div class="nav-dropdown-menu">
+          <a href="academic-approach.html">Academic Approach</a>
+          <a href="academic-program.html">Academic Program</a>
+        </div>
+      </li>
+      <li class="nav-dropdown">
+        <button type="button" aria-haspopup="true">Admissions</button>
+        <div class="nav-dropdown-menu">
+          <a href="admissions.html">Admissions</a>
+          <a href="index.html#enroll">Enroll</a>
+        </div>
+      </li>
       <li class="nav-dropdown">
         <button type="button" aria-haspopup="true">School Life</button>
         <div class="nav-dropdown-menu">
@@ -37,9 +48,9 @@
           <a href="uniform.html">School Uniform</a>
         </div>
       </li>
-      <li><a href="index.html#enroll">Enroll</a></li>
       <li><a href="contact-us.html">Contact</a></li>
       <li><a href="https://hub.bischoolci.org" target="_blank" rel="noopener" class="nav-portal-link">Parents Portal</a></li>
+      <li><a href="about-us-fr.html" class="nav-lang-link">FR</a></li>
     </ul>
     <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false">
       <svg width="16" height="16" viewBox="0 0 20 20" fill="none" class="nav-toggle-arrow"><path d="M5 7L10 13L15 7" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
