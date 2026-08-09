@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Inscrivez-vous | BrightSteps International School</title>
+<meta name="description" content="Demarrez la demande d'inscription de votre enfant a BrightSteps International School." />
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png" />
+<link rel="icon" type="image/png" sizes="16x16" href="favicon-16.png" />
+<link rel="apple-touch-icon" href="apple-touch-icon.png" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,600;1,9..144,600&family=Source+Serif+4:ital,opsz@0,8..60;1,8..60&family=Inter:wght@500;600&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+<header class="site-header" id="top">
+  <nav class="nav">
+    <a class="nav-brand" href="index-fr.html">
+      <img src="bis-logo.png" alt="Logo BrightSteps International School" />
+      <span class="nav-brand-text">
+        <span class="name">BrightSteps</span>
+        <span class="sub">International School</span>
+      </span>
+    </a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="about-us-fr.html">Qui sommes-nous</a></li>
+      <li class="nav-dropdown">
+        <button type="button" aria-haspopup="true">Academique</button>
+        <div class="nav-dropdown-menu">
+          <a href="academic-approach.html">Notre approche</a>
+          <a href="academic-program.html">Programme</a>
+        </div>
+      </li>
+      <li class="nav-dropdown">
+        <button type="button" aria-haspopup="true">Scolarité</button>
+        <div class="nav-dropdown-menu">
+          <a href="admissions.html">Tuition &amp; Process</a>
+          <a href="enroll-fr.html">Inscrivez-vous</a>
+        </div>
+      </li>
+      <li class="nav-dropdown">
+        <button type="button" aria-haspopup="true">La vie scolaire</button>
+        <div class="nav-dropdown-menu">
+          <a href="blog.html">Actualites</a>
+          <a href="school-calendar.html">Calendrier scolaire</a>
+          <a href="asa.html">Activites parascolaires</a>
+          <a href="canteen.html">Cantine</a>
+          <a href="uniform.html">Uniforme</a>
+        </div>
+      </li>
+      <li><a href="contact-us.html">Contactez-nous</a></li>
+      <li><a href="enroll.html" style="opacity:0.75">EN</a></li>
+      <li><a href="https://hub.bischoolci.org" target="_blank" rel="noopener" class="nav-portal-link">Espace Parents</a></li>
+    </ul>
+    <button class="nav-toggle" id="navToggle" aria-label="Ouvrir le menu" aria-expanded="false">
+      <svg width="16" height="16" viewBox="0 0 20 20" fill="none" class="nav-toggle-arrow"><path d="M5 7L10 13L15 7" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </button>
+  </nav>
+</header>
+
+<main id="top">
+
+<section class="page-hero container reveal">
+  <p class="eyebrow">Inscriptions</p>
+  <h1>Démarrez la demande d'inscription de votre enfant</h1>
+  <p>Parlez-nous un peu de votre famille et nous vous recontacterons pour organiser une visite et vous accompagner dans les étapes d'admission.</p>
+</section>
+
+<section class="section container">
+  <form class="enroll-wrap reveal" id="enrollForm">
+    <div class="form-grid">
+      <div class="field">
+        <label for="parentName">Nom complet du parent ou tuteur</label>
+        <input type="text" id="parentName" name="parentName" required />
+      </div>
+      <div class="field">
+        <label for="parentEmail">Adresse e-mail</label>
+        <input type="email" id="parentEmail" name="parentEmail" required />
+      </div>
+      <div class="field">
+        <label for="parentPhone">Numéro de téléphone</label>
+        <input type="tel" id="parentPhone" name="parentPhone" placeholder="+225" required />
+      </div>
+      <div class="field">
+        <label for="gradeLevel">Classe demandée</label>
+        <select id="gradeLevel" name="gradeLevel" required>
+          <option value="" disabled selected>Sélectionnez un niveau</option>
+          <option>Petite Section</option>
+          <option>Moyenne Section</option>
+          <option>Grande Section</option>
+          <option>CP</option>
+          <option>CE1</option>
+          <option>CE2</option>
+          <option>CM1</option>
+          <option>CM2</option>
+          <option>6e</option>
+          <option>5e</option>
+        </select>
+      </div>
+      <div class="field">
+        <label for="childName">Nom complet de l'enfant</label>
+        <input type="text" id="childName" name="childName" required />
+      </div>
+      <div class="field">
+        <label for="childDob">Date de naissance de l'enfant</label>
+        <input type="date" id="childDob" name="childDob" />
+      </div>
+      <div class="field full">
+        <label for="message">Toute information que vous souhaitez partager</label>
+        <textarea id="message" name="message" rows="4"></textarea>
+      </div>
+    </div>
+    <div class="form-footer">
+      <button type="submit" class="btn btn-primary" id="submitBtn">Envoyer ma demande d'inscription</button>
+      <span class="form-status" id="formStatus" role="status" aria-live="polite"></span>
+    </div>
+  </form>
+</section>
+
+</main>
+
+<footer class="site-footer" id="contact">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <a class="nav-brand" href="index-fr.html" style="color:var(--color-paper)">
+          <img src="bis-logo.png" alt="Logo BrightSteps International School" />
+          <span class="nav-brand-text">
+            <span class="name">BrightSteps</span>
+            <span class="sub">International School</span>
+          </span>
+        </a>
+        <p style="margin-top:14px;max-width:36ch;color:rgba(254,253,251,0.7)">Grand Bassam, Cote d'Ivoire</p>
+      </div>
+      <div>
+        <h5>Liens rapides</h5>
+        <ul>
+          <li><a href="about-us-fr.html">Qui sommes-nous</a></li>
+          <li><a href="admissions.html">Inscriptions</a></li>
+          <li><a href="careers.html">Carrieres</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>La vie scolaire</h5>
+        <ul>
+          <li><a href="blog.html">Actualites</a></li>
+          <li><a href="school-calendar.html">Calendrier scolaire</a></li>
+          <li><a href="asa.html">Activites parascolaires</a></li>
+          <li><a href="canteen.html">Cantine</a></li>
+          <li><a href="uniform.html">Uniforme</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>Suivez-nous</h5>
+        <ul>
+          <li><a href="https://facebook.com/brightstepssch">Facebook</a></li>
+          <li><a href="https://instagram.com/brightstepssch">Instagram</a></li>
+          <li><a href="https://wa.me/+2250710110133">WhatsApp</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">&copy; 2026 BrightSteps International School. Tous droits reserves.</div>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
