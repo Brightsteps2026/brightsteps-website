@@ -59,6 +59,36 @@ if ('IntersectionObserver' in window) {
    since js-hidden is never added. Content is never dependent on JS
    to be seen. */
 
+/* ---------- Add another child ---------- */
+const childrenContainer = document.getElementById('childrenContainer');
+const addChildBtn = document.getElementById('addChildBtn');
+let childCount = 1;
+const isFrench = document.documentElement.lang === 'fr';
+const childLabel = isFrench ? 'Enfant' : 'Child';
+const removeLabel = isFrench ? 'Supprimer' : 'Remove';
+
+addChildBtn?.addEventListener('click', () => {
+  childCount += 1;
+  const firstBlock = childrenContainer.querySelector('.child-block');
+  const newBlock = firstBlock.cloneNode(true);
+
+  newBlock.querySelector('.child-block-label').textContent = `${childLabel} ${childCount}`;
+  newBlock.querySelectorAll('input, select').forEach((el) => {
+    el.value = '';
+    const baseName = el.name.replace(/_\d+$/, '');
+    el.name = `${baseName}_${childCount}`;
+  });
+
+  const removeBtn = document.createElement('button');
+  removeBtn.type = 'button';
+  removeBtn.className = 'child-block-remove';
+  removeBtn.textContent = removeLabel;
+  removeBtn.addEventListener('click', () => newBlock.remove());
+  newBlock.appendChild(removeBtn);
+
+  childrenContainer.appendChild(newBlock);
+});
+
 /* ---------- Enrollment form submission ---------- */
 const ENROLLMENT_FORM_ENDPOINT = 'https://formspree.io/f/xbgrdaqo';
 
@@ -73,11 +103,18 @@ form?.addEventListener('submit', async (event) => {
     parent_name: form.parentName.value.trim(),
     parent_email: form.parentEmail.value.trim(),
     parent_phone: form.parentPhone.value.trim(),
-    grade_level: form.gradeLevel.value,
-    child_name: form.childName.value.trim(),
-    child_dob: form.childDob.value || null,
     message: form.message.value.trim() || null,
   };
+
+  document.querySelectorAll('#childrenContainer .child-block').forEach((block, idx) => {
+    const n = idx + 1;
+    const nameInput = block.querySelector('input[name^="childName"]');
+    const dobInput = block.querySelector('input[name^="childDob"]');
+    const gradeSelect = block.querySelector('select[name^="gradeLevel"]');
+    payload[`child_${n}_name`] = nameInput ? nameInput.value.trim() : '';
+    payload[`child_${n}_dob`] = dobInput && dobInput.value ? dobInput.value : null;
+    payload[`child_${n}_grade`] = gradeSelect ? gradeSelect.value : '';
+  });
 
   submitBtn.disabled = true;
   submitBtn.textContent = 'Sending...';
@@ -99,6 +136,10 @@ form?.addEventListener('submit', async (event) => {
     }
 
     form.reset();
+    document.querySelectorAll('#childrenContainer .child-block').forEach((block, idx) => {
+      if (idx > 0) block.remove();
+    });
+    childCount = 1;
     statusEl.textContent = 'Thank you. We have received your inquiry and will follow up soon.';
     statusEl.classList.add('success');
   } catch (err) {

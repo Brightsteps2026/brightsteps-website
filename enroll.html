@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8" />
+<meta name="color-scheme" content="light" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Enroll | BrightSteps International School</title>
 <meta name="description" content="Start your child's enrollment inquiry at BrightSteps International School." />
@@ -75,34 +76,47 @@
         <label for="parentEmail">Email address</label>
         <input type="email" id="parentEmail" name="parentEmail" required />
       </div>
-      <div class="field">
+      <div class="field full">
         <label for="parentPhone">Phone number</label>
         <input type="tel" id="parentPhone" name="parentPhone" placeholder="+225" required />
       </div>
-      <div class="field">
-        <label for="gradeLevel">Grade applying for</label>
-        <select id="gradeLevel" name="gradeLevel" required>
-          <option value="" disabled selected>Select a level</option>
-          <option>Pre Nursery</option>
-          <option>Pre Kindergarten</option>
-          <option>Kindergarten</option>
-          <option>Grade 1</option>
-          <option>Grade 2</option>
-          <option>Grade 3</option>
-          <option>Grade 4</option>
-          <option>Grade 5</option>
-          <option>Grade 6</option>
-          <option>Grade 7</option>
-        </select>
+    </div>
+
+    <div id="childrenContainer">
+      <div class="child-block">
+        <p class="child-block-label">Child 1</p>
+        <div class="form-grid">
+          <div class="field">
+            <label>Child full name</label>
+            <input type="text" name="childName_1" required />
+          </div>
+          <div class="field">
+            <label>Child date of birth</label>
+            <input type="date" name="childDob_1" />
+          </div>
+          <div class="field full">
+            <label>Grade applying for</label>
+            <select name="gradeLevel_1" required>
+              <option value="" disabled selected>Select a level</option>
+              <option>Pre Nursery</option>
+              <option>Pre Kindergarten</option>
+              <option>Kindergarten</option>
+              <option>Grade 1</option>
+              <option>Grade 2</option>
+              <option>Grade 3</option>
+              <option>Grade 4</option>
+              <option>Grade 5</option>
+              <option>Grade 6</option>
+              <option>Grade 7</option>
+            </select>
+          </div>
+        </div>
       </div>
-      <div class="field">
-        <label for="childName">Child full name</label>
-        <input type="text" id="childName" name="childName" required />
-      </div>
-      <div class="field">
-        <label for="childDob">Child date of birth</label>
-        <input type="date" id="childDob" name="childDob" />
-      </div>
+    </div>
+
+    <button type="button" class="btn btn-ghost" id="addChildBtn" style="margin:8px 0 20px">+ Add another child</button>
+
+    <div class="form-grid">
       <div class="field full">
         <label for="message">Anything you would like us to know</label>
         <textarea id="message" name="message" rows="4"></textarea>
@@ -150,6 +164,7 @@
         <ul>
           <li><a href="https://facebook.com/brightstepssch">Facebook</a></li>
           <li><a href="https://instagram.com/brightstepssch">Instagram</a></li>
+          <li><a href="https://tiktok.com/@brightstepssch">TikTok</a></li>
           <li><a href="https://wa.me/+2250710110133">WhatsApp</a></li>
         </ul>
       </div>
