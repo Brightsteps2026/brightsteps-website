@@ -226,10 +226,16 @@ img { max-width: 100%; display: block; }
 .nav-lang-link {
   font-family: var(--font-nav) !important;
   font-weight: 600 !important;
-  font-size: 0.85rem !important;
+  font-size: 0.78rem !important;
+  color: var(--color-paper) !important;
   border: 1px solid rgba(254, 253, 251, 0.5);
-  border-radius: 6px;
-  padding: 6px 10px !important;
+  border-radius: 999px;
+  padding: 8px 14px !important;
+  white-space: nowrap;
+}
+.nav-lang-link:hover {
+  background: rgba(254, 253, 251, 0.15);
+  border-color: rgba(254, 253, 251, 0.8);
 }
 
 .nav-dropdown {
