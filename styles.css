@@ -292,14 +292,23 @@ img { max-width: 100%; display: block; }
 }
 .nav-dropdown-menu a:hover { background: var(--color-sky-tint); }
 
-@media (max-width: 1160px) {
+@media (max-width: 1024px) {
   .nav-dropdown-menu {
     position: static;
     transform: none;
-    display: flex;
+    display: none;
     box-shadow: none;
     border: none;
     padding: 4px 0 4px 14px;
+  }
+  .nav-dropdown-menu.open {
+    display: flex;
+  }
+  .nav-dropdown:hover .nav-dropdown-menu {
+    display: none;
+  }
+  .nav-dropdown:hover .nav-dropdown-menu.open {
+    display: flex;
   }
 }
 
@@ -324,7 +333,7 @@ img { max-width: 100%; display: block; }
   transform: rotate(180deg);
 }
 
-@media (max-width: 1160px) {
+@media (max-width: 1024px) {
   .nav-links {
     position: absolute;
     top: 100%;
