@@ -341,12 +341,17 @@ img { max-width: 100%; display: block; }
     right: 0;
     background: var(--color-berry);
     flex-direction: column;
+    gap: 14px;
     padding: 18px clamp(20px, 5vw, 48px) 26px;
     border-bottom: 3px solid var(--color-marigold);
     display: none;
   }
   .nav-links.open { display: flex; }
   .nav-toggle { display: flex; }
+  .nav-links .nav-portal-link,
+  .nav-links .nav-lang-link {
+    margin-top: 4px;
+  }
 }
 
 /* ---------- Block motif (signature element) ---------- */
