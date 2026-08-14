@@ -892,7 +892,8 @@ img { max-width: 100%; display: block; }
 /* ---------- Inner page hero ---------- */
 
 .page-hero {
-  padding: clamp(40px, 7vw, 72px) 0 clamp(32px, 5vw, 56px);
+  padding-top: clamp(40px, 7vw, 72px);
+  padding-bottom: clamp(32px, 5vw, 56px);
   border-bottom: 1px solid var(--color-line);
 }
 
