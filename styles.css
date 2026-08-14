@@ -208,36 +208,36 @@ img { max-width: 100%; display: block; }
 }
 .nav-links a:hover { border-bottom-color: var(--color-marigold); }
 
-.nav-portal-link {
+.nav-links .nav-portal-link {
   background: var(--color-marigold);
   color: var(--color-ink) !important;
-  border: 1px solid var(--color-marigold);
+  border: 1px solid var(--color-marigold) !important;
   border-radius: 999px;
   padding: 8px 16px !important;
   font-size: 0.78rem;
   font-weight: 600;
   white-space: nowrap;
 }
-.nav-portal-link:hover {
+.nav-links .nav-portal-link:hover {
   background: var(--color-paper);
-  border-color: var(--color-paper);
+  border-color: var(--color-paper) !important;
   color: var(--color-ink) !important;
 }
 
-.nav-lang-link {
+.nav-links .nav-lang-link {
   font-family: var(--font-nav) !important;
   font-weight: 600 !important;
   font-size: 0.78rem !important;
   color: var(--color-paper) !important;
   background: rgba(254, 253, 251, 0.08);
-  border: 1.5px solid rgba(254, 253, 251, 0.7);
+  border: 1.5px solid rgba(254, 253, 251, 0.7) !important;
   border-radius: 999px;
   padding: 8px 14px !important;
   white-space: nowrap;
 }
-.nav-lang-link:hover {
+.nav-links .nav-lang-link:hover {
   background: rgba(254, 253, 251, 0.15);
-  border-color: rgba(254, 253, 251, 0.8);
+  border-color: rgba(254, 253, 251, 0.8) !important;
 }
 
 .nav-dropdown {
