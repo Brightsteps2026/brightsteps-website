@@ -68,12 +68,13 @@
 
 <section class="section container reveal">
   <div class="calendar-image">
-    <img src="https://bischoolci.org/cdn/Calendar_BrightSteps_Public_V4.jpeg" alt="Calendrier de BrightSteps International School pour l'année scolaire 2026 a 2027" />
+    <picture>
+      <source type="image/webp" srcset="calendar-800.webp 800w, calendar-1600.webp 1600w" sizes="(max-width: 900px) 100vw, 1130px" />
+      <source type="image/jpeg" srcset="calendar-800.jpg 800w, calendar-1600.jpg 1600w" sizes="(max-width: 900px) 100vw, 1130px" />
+      <img src="calendar-1600.jpg" width="1600" height="956" alt="Calendrier académique de BrightSteps International School pour l'année scolaire 2026 à 2027, indiquant les jours de classe, les congés, les jours fériés et les journées de formation du personnel, de juillet 2026 à juin 2027" loading="lazy" />
+    </picture>
   </div>
-  <a class="btn btn-primary" href="https://bischoolci.org/cdn/pdf/Calendar_BrightSteps_Public_V4.pdf">Telecharger le calendrier en PDF</a>
-  <!-- TODO (site owner action needed): see the matching comment in school-calendar.html —
-       this image/PDF still depends on the old bischoolci.org host. -->
-
+  <a class="btn btn-primary" href="calendar.pdf">Telecharger le calendrier en PDF</a>
 </section>
 <footer class="site-footer" id="contact">
   <div class="container">

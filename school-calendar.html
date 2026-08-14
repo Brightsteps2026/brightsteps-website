@@ -68,14 +68,13 @@
 
 <section class="section container reveal">
   <div class="calendar-image">
-    <img src="https://bischoolci.org/cdn/Calendar_BrightSteps_Public_V4.jpeg" alt="BrightSteps International School calendar for the 2026 to 2027 academic year" />
+    <picture>
+      <source type="image/webp" srcset="calendar-800.webp 800w, calendar-1600.webp 1600w" sizes="(max-width: 900px) 100vw, 1130px" />
+      <source type="image/jpeg" srcset="calendar-800.jpg 800w, calendar-1600.jpg 1600w" sizes="(max-width: 900px) 100vw, 1130px" />
+      <img src="calendar-1600.jpg" width="1600" height="956" alt="BrightSteps International School academic calendar for the 2026 to 2027 school year, showing school days, breaks, holidays and professional development days by month from July 2026 to June 2027" loading="lazy" />
+    </picture>
   </div>
-  <a class="btn btn-primary" href="https://bischoolci.org/cdn/pdf/Calendar_BrightSteps_Public_V4.pdf">Download the calendar PDF</a>
-  <!-- TODO (site owner action needed): this image and PDF are still served from the old
-       bischoolci.org host, not this repo. Send Claude the current calendar image and PDF
-       files so they can be added under this project and this file switched to local paths
-       (e.g. /calendar.jpg, /calendar.pdf). See handoff notes for details. -->
-
+  <a class="btn btn-primary" href="calendar.pdf">Download the calendar PDF</a>
 </section>
 <footer class="site-footer" id="contact">
   <div class="container">
