@@ -335,16 +335,23 @@ img { max-width: 100%; display: block; }
 }
 
 @media (max-width: 1024px) {
+  .nav {
+    flex-wrap: wrap;
+  }
   .nav-links {
-    position: absolute;
-    top: 100%;
-    left: 0;
-    right: 0;
+    position: relative;
+    left: 50%;
+    right: auto;
+    width: 100vw;
+    margin-left: -50vw;
+    order: 5;
     background: var(--color-berry);
     flex-direction: column;
     gap: 14px;
     padding: 18px clamp(20px, 5vw, 48px) 26px;
-    border-bottom: 3px solid var(--color-marigold);
+    margin-top: 14px;
+    margin-bottom: -14px;
+    border-top: 3px solid var(--color-marigold);
     display: none;
   }
   .nav-links.open { display: flex; }
