@@ -340,15 +340,14 @@ img { max-width: 100%; display: block; }
   }
   .nav-links {
     position: relative;
-    left: 50%;
-    right: auto;
-    width: 100vw;
-    margin-left: -50vw;
+    width: 100%;
+    flex-basis: 100%;
     order: 5;
     background: var(--color-berry);
     flex-direction: column;
     gap: 14px;
-    padding: 18px clamp(20px, 5vw, 48px) 26px;
+    padding-top: 18px;
+    padding-bottom: 26px;
     margin-top: 14px;
     margin-bottom: -14px;
     border-top: 3px solid var(--color-marigold);
