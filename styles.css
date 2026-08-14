@@ -548,15 +548,6 @@ img { max-width: 100%; display: block; }
   margin: 0 0 18px;
 }
 
-.hero-banner h1 {
-  color: var(--color-paper);
-  font-size: clamp(2.4rem, 6vw, 4.2rem);
-  font-style: italic;
-  font-weight: 600;
-  max-width: 16ch;
-  margin-bottom: 18px;
-}
-
 .hero-banner-lede {
   font-size: 1.1rem;
   max-width: 46ch;
@@ -967,9 +958,6 @@ img { max-width: 100%; display: block; }
 @media (max-width: 480px) {
   .page-hero h1 {
     font-size: 1.75rem;
-  }
-  .hero-banner h1 {
-    font-size: 2.1rem;
   }
 }
 
