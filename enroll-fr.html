@@ -29,29 +29,29 @@
       <li class="nav-dropdown">
         <button type="button" aria-haspopup="true">Académique</button>
         <div class="nav-dropdown-menu">
-          <a href="academic-approach.html">Notre approche</a>
-          <a href="academic-program.html">Programme</a>
+          <a href="academic-approach-fr.html">Notre approche</a>
+          <a href="academic-program-fr.html">Programme</a>
         </div>
       </li>
       <li class="nav-dropdown">
         <button type="button" aria-haspopup="true">Scolarité</button>
         <div class="nav-dropdown-menu">
-          <a href="admissions.html">Tuition &amp; Process</a>
+          <a href="admissions-fr.html">Frais et Inscription</a>
           <a href="enroll-fr.html">Inscrivez-vous</a>
         </div>
       </li>
       <li class="nav-dropdown">
         <button type="button" aria-haspopup="true">La vie scolaire</button>
         <div class="nav-dropdown-menu">
-          <a href="blog.html">Actualités</a>
-          <a href="school-calendar.html">Calendrier scolaire</a>
-          <a href="asa.html">Activités parascolaires</a>
-          <a href="canteen.html">Cantine</a>
+          <a href="blog-fr.html">Actualités</a>
+          <a href="school-calendar-fr.html">Calendrier scolaire</a>
+          <a href="asa-fr.html">Activités parascolaires</a>
+          <a href="canteen-fr.html">Cantine</a>
           <a href="uniform-fr.html">Uniforme</a>
           <a href="transportation-fr.html">Transport scolaire</a>
         </div>
       </li>
-      <li><a href="contact-us.html">Contactez-nous</a></li>
+      <li><a href="contact-us-fr.html">Contactez-nous</a></li>
       <li><a href="https://hub.bischoolci.org" target="_blank" rel="noopener" class="nav-portal-link">Espace Parents</a></li>
       <li><a href="enroll.html" class="nav-lang-link">EN</a></li>
     </ul>
@@ -70,37 +70,44 @@
 </section>
 
 <section class="section section-tight-top container">
-  <form class="enroll-wrap reveal" id="enrollForm">
+  <form class="enroll-wrap reveal" id="enrollForm" novalidate>
+    <!-- Piège à robots (honeypot) : invisible pour les visiteurs réels. -->
+    <div class="hp-field" aria-hidden="true">
+      <label for="enrollCompany">Laissez ce champ vide</label>
+      <input type="text" id="enrollCompany" name="company" tabindex="-1" autocomplete="off" />
+    </div>
+    <input type="hidden" id="enrollLoadedAt" name="loaded_at" value="" />
+
     <div class="form-grid">
       <div class="field">
         <label for="parentName">Nom complet du parent ou tuteur</label>
-        <input type="text" id="parentName" name="parentName" required />
+        <input type="text" id="parentName" name="parentName" autocomplete="name" required />
       </div>
       <div class="field">
         <label for="parentEmail">Adresse e-mail</label>
-        <input type="email" id="parentEmail" name="parentEmail" required />
+        <input type="email" id="parentEmail" name="parentEmail" autocomplete="email" required />
       </div>
       <div class="field full">
         <label for="parentPhone">Numéro de téléphone</label>
-        <input type="tel" id="parentPhone" name="parentPhone" placeholder="+225" required />
+        <input type="tel" id="parentPhone" name="parentPhone" placeholder="+225" autocomplete="tel" required />
       </div>
     </div>
 
     <div id="childrenContainer">
       <div class="child-block">
-        <p class="child-block-label">Enfant 1</p>
+        <p class="child-block-label" id="childLabel_1">Enfant 1</p>
         <div class="form-grid">
           <div class="field">
-            <label>Nom complet de l'enfant</label>
-            <input type="text" name="childName_1" required />
+            <label for="childName_1">Nom complet de l'enfant</label>
+            <input type="text" id="childName_1" name="childName_1" autocomplete="off" required />
           </div>
           <div class="field">
-            <label>Date de naissance de l'enfant</label>
-            <input type="date" name="childDob_1" />
+            <label for="childDob_1">Date de naissance de l'enfant</label>
+            <input type="date" id="childDob_1" name="childDob_1" autocomplete="bday" />
           </div>
           <div class="field full">
-            <label>Classe demandée</label>
-            <select name="gradeLevel_1" required>
+            <label for="gradeLevel_1">Classe demandée</label>
+            <select id="gradeLevel_1" name="gradeLevel_1" required>
               <option value="" disabled selected>Sélectionnez un niveau</option>
               <option>Petite Section</option>
               <option>Moyenne Section</option>
@@ -130,6 +137,7 @@
       <button type="submit" class="btn btn-primary" id="submitBtn">Envoyer ma demande d'inscription</button>
       <span class="form-status" id="formStatus" role="status" aria-live="polite"></span>
     </div>
+    <p class="form-privacy-note">Nous utilisons les informations de ce formulaire uniquement pour répondre à votre demande d'inscription et, en cas d'inscription, pour ouvrir le dossier d'admission de votre enfant. Nous ne les vendons ni ne les partageons à des fins commerciales. Voir notre <a href="privacy-policy-fr.html">Politique de confidentialité</a>.</p>
   </form>
 </section>
 
@@ -152,17 +160,17 @@
         <h5>Liens rapides</h5>
         <ul>
           <li><a href="about-us-fr.html">Qui sommes-nous</a></li>
-          <li><a href="admissions.html">Inscriptions</a></li>
-          <li><a href="careers.html">Carrières</a></li>
+          <li><a href="admissions-fr.html">Inscriptions</a></li>
+          <li><a href="careers-fr.html">Carrières</a></li>
         </ul>
       </div>
       <div>
         <h5>La vie scolaire</h5>
         <ul>
-          <li><a href="blog.html">Actualités</a></li>
-          <li><a href="school-calendar.html">Calendrier scolaire</a></li>
-          <li><a href="asa.html">Activités parascolaires</a></li>
-          <li><a href="canteen.html">Cantine</a></li>
+          <li><a href="blog-fr.html">Actualités</a></li>
+          <li><a href="school-calendar-fr.html">Calendrier scolaire</a></li>
+          <li><a href="asa-fr.html">Activités parascolaires</a></li>
+          <li><a href="canteen-fr.html">Cantine</a></li>
           <li><a href="uniform-fr.html">Uniforme</a></li>
           <li><a href="transportation-fr.html">Transport scolaire</a></li>
         </ul>
@@ -174,6 +182,15 @@
           <li><a href="https://instagram.com/brightstepssch">Instagram</a></li>
           <li><a href="https://tiktok.com/@brightstepssch">TikTok</a></li>
           <li><a href="https://wa.me/+2250710110133">WhatsApp</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>Mentions légales</h5>
+        <ul>
+          <li><a href="privacy-policy-fr.html">Politique de confidentialité</a></li>
+          <li><a href="terms-of-use-fr.html">Conditions d'utilisation</a></li>
+          <li><a href="cookie-notice-fr.html">Politique de cookies</a></li>
+          <li><a href="safeguarding-fr.html">Protection de l'enfance</a></li>
         </ul>
       </div>
     </div>

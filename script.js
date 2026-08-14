@@ -89,15 +89,52 @@ addChildBtn?.addEventListener('click', () => {
   childrenContainer.appendChild(newBlock);
 });
 
+/* ---------- Form spam protection: stamp load time for the timing trap ---------- */
+const formLoadedAt = Date.now();
+document.querySelectorAll('input[name="loaded_at"]').forEach((el) => {
+  el.value = String(formLoadedAt);
+});
+
 /* ---------- Enrollment form submission ---------- */
 const ENROLLMENT_FORM_ENDPOINT = 'https://formspree.io/f/xbgrdaqo';
+const MIN_SUBMIT_SECONDS = 3; // submissions faster than this are treated as automated
 
 const form = document.getElementById('enrollForm');
 const statusEl = document.getElementById('formStatus');
 const submitBtn = document.getElementById('submitBtn');
+let enrollSubmitting = false;
+
+const enrollText = {
+  sending: isFrench ? 'Envoi en cours...' : 'Sending...',
+  submit: isFrench ? "Envoyer ma demande d'inscription" : 'Send my enrollment inquiry',
+  success: isFrench
+    ? 'Merci. Nous avons bien reçu votre demande et vous recontacterons prochainement.'
+    : 'Thank you. We have received your inquiry and will follow up soon.',
+  error: isFrench
+    ? "Une erreur s'est produite. Veuillez réessayer, ou contactez-nous directement sur WhatsApp."
+    : 'Something went wrong. Please try again, or reach us directly on WhatsApp.',
+};
 
 form?.addEventListener('submit', async (event) => {
   event.preventDefault();
+
+  if (enrollSubmitting) return; // blocks rapid duplicate submissions
+  enrollSubmitting = true;
+
+  // Honeypot: a real visitor never fills this field in.
+  const honeypot = form.company ? form.company.value.trim() : '';
+  // Timing trap: a submission faster than a human could plausibly fill the form.
+  const elapsedSeconds = (Date.now() - formLoadedAt) / 1000;
+
+  if (honeypot || elapsedSeconds < MIN_SUBMIT_SECONDS) {
+    // Treat as spam: show the normal success state without sending anything,
+    // so automated senders get no signal about what was detected.
+    form.reset();
+    statusEl.textContent = enrollText.success;
+    statusEl.classList.add('success');
+    enrollSubmitting = false;
+    return;
+  }
 
   const payload = {
     parent_name: form.parentName.value.trim(),
@@ -117,7 +154,7 @@ form?.addEventListener('submit', async (event) => {
   });
 
   submitBtn.disabled = true;
-  submitBtn.textContent = 'Sending...';
+  submitBtn.textContent = enrollText.sending;
   statusEl.textContent = '';
   statusEl.className = 'form-status';
 
@@ -140,14 +177,15 @@ form?.addEventListener('submit', async (event) => {
       if (idx > 0) block.remove();
     });
     childCount = 1;
-    statusEl.textContent = 'Thank you. We have received your inquiry and will follow up soon.';
+    statusEl.textContent = enrollText.success;
     statusEl.classList.add('success');
   } catch (err) {
-    statusEl.textContent = 'Something went wrong. Please try again, or reach us directly on WhatsApp.';
+    statusEl.textContent = enrollText.error;
     statusEl.classList.add('error');
   } finally {
     submitBtn.disabled = false;
-    submitBtn.textContent = 'Send my enrollment inquiry';
+    submitBtn.textContent = enrollText.submit;
+    enrollSubmitting = false;
   }
 });
 
@@ -157,9 +195,35 @@ const CONTACT_FORM_ENDPOINT = 'https://formspree.io/f/mvkpzbdg';
 const contactForm = document.getElementById('contactForm');
 const contactStatusEl = document.getElementById('contactFormStatus');
 const contactSubmitBtn = document.getElementById('contactSubmitBtn');
+let contactSubmitting = false;
+
+const contactText = {
+  sending: isFrench ? 'Envoi en cours...' : 'Sending...',
+  submit: isFrench ? 'Envoyer le message' : 'Send message',
+  success: isFrench
+    ? 'Merci. Nous avons bien reçu votre message et vous répondrons prochainement.'
+    : 'Thank you. We have received your message and will reply soon.',
+  error: isFrench
+    ? "Une erreur s'est produite. Veuillez réessayer, ou contactez-nous directement sur WhatsApp."
+    : 'Something went wrong. Please try again, or reach us directly on WhatsApp.',
+};
 
 contactForm?.addEventListener('submit', async (event) => {
   event.preventDefault();
+
+  if (contactSubmitting) return;
+  contactSubmitting = true;
+
+  const honeypot = contactForm.company ? contactForm.company.value.trim() : '';
+  const elapsedSeconds = (Date.now() - formLoadedAt) / 1000;
+
+  if (honeypot || elapsedSeconds < MIN_SUBMIT_SECONDS) {
+    contactForm.reset();
+    contactStatusEl.textContent = contactText.success;
+    contactStatusEl.classList.add('success');
+    contactSubmitting = false;
+    return;
+  }
 
   const payload = {
     name: contactForm.contactName.value.trim(),
@@ -169,7 +233,7 @@ contactForm?.addEventListener('submit', async (event) => {
   };
 
   contactSubmitBtn.disabled = true;
-  contactSubmitBtn.textContent = 'Sending...';
+  contactSubmitBtn.textContent = contactText.sending;
   contactStatusEl.textContent = '';
   contactStatusEl.className = 'form-status';
 
@@ -188,14 +252,15 @@ contactForm?.addEventListener('submit', async (event) => {
     }
 
     contactForm.reset();
-    contactStatusEl.textContent = 'Thank you. We have received your message and will reply soon.';
+    contactStatusEl.textContent = contactText.success;
     contactStatusEl.classList.add('success');
   } catch (err) {
-    contactStatusEl.textContent = 'Something went wrong. Please try again, or reach us directly on WhatsApp.';
+    contactStatusEl.textContent = contactText.error;
     contactStatusEl.classList.add('error');
   } finally {
     contactSubmitBtn.disabled = false;
-    contactSubmitBtn.textContent = 'Send message';
+    contactSubmitBtn.textContent = contactText.submit;
+    contactSubmitting = false;
   }
 });
 

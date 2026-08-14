@@ -68,19 +68,26 @@
 
 <section class="section section-tight-top container">
   <div class="two-col">
-    <form class="enroll-wrap reveal contact-form-wrap" id="contactForm">
+    <form class="enroll-wrap reveal contact-form-wrap" id="contactForm" novalidate>
+      <!-- Honeypot: real visitors never see or fill this in. -->
+      <div class="hp-field" aria-hidden="true">
+        <label for="contactCompany">Leave this field empty</label>
+        <input type="text" id="contactCompany" name="company" tabindex="-1" autocomplete="off" />
+      </div>
+      <input type="hidden" id="contactLoadedAt" name="loaded_at" value="" />
+
       <div class="form-grid">
         <div class="field">
           <label for="contactName">Full name</label>
-          <input type="text" id="contactName" name="contactName" required />
+          <input type="text" id="contactName" name="contactName" autocomplete="name" required />
         </div>
         <div class="field">
           <label for="contactEmail">Email address</label>
-          <input type="email" id="contactEmail" name="contactEmail" required />
+          <input type="email" id="contactEmail" name="contactEmail" autocomplete="email" required />
         </div>
         <div class="field full">
           <label for="contactPhone">Phone number, optional</label>
-          <input type="tel" id="contactPhone" name="contactPhone" placeholder="+225" />
+          <input type="tel" id="contactPhone" name="contactPhone" placeholder="+225" autocomplete="tel" />
         </div>
         <div class="field full">
           <label for="contactMessage">Your message</label>
@@ -91,6 +98,7 @@
         <button type="submit" class="btn btn-primary" id="contactSubmitBtn">Send message</button>
         <span class="form-status" id="contactFormStatus" role="status" aria-live="polite"></span>
       </div>
+      <p class="form-privacy-note">We use this information only to respond to your message. We do not sell or share it with third parties for marketing. See our <a href="privacy-policy.html">Privacy Policy</a>.</p>
     </form>
 
     <div class="reveal">
@@ -156,6 +164,15 @@
           <li><a href="https://instagram.com/brightstepssch">Instagram</a></li>
           <li><a href="https://tiktok.com/@brightstepssch">TikTok</a></li>
           <li><a href="https://wa.me/+2250710110133">WhatsApp</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>Legal</h5>
+        <ul>
+          <li><a href="privacy-policy.html">Privacy Policy</a></li>
+          <li><a href="terms-of-use.html">Terms of Use</a></li>
+          <li><a href="cookie-notice.html">Cookie Notice</a></li>
+          <li><a href="safeguarding.html">Safeguarding</a></li>
         </ul>
       </div>
     </div>

@@ -68,19 +68,26 @@
 
 <section class="section section-tight-top container">
   <div class="two-col">
-    <form class="enroll-wrap reveal contact-form-wrap" id="contactForm">
+    <form class="enroll-wrap reveal contact-form-wrap" id="contactForm" novalidate>
+      <!-- Piège à robots (honeypot) : invisible pour les visiteurs réels. -->
+      <div class="hp-field" aria-hidden="true">
+        <label for="contactCompany">Laissez ce champ vide</label>
+        <input type="text" id="contactCompany" name="company" tabindex="-1" autocomplete="off" />
+      </div>
+      <input type="hidden" id="contactLoadedAt" name="loaded_at" value="" />
+
       <div class="form-grid">
         <div class="field">
           <label for="contactName">Nom complet</label>
-          <input type="text" id="contactName" name="contactName" required />
+          <input type="text" id="contactName" name="contactName" autocomplete="name" required />
         </div>
         <div class="field">
           <label for="contactEmail">Adresse e-mail</label>
-          <input type="email" id="contactEmail" name="contactEmail" required />
+          <input type="email" id="contactEmail" name="contactEmail" autocomplete="email" required />
         </div>
         <div class="field full">
           <label for="contactPhone">Numero de telephone, facultatif</label>
-          <input type="tel" id="contactPhone" name="contactPhone" placeholder="+225" />
+          <input type="tel" id="contactPhone" name="contactPhone" placeholder="+225" autocomplete="tel" />
         </div>
         <div class="field full">
           <label for="contactMessage">Votre message</label>
@@ -91,6 +98,7 @@
         <button type="submit" class="btn btn-primary" id="contactSubmitBtn">Envoyer le message</button>
         <span class="form-status" id="contactFormStatus" role="status" aria-live="polite"></span>
       </div>
+      <p class="form-privacy-note">Nous utilisons ces informations uniquement pour répondre à votre message. Nous ne les vendons ni ne les partageons à des fins commerciales. Voir notre <a href="privacy-policy-fr.html">Politique de confidentialité</a>.</p>
     </form>
 
     <div class="reveal">
@@ -135,7 +143,7 @@
         <ul>
           <li><a href="about-us-fr.html">Qui sommes-nous</a></li>
           <li><a href="admissions-fr.html">Inscriptions</a></li>
-          <li><a href="careers.html">Carrières</a></li>
+          <li><a href="careers-fr.html">Carrières</a></li>
         </ul>
       </div>
       <div>
@@ -156,6 +164,15 @@
           <li><a href="https://instagram.com/brightstepssch">Instagram</a></li>
           <li><a href="https://tiktok.com/@brightstepssch">TikTok</a></li>
           <li><a href="https://wa.me/+2250710110133">WhatsApp</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>Mentions légales</h5>
+        <ul>
+          <li><a href="privacy-policy-fr.html">Politique de confidentialité</a></li>
+          <li><a href="terms-of-use-fr.html">Conditions d'utilisation</a></li>
+          <li><a href="cookie-notice-fr.html">Politique de cookies</a></li>
+          <li><a href="safeguarding-fr.html">Protection de l'enfance</a></li>
         </ul>
       </div>
     </div>

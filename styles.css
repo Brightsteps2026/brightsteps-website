@@ -844,6 +844,40 @@ img { max-width: 100%; display: block; }
 .form-status.success { color: #1c7a4d; }
 .form-status.error { color: var(--color-berry); }
 
+/* Visually hidden but still available to screen readers */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* Honeypot field: hidden from sighted users and keyboard/AT users,
+   left in the tab/DOM order in a way real visitors never see or fill in. */
+.hp-field {
+  position: absolute;
+  left: -9999px;
+  top: -9999px;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
+.form-privacy-note {
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  color: rgba(27, 27, 47, 0.62);
+  max-width: 52ch;
+  line-height: 1.5;
+  margin: 14px 0 0;
+}
+.form-privacy-note a { color: inherit; text-decoration: underline; }
+
 /* ---------- Footer ---------- */
 
 .site-footer {
@@ -854,9 +888,13 @@ img { max-width: 100%; display: block; }
 
 .footer-grid {
   display: grid;
-  grid-template-columns: 1.2fr 1fr 1fr 1fr;
+  grid-template-columns: 1.2fr 1fr 1fr 1fr 1fr;
   gap: 32px;
   margin-bottom: 32px;
+}
+
+@media (max-width: 1100px) {
+  .footer-grid { grid-template-columns: 1fr 1fr 1fr; }
 }
 
 @media (max-width: 900px) {

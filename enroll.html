@@ -67,37 +67,45 @@
 </section>
 
 <section class="section section-tight-top container">
-  <form class="enroll-wrap reveal" id="enrollForm">
+  <form class="enroll-wrap reveal" id="enrollForm" novalidate>
+    <!-- Honeypot: real visitors never see or fill this in; bots that
+         auto-fill every field will, and the submission is silently dropped. -->
+    <div class="hp-field" aria-hidden="true">
+      <label for="enrollCompany">Leave this field empty</label>
+      <input type="text" id="enrollCompany" name="company" tabindex="-1" autocomplete="off" />
+    </div>
+    <input type="hidden" id="enrollLoadedAt" name="loaded_at" value="" />
+
     <div class="form-grid">
       <div class="field">
         <label for="parentName">Parent or guardian full name</label>
-        <input type="text" id="parentName" name="parentName" required />
+        <input type="text" id="parentName" name="parentName" autocomplete="name" required />
       </div>
       <div class="field">
         <label for="parentEmail">Email address</label>
-        <input type="email" id="parentEmail" name="parentEmail" required />
+        <input type="email" id="parentEmail" name="parentEmail" autocomplete="email" required />
       </div>
       <div class="field full">
         <label for="parentPhone">Phone number</label>
-        <input type="tel" id="parentPhone" name="parentPhone" placeholder="+225" required />
+        <input type="tel" id="parentPhone" name="parentPhone" placeholder="+225" autocomplete="tel" required />
       </div>
     </div>
 
     <div id="childrenContainer">
       <div class="child-block">
-        <p class="child-block-label">Child 1</p>
+        <p class="child-block-label" id="childLabel_1">Child 1</p>
         <div class="form-grid">
           <div class="field">
-            <label>Child full name</label>
-            <input type="text" name="childName_1" required />
+            <label for="childName_1">Child full name</label>
+            <input type="text" id="childName_1" name="childName_1" autocomplete="off" required />
           </div>
           <div class="field">
-            <label>Child date of birth</label>
-            <input type="date" name="childDob_1" />
+            <label for="childDob_1">Child date of birth</label>
+            <input type="date" id="childDob_1" name="childDob_1" autocomplete="bday" />
           </div>
           <div class="field full">
-            <label>Grade applying for</label>
-            <select name="gradeLevel_1" required>
+            <label for="gradeLevel_1">Grade applying for</label>
+            <select id="gradeLevel_1" name="gradeLevel_1" required>
               <option value="" disabled selected>Select a level</option>
               <option>Pre Nursery</option>
               <option>Pre Kindergarten</option>
@@ -127,6 +135,7 @@
       <button type="submit" class="btn btn-primary" id="submitBtn">Send my enrollment inquiry</button>
       <span class="form-status" id="formStatus" role="status" aria-live="polite"></span>
     </div>
+    <p class="form-privacy-note">We use the information in this form only to respond to your enrollment inquiry and, if you enroll, to begin your child's admission file. We do not sell or share it with third parties for marketing. See our <a href="privacy-policy.html">Privacy Policy</a>.</p>
   </form>
 </section>
 <footer class="site-footer" id="contact">
@@ -168,6 +177,15 @@
           <li><a href="https://instagram.com/brightstepssch">Instagram</a></li>
           <li><a href="https://tiktok.com/@brightstepssch">TikTok</a></li>
           <li><a href="https://wa.me/+2250710110133">WhatsApp</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>Legal</h5>
+        <ul>
+          <li><a href="privacy-policy.html">Privacy Policy</a></li>
+          <li><a href="terms-of-use.html">Terms of Use</a></li>
+          <li><a href="cookie-notice.html">Cookie Notice</a></li>
+          <li><a href="safeguarding.html">Safeguarding</a></li>
         </ul>
       </div>
     </div>
