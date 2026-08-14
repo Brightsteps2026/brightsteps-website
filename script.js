@@ -305,81 +305,42 @@ if (heroSlides.length) {
   startHeroTimer();
 }
 
-/* ---------- Interactive academic-year mini calendar ---------- */
-const miniCalEl = document.getElementById('miniCal');
+/* ---------- Static academic-year "Important Dates" list ---------- */
+const calDatesBlockEl = document.getElementById('calDatesBlock');
 
-if (miniCalEl) {
-  const calLang = miniCalEl.dataset.lang === 'fr' ? 'fr' : 'en';
+if (calDatesBlockEl) {
+  const calLang = calDatesBlockEl.dataset.lang === 'fr' ? 'fr' : 'en';
 
   // Source: BrightSteps Academic Calendar 2026-2027 (school-provided PDF).
-  // type priority when a date falls in more than one entry: holiday > pd > break.
   const CAL_EVENTS = [
-    { start: '2026-08-17', end: '2026-08-25', type: 'pd', en: 'Faculty Orientation', fr: 'Orientation du personnel' },
-    { start: '2026-08-26', end: '2026-08-26', type: 'holiday', en: "Prophet's Birthday", fr: 'Anniversaire du Prophète' },
-    { start: '2026-08-27', end: '2026-08-27', type: 'pd', en: 'First Day of School', fr: 'Rentrée scolaire' },
-    { start: '2026-10-19', end: '2026-10-23', type: 'break', en: 'October Break', fr: "Vacances d'octobre" },
-    { start: '2026-11-01', end: '2026-11-01', type: 'holiday', en: "All Saints' Day", fr: 'Toussaint' },
-    { start: '2026-11-15', end: '2026-11-15', type: 'holiday', en: 'Peace Day', fr: 'Journée de la paix' },
-    { start: '2026-11-16', end: '2026-11-16', type: 'holiday', en: 'School Holiday', fr: 'Jour férié scolaire' },
-    { start: '2026-11-26', end: '2026-11-27', type: 'break', en: 'Thanksgiving Break', fr: 'Vacances de Thanksgiving' },
-    { start: '2026-12-16', end: '2027-01-08', type: 'break', en: 'December Break', fr: 'Vacances de décembre' },
-    { start: '2026-12-25', end: '2026-12-25', type: 'holiday', en: 'Christmas Day', fr: 'Noël' },
-    { start: '2027-01-01', end: '2027-01-01', type: 'holiday', en: "New Year's Day", fr: 'Jour de l\u2019An' },
-    { start: '2027-01-11', end: '2027-01-11', type: 'pd', en: 'Resume School', fr: 'Reprise des cours' },
-    { start: '2027-02-18', end: '2027-02-19', type: 'break', en: 'February Break', fr: 'Vacances de février' },
-    { start: '2027-03-06', end: '2027-03-06', type: 'holiday', en: 'Laylat al-Qadr (TBD)', fr: 'Nuit du Destin (à confirmer)' },
-    { start: '2027-03-09', end: '2027-03-09', type: 'holiday', en: 'Eid al-Fitr (TBD)', fr: 'Aïd el-Fitr (à confirmer)' },
-    { start: '2027-03-22', end: '2027-03-26', type: 'break', en: 'Spring Break', fr: 'Vacances de printemps' },
-    { start: '2027-03-28', end: '2027-03-28', type: 'holiday', en: 'Easter', fr: 'Pâques' },
-    { start: '2027-03-29', end: '2027-03-29', type: 'holiday', en: 'Easter Monday', fr: 'Lundi de Pâques' },
-    { start: '2027-04-05', end: '2027-04-05', type: 'pd', en: 'School Resumes', fr: 'Reprise des cours' },
-    { start: '2027-05-01', end: '2027-05-01', type: 'holiday', en: 'Labor Day', fr: 'Fête du Travail' },
-    { start: '2027-05-06', end: '2027-05-06', type: 'holiday', en: 'Ascension', fr: 'Ascension' },
-    { start: '2027-05-17', end: '2027-05-17', type: 'holiday', en: 'Pentecost Monday', fr: 'Lundi de Pentecôte' },
-    { start: '2027-06-08', end: '2027-06-08', type: 'pd', en: 'Last Day of School', fr: "Dernier jour d'école" },
+    { start: '2026-08-17', end: '2026-08-25', en: 'Faculty Orientation', fr: 'Orientation du personnel' },
+    { start: '2026-08-26', end: '2026-08-26', en: "Prophet's Birthday", fr: 'Anniversaire du Prophète' },
+    { start: '2026-08-27', end: '2026-08-27', en: 'First Day of School', fr: 'Rentrée scolaire' },
+    { start: '2026-10-19', end: '2026-10-23', en: 'October Break', fr: "Vacances d'octobre" },
+    { start: '2026-11-01', end: '2026-11-01', en: "All Saints' Day", fr: 'Toussaint' },
+    { start: '2026-11-15', end: '2026-11-15', en: 'Peace Day', fr: 'Journée de la paix' },
+    { start: '2026-11-16', end: '2026-11-16', en: 'School Holiday', fr: 'Jour férié scolaire' },
+    { start: '2026-11-26', end: '2026-11-27', en: 'Thanksgiving Break', fr: 'Vacances de Thanksgiving' },
+    { start: '2026-12-16', end: '2027-01-08', en: 'December Break', fr: 'Vacances de décembre' },
+    { start: '2026-12-25', end: '2026-12-25', en: 'Christmas Day', fr: 'Noël' },
+    { start: '2027-01-01', end: '2027-01-01', en: "New Year's Day", fr: 'Jour de l\u2019An' },
+    { start: '2027-01-11', end: '2027-01-11', en: 'Resume School', fr: 'Reprise des cours' },
+    { start: '2027-02-18', end: '2027-02-19', en: 'February Break', fr: 'Vacances de février' },
+    { start: '2027-03-06', end: '2027-03-06', en: 'Laylat al-Qadr (TBD)', fr: 'Nuit du Destin (à confirmer)' },
+    { start: '2027-03-09', end: '2027-03-09', en: 'Eid al-Fitr (TBD)', fr: 'Aïd el-Fitr (à confirmer)' },
+    { start: '2027-03-22', end: '2027-03-26', en: 'Spring Break', fr: 'Vacances de printemps' },
+    { start: '2027-03-28', end: '2027-03-28', en: 'Easter', fr: 'Pâques' },
+    { start: '2027-03-29', end: '2027-03-29', en: 'Easter Monday', fr: 'Lundi de Pâques' },
+    { start: '2027-04-05', end: '2027-04-05', en: 'School Resumes', fr: 'Reprise des cours' },
+    { start: '2027-05-01', end: '2027-05-01', en: 'Labor Day', fr: 'Fête du Travail' },
+    { start: '2027-05-06', end: '2027-05-06', en: 'Ascension', fr: 'Ascension' },
+    { start: '2027-05-17', end: '2027-05-17', en: 'Pentecost Monday', fr: 'Lundi de Pentecôte' },
+    { start: '2027-06-08', end: '2027-06-08', en: 'Last Day of School', fr: "Dernier jour d'école" },
   ];
-
-  const TYPE_PRIORITY = { holiday: 3, pd: 2, break: 1 };
-
-  const MONTH_NAMES = {
-    en: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'],
-    fr: ['janvier', 'février', 'mars', 'avril', 'mai', 'juin', 'juillet', 'août', 'septembre', 'octobre', 'novembre', 'décembre'],
-  };
-
-  const calTitleText = calLang === 'fr'
-    ? (m, y) => `${MONTH_NAMES.fr[m][0].toUpperCase()}${MONTH_NAMES.fr[m].slice(1)} ${y}`
-    : (m, y) => `${MONTH_NAMES.en[m]} ${y}`;
-
-  const listTitleText = calLang === 'fr'
-    ? (m, y) => `Dates importantes en ${MONTH_NAMES.fr[m]} ${y}`
-    : (m, y) => `Important dates in ${MONTH_NAMES.en[m]} ${y}`;
-
-  const noDatesText = calLang === 'fr' ? 'Aucune date particulière ce mois-ci.' : 'No special dates this month.';
-
-  // The school year covered by the calendar: July 2026 - June 2027.
-  const MIN_MONTH_INDEX = 2026 * 12 + 6; // July 2026
-  const MAX_MONTH_INDEX = 2027 * 12 + 5; // June 2027
 
   function parseISO(iso) {
     const [y, m, d] = iso.split('-').map(Number);
     return new Date(y, m - 1, d);
-  }
-
-  function toISO(date) {
-    const y = date.getFullYear();
-    const m = String(date.getMonth() + 1).padStart(2, '0');
-    const d = String(date.getDate()).padStart(2, '0');
-    return `${y}-${m}-${d}`;
-  }
-
-  function eventTypeForDate(iso) {
-    let best = null;
-    CAL_EVENTS.forEach((ev) => {
-      if (iso >= ev.start && iso <= ev.end) {
-        if (!best || TYPE_PRIORITY[ev.type] > TYPE_PRIORITY[best]) best = ev.type;
-      }
-    });
-    return best;
   }
 
   function formatRange(ev) {
@@ -393,92 +354,18 @@ if (miniCalEl) {
     return `${start.toLocaleDateString(locale, opts)} \u2013 ${end.toLocaleDateString(locale, opts)}`;
   }
 
-  // Default to the current real month if it falls within the school year, else the first month.
-  const today = new Date();
-  let currentIndex = today.getFullYear() * 12 + today.getMonth();
-  if (currentIndex < MIN_MONTH_INDEX || currentIndex > MAX_MONTH_INDEX) {
-    currentIndex = MIN_MONTH_INDEX;
-  }
-
-  const calTitleEl = document.getElementById('calTitle');
-  const calGridEl = document.getElementById('calGrid');
-  const calListTitleEl = document.getElementById('calListTitle');
-  const calListEl = document.getElementById('calList');
-  const calPrevBtn = document.getElementById('calPrev');
-  const calNextBtn = document.getElementById('calNext');
-
-  function renderMonth(monthIndex) {
-    const year = Math.floor(monthIndex / 12);
-    const month = monthIndex % 12;
-
-    calTitleEl.textContent = calTitleText(month, year);
-    calListTitleEl.textContent = listTitleText(month, year);
-
-    // Build the day grid, Monday-first.
-    calGridEl.innerHTML = '';
-    const firstOfMonth = new Date(year, month, 1);
-    const daysInMonth = new Date(year, month + 1, 0).getDate();
-    let leadingBlanks = firstOfMonth.getDay() - 1; // 0=Mon ... 6=Sun
-    if (leadingBlanks < 0) leadingBlanks = 6;
-
-    for (let i = 0; i < leadingBlanks; i += 1) {
-      const blank = document.createElement('div');
-      blank.className = 'mini-cal-day is-empty';
-      calGridEl.appendChild(blank);
-    }
-
-    for (let d = 1; d <= daysInMonth; d += 1) {
-      const iso = toISO(new Date(year, month, d));
-      const cell = document.createElement('div');
-      cell.className = 'mini-cal-day';
-      cell.textContent = String(d);
-      const type = eventTypeForDate(iso);
-      if (type) cell.classList.add(`is-${type}`);
-      calGridEl.appendChild(cell);
-    }
-
-    // Build the "important dates this month" list.
-    calListEl.innerHTML = '';
-    const monthStart = toISO(new Date(year, month, 1));
-    const monthEnd = toISO(new Date(year, month, daysInMonth));
-    const monthEvents = CAL_EVENTS.filter((ev) => ev.start <= monthEnd && ev.end >= monthStart);
-
-    if (!monthEvents.length) {
+  const calDatesList = document.getElementById('calDatesList');
+  if (calDatesList) {
+    CAL_EVENTS.forEach((ev) => {
       const li = document.createElement('li');
-      li.className = 'cal-empty';
-      li.textContent = noDatesText;
-      calListEl.appendChild(li);
-    } else {
-      monthEvents.forEach((ev) => {
-        const li = document.createElement('li');
-        const dateSpan = document.createElement('span');
-        dateSpan.className = 'cal-date';
-        dateSpan.textContent = formatRange(ev);
-        const labelSpan = document.createElement('span');
-        labelSpan.textContent = calLang === 'fr' ? ev.fr : ev.en;
-        li.appendChild(dateSpan);
-        li.appendChild(labelSpan);
-        calListEl.appendChild(li);
-      });
-    }
-
-    calPrevBtn.disabled = monthIndex <= MIN_MONTH_INDEX;
-    calNextBtn.disabled = monthIndex >= MAX_MONTH_INDEX;
+      const dateSpan = document.createElement('span');
+      dateSpan.className = 'cal-date';
+      dateSpan.textContent = formatRange(ev);
+      const labelSpan = document.createElement('span');
+      labelSpan.textContent = calLang === 'fr' ? ev.fr : ev.en;
+      li.appendChild(dateSpan);
+      li.appendChild(labelSpan);
+      calDatesList.appendChild(li);
+    });
   }
-
-  calPrevBtn?.addEventListener('click', () => {
-    if (currentIndex > MIN_MONTH_INDEX) {
-      currentIndex -= 1;
-      renderMonth(currentIndex);
-    }
-  });
-
-  calNextBtn?.addEventListener('click', () => {
-    if (currentIndex < MAX_MONTH_INDEX) {
-      currentIndex += 1;
-      renderMonth(currentIndex);
-    }
-  });
-
-  renderMonth(currentIndex);
 }
