@@ -229,7 +229,8 @@ img { max-width: 100%; display: block; }
   font-weight: 600 !important;
   font-size: 0.78rem !important;
   color: var(--color-paper) !important;
-  border: 1px solid rgba(254, 253, 251, 0.5);
+  background: rgba(254, 253, 251, 0.08);
+  border: 1.5px solid rgba(254, 253, 251, 0.7);
   border-radius: 999px;
   padding: 8px 14px !important;
   white-space: nowrap;
@@ -1269,6 +1270,89 @@ img { max-width: 100%; display: block; }
   font-family: var(--font-nav);
   color: var(--color-berry);
   font-weight: 500;
+}
+
+/* ---------- Canteen pricing ---------- */
+
+.canteen-pricing {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin: 22px 0 18px;
+}
+
+.canteen-price-card {
+  position: relative;
+  border: 1px solid var(--color-line);
+  border-radius: 16px;
+  background: var(--color-paper);
+  box-shadow: var(--shadow-card);
+  padding: 22px 16px;
+  text-align: center;
+}
+
+.canteen-price-card.featured {
+  border-color: var(--color-marigold);
+  box-shadow: 0 0 0 2px var(--color-marigold) inset;
+}
+
+.canteen-price-badge {
+  position: absolute;
+  top: -11px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--color-marigold);
+  color: var(--color-ink);
+  font-family: var(--font-nav);
+  font-weight: 600;
+  font-size: 0.68rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  padding: 4px 10px;
+  border-radius: 999px;
+  white-space: nowrap;
+}
+
+.canteen-price-amount {
+  display: block;
+  font-family: var(--font-display);
+  font-style: italic;
+  font-weight: 600;
+  font-size: 1.5rem;
+  color: var(--color-berry);
+}
+
+.canteen-price-amount small {
+  font-family: var(--font-nav);
+  font-style: normal;
+  font-weight: 500;
+  font-size: 0.7rem;
+  letter-spacing: 0.04em;
+  color: rgba(27, 27, 47, 0.55);
+  margin-left: 3px;
+}
+
+.canteen-price-label {
+  display: block;
+  margin-top: 6px;
+  font-family: var(--font-nav);
+  font-weight: 500;
+  font-size: 0.78rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: rgba(27, 27, 47, 0.65);
+}
+
+.canteen-pricing-note {
+  font-family: var(--font-nav);
+  font-size: 0.85rem;
+  color: rgba(27, 27, 47, 0.7);
+}
+
+@media (max-width: 560px) {
+  .canteen-pricing {
+    grid-template-columns: 1fr;
+  }
 }
 
 /* ---------- Reveal on scroll ---------- */
