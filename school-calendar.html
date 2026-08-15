@@ -78,12 +78,15 @@
     <ul id="calDatesList"></ul>
   </div>
 
-  <div class="calendar-image calendar-image-large">
-    <picture>
-      <source type="image/webp" srcset="calendar-800.webp 800w, calendar-1600.webp 1600w" sizes="(max-width: 900px) 100vw, 780px" />
-      <source type="image/jpeg" srcset="calendar-800.jpg 800w, calendar-1600.jpg 1600w" sizes="(max-width: 900px) 100vw, 780px" />
-      <img src="calendar-1600.jpg" width="1600" height="956" alt="BrightSteps International School academic calendar for the 2026 to 2027 school year, showing school days, breaks, holidays and professional development days by month from July 2026 to June 2027" loading="lazy" />
-    </picture>
+  <p class="calendar-scroll-hint">Swipe sideways to browse all twelve months, or tap the calendar to open it full size.</p>
+  <div class="calendar-image calendar-image-large calendar-image-scroll">
+    <a href="calendar-1600.jpg" target="_blank" rel="noopener" aria-label="Open the full size academic calendar image in a new tab">
+      <picture>
+        <source type="image/webp" srcset="calendar-800.webp 800w, calendar-1600.webp 1600w" sizes="(max-width: 900px) 100vw, 780px" />
+        <source type="image/jpeg" srcset="calendar-800.jpg 800w, calendar-1600.jpg 1600w" sizes="(max-width: 900px) 100vw, 780px" />
+        <img src="calendar-1600.jpg" width="1600" height="956" alt="BrightSteps International School academic calendar for the 2026 to 2027 school year, showing school days, breaks, holidays and professional development days by month from July 2026 to June 2027" loading="lazy" />
+      </picture>
+    </a>
   </div>
   <a class="btn btn-primary" href="calendar.pdf">Download the calendar PDF</a>
 </section>
