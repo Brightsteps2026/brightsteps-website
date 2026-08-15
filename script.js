@@ -72,22 +72,182 @@ addChildBtn?.addEventListener('click', () => {
   const firstBlock = childrenContainer.querySelector('.child-block');
   const newBlock = firstBlock.cloneNode(true);
 
-  newBlock.querySelector('.child-block-label').textContent = `${childLabel} ${childCount}`;
+  // Every id/name/for in the cloned block still says "_1" at this point,
+  // which would create duplicate ids and mis-linked labels/errors once
+  // appended. Renumber everything to the new child index before it
+  // touches the document.
+  const legend = newBlock.querySelector('.child-block-label');
+  legend.id = `childLabel_${childCount}`;
+  legend.textContent = `${childLabel} ${childCount}`;
+
+  // Drop any error text/state cloned from the template block.
+  newBlock.querySelectorAll('.field-error').forEach((el) => {
+    el.textContent = '';
+  });
+
   newBlock.querySelectorAll('input, select').forEach((el) => {
     el.value = '';
+    el.removeAttribute('aria-invalid');
     const baseName = el.name.replace(/_\d+$/, '');
-    el.name = `${baseName}_${childCount}`;
+    const newId = `${baseName}_${childCount}`;
+    el.name = newId;
+    el.id = newId;
+    if (el.hasAttribute('aria-describedby')) {
+      el.setAttribute('aria-describedby', `${newId}-error`);
+    }
+  });
+
+  newBlock.querySelectorAll('label').forEach((label) => {
+    const forAttr = label.getAttribute('for');
+    if (forAttr) {
+      const baseFor = forAttr.replace(/_\d+$/, '');
+      label.setAttribute('for', `${baseFor}_${childCount}`);
+    }
+  });
+
+  newBlock.querySelectorAll('.field-error').forEach((el) => {
+    const baseId = el.id.replace(/_\d+-error$/, '');
+    el.id = `${baseId}_${childCount}-error`;
   });
 
   const removeBtn = document.createElement('button');
   removeBtn.type = 'button';
   removeBtn.className = 'child-block-remove';
   removeBtn.textContent = removeLabel;
+  removeBtn.setAttribute('aria-label', `${removeLabel} — ${childLabel} ${childCount}`);
   removeBtn.addEventListener('click', () => newBlock.remove());
   newBlock.appendChild(removeBtn);
 
   childrenContainer.appendChild(newBlock);
+  newBlock.querySelector('input, select')?.focus();
 });
+
+/* ---------- Accessible form validation ---------- */
+const validationText = {
+  required: isFrench ? 'Ce champ est requis.' : 'This field is required.',
+  minLength: (n) => (isFrench ? `Veuillez saisir au moins ${n} caractères.` : `Please enter at least ${n} characters.`),
+  maxLength: (n) => (isFrench ? `Veuillez saisir au maximum ${n} caractères.` : `Please enter no more than ${n} characters.`),
+  email: isFrench ? 'Veuillez saisir une adresse e-mail valide.' : 'Please enter a valid email address.',
+  phone: isFrench
+    ? 'Veuillez saisir un numéro de téléphone valide (ex. +225 01 23 45 67 89).'
+    : 'Please enter a valid phone number (e.g. +225 01 23 45 67 89).',
+  select: isFrench ? 'Veuillez sélectionner une option.' : 'Please select an option.',
+  dob: isFrench ? 'Veuillez saisir une date de naissance valide.' : 'Please enter a valid date of birth.',
+  dobFuture: isFrench ? 'La date de naissance ne peut pas être dans le futur.' : 'Date of birth cannot be in the future.',
+  dobRange: isFrench ? 'Veuillez vérifier la date de naissance saisie.' : 'Please double check the date of birth entered.',
+  summary: (n) => {
+    if (isFrench) return n === 1 ? 'Veuillez corriger 1 champ avant de continuer.' : `Veuillez corriger ${n} champs avant de continuer.`;
+    return n === 1 ? 'Please fix 1 field before continuing.' : `Please fix ${n} fields before continuing.`;
+  },
+};
+
+// Permissive but real: requires a leading + or digit, allows spaces/parens/
+// dashes, and checks the underlying digit count lands in a plausible range
+// (7-15 digits, per ITU E.164) rather than relying on a country-specific format.
+const PHONE_RE = /^\+?[0-9][0-9\s().-]{6,18}[0-9]$/;
+const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+function setFieldError(input, message) {
+  const errorEl = document.getElementById(`${input.id}-error`);
+  if (errorEl) errorEl.textContent = message || '';
+  if (message) {
+    input.setAttribute('aria-invalid', 'true');
+  } else {
+    input.removeAttribute('aria-invalid');
+  }
+}
+
+function validateRequiredText(input, { min = 2, max = 100 } = {}) {
+  const value = input.value.trim();
+  input.value = value;
+  let message = '';
+  if (!value) message = validationText.required;
+  else if (value.length < min) message = validationText.minLength(min);
+  else if (value.length > max) message = validationText.maxLength(max);
+  setFieldError(input, message);
+  return !message;
+}
+
+function validateEmailField(input) {
+  const value = input.value.trim();
+  input.value = value;
+  let message = '';
+  if (!value) message = validationText.required;
+  else if (value.length > 254 || !EMAIL_RE.test(value)) message = validationText.email;
+  setFieldError(input, message);
+  return !message;
+}
+
+function validatePhoneField(input, required = true) {
+  const value = input.value.trim();
+  input.value = value;
+  let message = '';
+  if (!value) {
+    message = required ? validationText.required : '';
+  } else {
+    const digitCount = value.replace(/[^0-9]/g, '').length;
+    if (!PHONE_RE.test(value) || digitCount < 7 || digitCount > 15) message = validationText.phone;
+  }
+  setFieldError(input, message);
+  return !message;
+}
+
+function validateSelectField(input) {
+  const message = input.value ? '' : validationText.select;
+  setFieldError(input, message);
+  return !message;
+}
+
+function validateDobField(input) {
+  const value = input.value;
+  let message = '';
+  if (value) {
+    const dob = new Date(`${value}T00:00:00`);
+    const now = new Date();
+    if (Number.isNaN(dob.getTime())) message = validationText.dob;
+    else if (dob > now) message = validationText.dobFuture;
+    else if ((now - dob) / (365.25 * 24 * 3600 * 1000) > 25) message = validationText.dobRange;
+  }
+  setFieldError(input, message);
+  return !message;
+}
+
+function validateTextareaField(input, { max = 2000, min = 0, required = false } = {}) {
+  const value = input.value.trim();
+  input.value = value;
+  let message = '';
+  if (!value) message = required ? validationText.required : '';
+  else if (min && value.length < min) message = validationText.minLength(min);
+  else if (value.length > max) message = validationText.maxLength(max);
+  setFieldError(input, message);
+  return !message;
+}
+
+/**
+ * Runs every validator in `checks` (each returning true/false), focuses the
+ * first invalid field, and shows a summary count in `statusElement`.
+ * Returns true only if every check passed.
+ */
+function runFormValidation(checks, statusElement) {
+  const results = checks.map((check) => ({ valid: check.run(), input: check.input }));
+  const firstInvalid = results.find((r) => !r.valid);
+
+  if (firstInvalid) {
+    if (statusElement) {
+      const invalidCount = results.filter((r) => !r.valid).length;
+      statusElement.textContent = validationText.summary(invalidCount);
+      statusElement.className = 'form-status error';
+    }
+    firstInvalid.input.focus();
+    return false;
+  }
+
+  if (statusElement) {
+    statusElement.textContent = '';
+    statusElement.className = 'form-status';
+  }
+  return true;
+}
 
 /* ---------- Form spam protection: stamp load time for the timing trap ---------- */
 const formLoadedAt = Date.now();
@@ -132,6 +292,32 @@ form?.addEventListener('submit', async (event) => {
     form.reset();
     statusEl.textContent = enrollText.success;
     statusEl.classList.add('success');
+    enrollSubmitting = false;
+    return;
+  }
+
+  // Build the validation check list fresh each submit, since children
+  // can be added or removed between attempts.
+  const checks = [
+    { input: form.parentName, run: () => validateRequiredText(form.parentName, { min: 2, max: 100 }) },
+    { input: form.parentEmail, run: () => validateEmailField(form.parentEmail) },
+    { input: form.parentPhone, run: () => validatePhoneField(form.parentPhone, true) },
+  ];
+
+  document.querySelectorAll('#childrenContainer .child-block').forEach((block) => {
+    const nameInput = block.querySelector('input[name^="childName"]');
+    const dobInput = block.querySelector('input[name^="childDob"]');
+    const gradeSelect = block.querySelector('select[name^="gradeLevel"]');
+    if (nameInput) checks.push({ input: nameInput, run: () => validateRequiredText(nameInput, { min: 2, max: 100 }) });
+    if (dobInput) checks.push({ input: dobInput, run: () => validateDobField(dobInput) });
+    if (gradeSelect) checks.push({ input: gradeSelect, run: () => validateSelectField(gradeSelect) });
+  });
+
+  if (form.message) {
+    checks.push({ input: form.message, run: () => validateTextareaField(form.message, { max: 2000, required: false }) });
+  }
+
+  if (!runFormValidation(checks, statusEl)) {
     enrollSubmitting = false;
     return;
   }
@@ -221,6 +407,18 @@ contactForm?.addEventListener('submit', async (event) => {
     contactForm.reset();
     contactStatusEl.textContent = contactText.success;
     contactStatusEl.classList.add('success');
+    contactSubmitting = false;
+    return;
+  }
+
+  const contactChecks = [
+    { input: contactForm.contactName, run: () => validateRequiredText(contactForm.contactName, { min: 2, max: 100 }) },
+    { input: contactForm.contactEmail, run: () => validateEmailField(contactForm.contactEmail) },
+    { input: contactForm.contactPhone, run: () => validatePhoneField(contactForm.contactPhone, false) },
+    { input: contactForm.contactMessage, run: () => validateTextareaField(contactForm.contactMessage, { min: 5, max: 3000, required: true }) },
+  ];
+
+  if (!runFormValidation(contactChecks, contactStatusEl)) {
     contactSubmitting = false;
     return;
   }

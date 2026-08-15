@@ -892,6 +892,41 @@ img { max-width: 100%; display: block; }
   box-shadow: 0 0 0 3px rgba(42, 147, 213, 0.2);
 }
 
+.field input[aria-invalid="true"],
+.field select[aria-invalid="true"],
+.field textarea[aria-invalid="true"] {
+  border-color: var(--color-berry);
+}
+
+.field input[aria-invalid="true"]:focus,
+.field select[aria-invalid="true"]:focus,
+.field textarea[aria-invalid="true"]:focus {
+  border-color: var(--color-berry);
+  box-shadow: 0 0 0 3px rgba(92, 18, 32, 0.16);
+}
+
+.field-error {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  color: var(--color-berry);
+  min-height: 1em;
+}
+.field-error:empty { display: none; }
+
+.child-block fieldset {
+  border: none;
+  margin: 0;
+  padding: 0;
+  min-width: 0;
+}
+
+.child-block legend.child-block-label {
+  padding: 0;
+  margin-bottom: 4px;
+  width: 100%;
+}
+
 .form-footer {
   margin-top: 26px;
   display: flex;
