@@ -1121,9 +1121,9 @@ img { max-width: 100%; display: block; }
 }
 
 .calendar-image.calendar-image-large {
-  max-width: 100%;
+  max-width: 780px;
   width: 100%;
-  margin-top: 28px;
+  margin: 28px auto 0;
 }
 
 /* ---------- Important dates list (calendar page) ---------- */
@@ -1166,7 +1166,7 @@ img { max-width: 100%; display: block; }
 }
 .date-card-holiday { border-left-color: var(--color-marigold); }
 .date-card-break { border-left-color: #6E9E7C; }
-.date-card-pd { border-left-color: #8A5A8C; }
+.date-card-pd { border-left-color: var(--color-sky); }
 
 .date-badge {
   flex-shrink: 0;
@@ -1181,7 +1181,7 @@ img { max-width: 100%; display: block; }
 }
 .date-card-holiday .date-badge { background: rgba(239, 144, 34, 0.16); }
 .date-card-break .date-badge { background: rgba(110, 158, 124, 0.16); }
-.date-card-pd .date-badge { background: rgba(138, 90, 140, 0.14); }
+.date-card-pd .date-badge { background: rgba(42, 147, 213, 0.14); }
 
 .date-day {
   font-family: var(--font-display);
@@ -1212,7 +1212,7 @@ img { max-width: 100%; display: block; }
 }
 .date-tag-holiday { background: var(--color-marigold); color: var(--color-ink); }
 .date-tag-break { background: #6E9E7C; }
-.date-tag-pd { background: #8A5A8C; }
+.date-tag-pd { background: var(--color-sky); }
 
 .date-info h4 {
   margin: 0;
@@ -1569,4 +1569,65 @@ img { max-width: 100%; display: block; }
 .reveal.js-hidden.is-visible {
   opacity: 1;
   transform: none;
+}
+
+/* ---------- Floating WhatsApp chat bubble ---------- */
+
+.whatsapp-bubble {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  z-index: 60;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: var(--color-berry);
+  color: #fff;
+  text-decoration: none;
+  padding: 14px;
+  border-radius: 999px;
+  box-shadow: 0 8px 24px rgba(27, 27, 47, 0.25);
+  transition: transform 0.2s ease, box-shadow 0.2s ease, padding 0.2s ease;
+  overflow: hidden;
+}
+
+.whatsapp-bubble svg {
+  flex-shrink: 0;
+  width: 26px;
+  height: 26px;
+}
+
+.whatsapp-bubble-label {
+  font-family: var(--font-nav);
+  font-weight: 600;
+  font-size: 0.88rem;
+  white-space: nowrap;
+  max-width: 0;
+  opacity: 0;
+  transition: max-width 0.25s ease, opacity 0.2s ease;
+}
+
+.whatsapp-bubble:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 30px rgba(27, 27, 47, 0.3);
+}
+
+.whatsapp-bubble:hover .whatsapp-bubble-label,
+.whatsapp-bubble:focus-visible .whatsapp-bubble-label {
+  max-width: 160px;
+  opacity: 1;
+  margin-right: 2px;
+}
+
+.whatsapp-bubble:focus-visible {
+  outline: 2px solid var(--color-sky);
+  outline-offset: 3px;
+}
+
+@media (max-width: 560px) {
+  .whatsapp-bubble {
+    right: 14px;
+    bottom: 14px;
+  }
+  .whatsapp-bubble-label { display: none; }
 }
