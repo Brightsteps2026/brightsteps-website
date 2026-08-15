@@ -73,6 +73,12 @@ img { max-width: 100%; display: block; }
   padding: 0 clamp(24px, 5vw, 48px);
 }
 
+@media (max-width: 480px) {
+  .container {
+    padding: 0 28px;
+  }
+}
+
 .btn {
   display: inline-flex;
   align-items: center;
