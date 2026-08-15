@@ -467,19 +467,69 @@ const heroSlides = document.querySelectorAll('.hero-slide');
 const heroDots = document.querySelectorAll('.hero-dot');
 const heroPrev = document.getElementById('heroPrev');
 const heroNext = document.getElementById('heroNext');
+const heroPlayPause = document.getElementById('heroPlayPause');
+const heroBanner = document.getElementById('heroBanner');
 let heroIndex = 0;
 let heroTimer;
+let heroPaused = false;
+
+const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+const supportsImageSet = window.CSS && CSS.supports && CSS.supports('background-image', 'image-set(url(a.jpg) type("image/jpeg"))');
+
+const heroText = {
+  pause: isFrench ? 'Mettre le diaporama en pause' : 'Pause slideshow',
+  play: isFrench ? 'Reprendre le diaporama' : 'Resume slideshow',
+};
+
+// Stage in the AVIF/WebP/JPEG background for every slide beyond the first
+// (which is already painted via its plain, dependency-free inline style)
+// once the page is idle, rather than downloading all five full-size images
+// up front.
+function loadHeroBackground(slide) {
+  const jpg = slide.dataset.bgJpg;
+  if (!jpg) return; // already loaded (or is the eager first slide)
+  if (supportsImageSet) {
+    const avif = slide.dataset.bgAvif;
+    const webp = slide.dataset.bgWebp;
+    slide.style.backgroundImage =
+      `image-set(url('${avif}') type('image/avif'), url('${webp}') type('image/webp'), url('${jpg}') type('image/jpeg'))`;
+  } else {
+    slide.style.backgroundImage = `url('${jpg}')`;
+  }
+  delete slide.dataset.bgJpg;
+  delete slide.dataset.bgWebp;
+  delete slide.dataset.bgAvif;
+}
+
+function loadRemainingHeroBackgrounds() {
+  heroSlides.forEach(loadHeroBackground);
+}
+
+if (heroSlides.length) {
+  if ('requestIdleCallback' in window) {
+    requestIdleCallback(loadRemainingHeroBackgrounds, { timeout: 2000 });
+  } else {
+    setTimeout(loadRemainingHeroBackgrounds, 500);
+  }
+}
 
 function showHeroSlide(i) {
   if (!heroSlides.length) return;
   heroIndex = (i + heroSlides.length) % heroSlides.length;
+  loadHeroBackground(heroSlides[heroIndex]); // ensure the incoming slide is ready even if idle callback hasn't run yet
   heroSlides.forEach((slide, idx) => slide.classList.toggle('active', idx === heroIndex));
   heroDots.forEach((dot, idx) => dot.classList.toggle('active', idx === heroIndex));
 }
 
 function startHeroTimer() {
   clearInterval(heroTimer);
+  if (prefersReducedMotion || heroPaused) return;
+  if (document.hidden) return; // don't run a timer while the tab isn't visible
   heroTimer = setInterval(() => showHeroSlide(heroIndex + 1), 5000);
+}
+
+function stopHeroTimer() {
+  clearInterval(heroTimer);
 }
 
 heroDots.forEach((dot) => {
@@ -499,8 +549,41 @@ heroNext?.addEventListener('click', () => {
   startHeroTimer();
 });
 
+heroPlayPause?.addEventListener('click', () => {
+  heroPaused = !heroPaused;
+  heroPlayPause.setAttribute('aria-pressed', String(heroPaused));
+  heroPlayPause.setAttribute('aria-label', heroPaused ? heroText.play : heroText.pause);
+  heroPlayPause.innerHTML = heroPaused ? '&#9654;' : '&#10074;&#10074;';
+  if (heroPaused) {
+    stopHeroTimer();
+  } else {
+    startHeroTimer();
+  }
+});
+
+// Pause the timer while the tab is hidden, resume (respecting the user's own
+// pause choice and reduced-motion preference) when it becomes visible again.
+document.addEventListener('visibilitychange', () => {
+  if (document.hidden) {
+    stopHeroTimer();
+  } else {
+    startHeroTimer();
+  }
+});
+
 if (heroSlides.length) {
-  startHeroTimer();
+  if (prefersReducedMotion) {
+    // Respect the user's OS-level preference: no automatic motion at all.
+    // Manual controls (arrows, dots, play/pause) still work normally.
+    heroPaused = true;
+    if (heroPlayPause) {
+      heroPlayPause.setAttribute('aria-pressed', 'true');
+      heroPlayPause.setAttribute('aria-label', heroText.play);
+      heroPlayPause.innerHTML = '&#9654;';
+    }
+  } else {
+    startHeroTimer();
+  }
 }
 
 /* ---------- News & Events filter ---------- */
