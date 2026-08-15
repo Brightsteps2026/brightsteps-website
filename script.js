@@ -613,7 +613,7 @@ if (calDatesBlockEl) {
       const tag = document.createElement('span');
       tag.className = `date-tag date-tag-${ev.type}`;
       tag.textContent = TYPE_LABEL[ev.type][calLang];
-      const title = document.createElement('h4');
+      const title = document.createElement('h3');
       title.textContent = calLang === 'fr' ? ev.fr : ev.en;
       info.appendChild(tag);
       info.appendChild(title);
