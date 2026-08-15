@@ -305,66 +305,107 @@ if (heroSlides.length) {
   startHeroTimer();
 }
 
-/* ---------- Static academic-year "Important Dates" list ---------- */
+/* ---------- "Important Dates" — August/September highlights ---------- */
 const calDatesBlockEl = document.getElementById('calDatesBlock');
 
 if (calDatesBlockEl) {
   const calLang = calDatesBlockEl.dataset.lang === 'fr' ? 'fr' : 'en';
 
   // Source: BrightSteps Academic Calendar 2026-2027 (school-provided PDF).
+  // type drives the card's color accent: pd (staff/no students), holiday, break.
   const CAL_EVENTS = [
-    { start: '2026-08-17', end: '2026-08-25', en: 'Faculty Orientation', fr: 'Orientation du personnel' },
-    { start: '2026-08-26', end: '2026-08-26', en: "Prophet's Birthday", fr: 'Anniversaire du Prophète' },
-    { start: '2026-08-27', end: '2026-08-27', en: 'First Day of School', fr: 'Rentrée scolaire' },
-    { start: '2026-10-19', end: '2026-10-23', en: 'October Break', fr: "Vacances d'octobre" },
-    { start: '2026-11-01', end: '2026-11-01', en: "All Saints' Day", fr: 'Toussaint' },
-    { start: '2026-11-15', end: '2026-11-15', en: 'Peace Day', fr: 'Journée de la paix' },
-    { start: '2026-11-16', end: '2026-11-16', en: 'School Holiday', fr: 'Jour férié scolaire' },
-    { start: '2026-11-26', end: '2026-11-27', en: 'Thanksgiving Break', fr: 'Vacances de Thanksgiving' },
-    { start: '2026-12-16', end: '2027-01-08', en: 'December Break', fr: 'Vacances de décembre' },
-    { start: '2026-12-25', end: '2026-12-25', en: 'Christmas Day', fr: 'Noël' },
-    { start: '2027-01-01', end: '2027-01-01', en: "New Year's Day", fr: 'Jour de l\u2019An' },
-    { start: '2027-01-11', end: '2027-01-11', en: 'Resume School', fr: 'Reprise des cours' },
-    { start: '2027-02-18', end: '2027-02-19', en: 'February Break', fr: 'Vacances de février' },
-    { start: '2027-03-06', end: '2027-03-06', en: 'Laylat al-Qadr (TBD)', fr: 'Nuit du Destin (à confirmer)' },
-    { start: '2027-03-09', end: '2027-03-09', en: 'Eid al-Fitr (TBD)', fr: 'Aïd el-Fitr (à confirmer)' },
-    { start: '2027-03-22', end: '2027-03-26', en: 'Spring Break', fr: 'Vacances de printemps' },
-    { start: '2027-03-28', end: '2027-03-28', en: 'Easter', fr: 'Pâques' },
-    { start: '2027-03-29', end: '2027-03-29', en: 'Easter Monday', fr: 'Lundi de Pâques' },
-    { start: '2027-04-05', end: '2027-04-05', en: 'School Resumes', fr: 'Reprise des cours' },
-    { start: '2027-05-01', end: '2027-05-01', en: 'Labor Day', fr: 'Fête du Travail' },
-    { start: '2027-05-06', end: '2027-05-06', en: 'Ascension', fr: 'Ascension' },
-    { start: '2027-05-17', end: '2027-05-17', en: 'Pentecost Monday', fr: 'Lundi de Pentecôte' },
-    { start: '2027-06-08', end: '2027-06-08', en: 'Last Day of School', fr: "Dernier jour d'école" },
+    { start: '2026-08-17', end: '2026-08-25', type: 'pd', en: 'Faculty Orientation', fr: 'Orientation du personnel' },
+    { start: '2026-08-26', end: '2026-08-26', type: 'holiday', en: "Prophet's Birthday", fr: 'Anniversaire du Prophète' },
+    { start: '2026-08-27', end: '2026-08-27', type: 'pd', en: 'First Day of School', fr: 'Rentrée scolaire' },
+    { start: '2026-10-19', end: '2026-10-23', type: 'break', en: 'October Break', fr: "Vacances d'octobre" },
+    { start: '2026-11-01', end: '2026-11-01', type: 'holiday', en: "All Saints' Day", fr: 'Toussaint' },
+    { start: '2026-11-15', end: '2026-11-15', type: 'holiday', en: 'Peace Day', fr: 'Journée de la paix' },
+    { start: '2026-11-16', end: '2026-11-16', type: 'holiday', en: 'School Holiday', fr: 'Jour férié scolaire' },
+    { start: '2026-11-26', end: '2026-11-27', type: 'break', en: 'Thanksgiving Break', fr: 'Vacances de Thanksgiving' },
+    { start: '2026-12-16', end: '2027-01-08', type: 'break', en: 'December Break', fr: 'Vacances de décembre' },
+    { start: '2026-12-25', end: '2026-12-25', type: 'holiday', en: 'Christmas Day', fr: 'Noël' },
+    { start: '2027-01-01', end: '2027-01-01', type: 'holiday', en: "New Year's Day", fr: 'Jour de l\u2019An' },
+    { start: '2027-01-11', end: '2027-01-11', type: 'pd', en: 'Resume School', fr: 'Reprise des cours' },
+    { start: '2027-02-18', end: '2027-02-19', type: 'break', en: 'February Break', fr: 'Vacances de février' },
+    { start: '2027-03-06', end: '2027-03-06', type: 'holiday', en: 'Laylat al-Qadr (TBD)', fr: 'Nuit du Destin (à confirmer)' },
+    { start: '2027-03-09', end: '2027-03-09', type: 'holiday', en: 'Eid al-Fitr (TBD)', fr: 'Aïd el-Fitr (à confirmer)' },
+    { start: '2027-03-22', end: '2027-03-26', type: 'break', en: 'Spring Break', fr: 'Vacances de printemps' },
+    { start: '2027-03-28', end: '2027-03-28', type: 'holiday', en: 'Easter', fr: 'Pâques' },
+    { start: '2027-03-29', end: '2027-03-29', type: 'holiday', en: 'Easter Monday', fr: 'Lundi de Pâques' },
+    { start: '2027-04-05', end: '2027-04-05', type: 'pd', en: 'School Resumes', fr: 'Reprise des cours' },
+    { start: '2027-05-01', end: '2027-05-01', type: 'holiday', en: 'Labor Day', fr: 'Fête du Travail' },
+    { start: '2027-05-06', end: '2027-05-06', type: 'holiday', en: 'Ascension', fr: 'Ascension' },
+    { start: '2027-05-17', end: '2027-05-17', type: 'holiday', en: 'Pentecost Monday', fr: 'Lundi de Pentecôte' },
+    { start: '2027-06-08', end: '2027-06-08', type: 'pd', en: 'Last Day of School', fr: "Dernier jour d'école" },
   ];
+
+  // Only show August and September 2026 for now.
+  const WINDOW_START = '2026-08-01';
+  const WINDOW_END = '2026-09-30';
+  const visibleEvents = CAL_EVENTS.filter((ev) => ev.start <= WINDOW_END && ev.end >= WINDOW_START);
+
+  const TYPE_LABEL = {
+    pd: { en: 'No Students', fr: 'Pas de cours' },
+    holiday: { en: 'Holiday', fr: 'Jour férié' },
+    break: { en: 'School Break', fr: 'Congé scolaire' },
+  };
+
+  const MONTH_ABBR = {
+    en: ['JAN', 'FEB', 'MAR', 'APR', 'MAY', 'JUN', 'JUL', 'AUG', 'SEP', 'OCT', 'NOV', 'DEC'],
+    fr: ['JANV', 'FÉVR', 'MARS', 'AVR', 'MAI', 'JUIN', 'JUIL', 'AOÛT', 'SEPT', 'OCT', 'NOV', 'DÉC'],
+  };
 
   function parseISO(iso) {
     const [y, m, d] = iso.split('-').map(Number);
     return new Date(y, m - 1, d);
   }
 
-  function formatRange(ev) {
+  function badgeParts(ev) {
     const start = parseISO(ev.start);
     const end = parseISO(ev.end);
-    const opts = { day: 'numeric', month: 'short' };
-    const locale = calLang === 'fr' ? 'fr-FR' : 'en-US';
+    const month = MONTH_ABBR[calLang][start.getMonth()];
     if (ev.start === ev.end) {
-      return start.toLocaleDateString(locale, opts);
+      return { day: String(start.getDate()), month };
     }
-    return `${start.toLocaleDateString(locale, opts)} \u2013 ${end.toLocaleDateString(locale, opts)}`;
+    if (start.getMonth() === end.getMonth()) {
+      return { day: `${start.getDate()}\u2013${end.getDate()}`, month };
+    }
+    return { day: String(start.getDate()), month };
   }
 
   const calDatesList = document.getElementById('calDatesList');
   if (calDatesList) {
-    CAL_EVENTS.forEach((ev) => {
+    if (!visibleEvents.length) {
+      calDatesList.innerHTML = '';
+    }
+    visibleEvents.forEach((ev) => {
+      const { day, month } = badgeParts(ev);
       const li = document.createElement('li');
-      const dateSpan = document.createElement('span');
-      dateSpan.className = 'cal-date';
-      dateSpan.textContent = formatRange(ev);
-      const labelSpan = document.createElement('span');
-      labelSpan.textContent = calLang === 'fr' ? ev.fr : ev.en;
-      li.appendChild(dateSpan);
-      li.appendChild(labelSpan);
+      li.className = `date-card date-card-${ev.type}`;
+
+      const badge = document.createElement('div');
+      badge.className = 'date-badge';
+      const dayEl = document.createElement('span');
+      dayEl.className = 'date-day';
+      dayEl.textContent = day;
+      const monthEl = document.createElement('span');
+      monthEl.className = 'date-month';
+      monthEl.textContent = month;
+      badge.appendChild(dayEl);
+      badge.appendChild(monthEl);
+
+      const info = document.createElement('div');
+      info.className = 'date-info';
+      const tag = document.createElement('span');
+      tag.className = `date-tag date-tag-${ev.type}`;
+      tag.textContent = TYPE_LABEL[ev.type][calLang];
+      const title = document.createElement('h4');
+      title.textContent = calLang === 'fr' ? ev.fr : ev.en;
+      info.appendChild(tag);
+      info.appendChild(title);
+
+      li.appendChild(badge);
+      li.appendChild(info);
       calDatesList.appendChild(li);
     });
   }

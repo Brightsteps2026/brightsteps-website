@@ -1128,7 +1128,7 @@ img { max-width: 100%; display: block; }
 
 /* ---------- Important dates list (calendar page) ---------- */
 .cal-dates-block {
-  max-width: 640px;
+  max-width: 100%;
   margin: 32px 0;
 }
 .cal-dates-block h3 {
@@ -1137,29 +1137,90 @@ img { max-width: 100%; display: block; }
   letter-spacing: 0.06em;
   font-size: 0.8rem;
   color: var(--color-berry);
-  margin: 0 0 14px;
+  margin: 0 0 18px;
 }
 .cal-dates-block ul {
   list-style: none;
   margin: 0;
   padding: 0;
-  border-top: 1px solid var(--color-line);
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 16px;
 }
-.cal-dates-block li {
+
+.date-card {
   display: flex;
-  align-items: baseline;
-  gap: 14px;
-  font-size: 0.98rem;
-  padding: 10px 0;
-  border-bottom: 1px solid var(--color-line);
+  align-items: center;
+  gap: 18px;
+  padding: 18px;
+  background: var(--color-paper);
+  border: 1px solid var(--color-line);
+  border-radius: var(--radius-card);
+  box-shadow: var(--shadow-card);
+  border-left: 5px solid var(--color-marigold);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
-.cal-dates-block .cal-date {
-  font-family: var(--font-mono);
-  font-size: 0.82rem;
-  color: rgba(27, 27, 47, 0.6);
-  white-space: nowrap;
-  min-width: 12ch;
+.date-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 14px 28px rgba(27, 27, 47, 0.14);
+}
+.date-card-holiday { border-left-color: var(--color-marigold); }
+.date-card-break { border-left-color: #6E9E7C; }
+.date-card-pd { border-left-color: #8A5A8C; }
+
+.date-badge {
   flex-shrink: 0;
+  width: 66px;
+  height: 66px;
+  border-radius: 14px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: var(--color-sky-tint);
+}
+.date-card-holiday .date-badge { background: rgba(239, 144, 34, 0.16); }
+.date-card-break .date-badge { background: rgba(110, 158, 124, 0.16); }
+.date-card-pd .date-badge { background: rgba(138, 90, 140, 0.14); }
+
+.date-day {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 1.3rem;
+  line-height: 1.1;
+  color: var(--color-ink);
+}
+.date-month {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  letter-spacing: 0.08em;
+  color: rgba(27, 27, 47, 0.6);
+  margin-top: 2px;
+}
+
+.date-info { min-width: 0; }
+.date-tag {
+  display: inline-block;
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  padding: 3px 10px;
+  border-radius: 999px;
+  margin-bottom: 6px;
+  color: var(--color-paper);
+}
+.date-tag-holiday { background: var(--color-marigold); color: var(--color-ink); }
+.date-tag-break { background: #6E9E7C; }
+.date-tag-pd { background: #8A5A8C; }
+
+.date-info h4 {
+  margin: 0;
+  font-family: var(--font-nav);
+  font-size: 1.02rem;
+  font-weight: 600;
+  color: var(--color-ink);
+  line-height: 1.3;
 }
 
 .food-icon {
