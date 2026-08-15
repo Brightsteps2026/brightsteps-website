@@ -1120,8 +1120,10 @@ img { max-width: 100%; display: block; }
   margin: 0 auto 12px;
 }
 
-.calendar-image-large {
+.calendar-image.calendar-image-large {
   max-width: 100%;
+  width: 100%;
+  margin-top: 28px;
 }
 
 /* ---------- Important dates list (calendar page) ---------- */
