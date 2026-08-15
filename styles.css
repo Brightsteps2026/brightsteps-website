@@ -276,14 +276,14 @@ img { max-width: 100%; display: block; }
   top: calc(100% + 14px);
   left: 50%;
   transform: translateX(-50%);
-  background: rgba(254, 253, 251, 0.78);
-  backdrop-filter: blur(18px) saturate(160%);
-  -webkit-backdrop-filter: blur(18px) saturate(160%);
-  border: 1px solid rgba(254, 253, 251, 0.55);
-  border-radius: 12px;
+  background: rgba(254, 253, 251, 0.6);
+  backdrop-filter: blur(22px) saturate(180%);
+  -webkit-backdrop-filter: blur(22px) saturate(180%);
+  border: 1px solid rgba(254, 253, 251, 0.45);
+  border-radius: 14px;
   padding: 10px;
   min-width: 200px;
-  box-shadow: var(--shadow-card);
+  box-shadow: var(--shadow-card), inset 0 1px 0 rgba(255, 255, 255, 0.5);
   display: none;
   flex-direction: column;
   gap: 2px;
@@ -299,27 +299,29 @@ img { max-width: 100%; display: block; }
 .nav-dropdown-menu a {
   border-bottom: none;
   padding: 8px 10px;
-  border-radius: 3px;
+  border-radius: 6px;
   white-space: nowrap;
   color: var(--color-ink);
   font-family: var(--font-nav);
   font-weight: 500;
   font-size: 0.9rem;
 }
-.nav-dropdown-menu a:hover { background: var(--color-sky-tint); }
+.nav-dropdown-menu a:hover { background: rgba(42, 147, 213, 0.14); }
 
 @media (max-width: 1024px) {
   .nav-dropdown-menu {
     position: static;
     transform: none;
     display: none;
-    background: rgba(254, 253, 251, 0.16);
-    backdrop-filter: blur(10px) saturate(160%);
-    -webkit-backdrop-filter: blur(10px) saturate(160%);
-    box-shadow: none;
-    border: 1px solid rgba(254, 253, 251, 0.25);
-    border-radius: 10px;
-    padding: 6px;
+    width: 100%;
+    align-items: center;
+    background: rgba(254, 253, 251, 0.1);
+    backdrop-filter: blur(14px) saturate(180%);
+    -webkit-backdrop-filter: blur(14px) saturate(180%);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.12);
+    border: 1px solid rgba(254, 253, 251, 0.18);
+    border-radius: 12px;
+    padding: 8px 6px;
     margin: 4px 0 4px 14px;
   }
   .nav-dropdown-menu.open {
@@ -333,6 +335,9 @@ img { max-width: 100%; display: block; }
   }
   .nav-dropdown-menu a {
     color: var(--color-paper);
+    white-space: normal;
+    text-align: center;
+    width: 100%;
   }
   .nav-dropdown-menu a:hover {
     background: rgba(254, 253, 251, 0.16);
@@ -1136,7 +1141,11 @@ img { max-width: 100%; display: block; }
 .calendar-image.calendar-image-large {
   max-width: 780px;
   width: 100%;
-  margin: 28px auto 0;
+  margin: 28px auto 32px;
+}
+
+.calendar-image + .btn-primary {
+  margin-top: 12px;
 }
 
 .calendar-image-scroll a { display: block; }
@@ -1149,7 +1158,7 @@ img { max-width: 100%; display: block; }
   margin: 18px 0 0;
 }
 
-@media (max-width: 700px) {
+@media (max-width: 480px) {
   .calendar-scroll-hint { display: block; }
   .calendar-image.calendar-image-large.calendar-image-scroll {
     overflow-x: auto;
@@ -1160,6 +1169,9 @@ img { max-width: 100%; display: block; }
     width: auto;
     max-width: none;
     min-width: 820px;
+  }
+  .calendar-image + .btn-primary {
+    margin-top: 20px;
   }
 }
 
@@ -1664,6 +1676,37 @@ img { max-width: 100%; display: block; }
 }
 
 /* ---------- News & Events cards ---------- */
+
+.life-filter {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 28px;
+}
+
+.life-filter-btn {
+  font-family: var(--font-nav);
+  font-weight: 600;
+  font-size: 0.82rem;
+  letter-spacing: 0.02em;
+  color: var(--color-berry);
+  background: var(--color-paper);
+  border: 1.5px solid var(--color-line);
+  border-radius: 999px;
+  padding: 9px 20px;
+  cursor: pointer;
+  transition: background 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+}
+
+.life-filter-btn:hover {
+  border-color: var(--color-berry);
+}
+
+.life-filter-btn.active {
+  background: var(--color-berry);
+  border-color: var(--color-berry);
+  color: var(--color-paper);
+}
 
 .life-grid {
   display: grid;

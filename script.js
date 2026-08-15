@@ -305,6 +305,22 @@ if (heroSlides.length) {
   startHeroTimer();
 }
 
+/* ---------- News & Events filter ---------- */
+const lifeFilterBtns = document.querySelectorAll('.life-filter-btn');
+const lifeCards = document.querySelectorAll('.life-card[data-category]');
+
+lifeFilterBtns.forEach((btn) => {
+  btn.addEventListener('click', () => {
+    lifeFilterBtns.forEach((b) => b.classList.remove('active'));
+    btn.classList.add('active');
+    const filter = btn.dataset.filter;
+    lifeCards.forEach((card) => {
+      const show = filter === 'all' || card.dataset.category === filter;
+      card.style.display = show ? '' : 'none';
+    });
+  });
+});
+
 /* ---------- "Important Dates" — August/September highlights ---------- */
 const calDatesBlockEl = document.getElementById('calDatesBlock');
 
