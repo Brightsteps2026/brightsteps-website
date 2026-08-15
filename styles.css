@@ -193,6 +193,14 @@ img { max-width: 100%; display: block; }
   align-items: flex-start;
 }
 
+.footer-slogan {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: 0.95rem;
+  color: rgba(254, 253, 251, 0.75);
+  margin-top: 10px;
+}
+
 .footer-grid .nav-brand-text .sub {
   color: rgba(254, 253, 251, 0.55);
 }
@@ -561,6 +569,16 @@ img { max-width: 100%; display: block; }
   width: 28px;
   height: 1.5px;
   background: var(--color-marigold);
+}
+
+.hero-banner-slogan {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-weight: 500;
+  font-size: clamp(1.6rem, 3vw, 2.4rem);
+  color: var(--color-paper);
+  margin: 10px 0 20px;
+  letter-spacing: 0.01em;
 }
 
 .hero-banner-announce {
