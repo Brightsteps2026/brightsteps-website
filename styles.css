@@ -309,11 +309,17 @@ img { max-width: 100%; display: block; }
 .nav-dropdown-menu a:hover { background: rgba(42, 147, 213, 0.14); }
 
 @media (max-width: 1024px) {
+  .nav-dropdown {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+  }
   .nav-dropdown-menu {
     position: static;
     transform: none;
     display: none;
-    width: 100%;
+    width: min(100%, 320px);
     align-items: center;
     background: rgba(254, 253, 251, 0.1);
     backdrop-filter: blur(14px) saturate(180%);
@@ -322,7 +328,7 @@ img { max-width: 100%; display: block; }
     border: 1px solid rgba(254, 253, 251, 0.18);
     border-radius: 12px;
     padding: 8px 6px;
-    margin: 4px 0 4px 14px;
+    margin: 4px 0;
   }
   .nav-dropdown-menu.open {
     display: flex;
@@ -1139,7 +1145,7 @@ img { max-width: 100%; display: block; }
 }
 
 .calendar-image.calendar-image-large {
-  max-width: 780px;
+  max-width: 1020px;
   width: 100%;
   margin: 28px auto 32px;
 }
