@@ -707,3 +707,19 @@ if (calDatesBlockEl) {
     });
   }
 }
+
+/* ---------- Privacy-enhanced YouTube embed (click to load) ---------- */
+const videoPosterBtn = document.getElementById('videoPosterBtn');
+videoPosterBtn?.addEventListener('click', () => {
+  const wrap = videoPosterBtn.closest('.video-wrap');
+  if (!wrap) return;
+  const videoId = videoPosterBtn.dataset.videoId;
+  const videoTitle = videoPosterBtn.dataset.videoTitle || 'Video';
+  const iframe = document.createElement('iframe');
+  iframe.src = `https://www.youtube-nocookie.com/embed/${videoId}?autoplay=1`;
+  iframe.title = videoTitle;
+  iframe.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share';
+  iframe.allowFullscreen = true;
+  wrap.innerHTML = '';
+  wrap.appendChild(iframe);
+});
