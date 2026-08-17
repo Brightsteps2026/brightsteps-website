@@ -2,19 +2,27 @@
 // BrightSteps International School — Site scripts
 // =========================================================
 
+const isFrench = document.documentElement.lang === 'fr';
+
 /* ---------- Mobile nav toggle ---------- */
 const navToggle = document.getElementById('navToggle');
 const navLinks = document.getElementById('navLinks');
+const navToggleText = {
+  open: isFrench ? 'Ouvrir le menu' : 'Open menu',
+  close: isFrench ? 'Fermer le menu' : 'Close menu',
+};
 
 navToggle?.addEventListener('click', () => {
   const isOpen = navLinks.classList.toggle('open');
   navToggle.setAttribute('aria-expanded', String(isOpen));
+  navToggle.setAttribute('aria-label', isOpen ? navToggleText.close : navToggleText.open);
 });
 
 navLinks?.querySelectorAll('a').forEach((link) => {
   link.addEventListener('click', () => {
     navLinks.classList.remove('open');
     navToggle?.setAttribute('aria-expanded', 'false');
+    navToggle?.setAttribute('aria-label', navToggleText.open);
   });
 });
 
@@ -24,16 +32,42 @@ document.querySelectorAll('.nav-dropdown > button').forEach((btn) => {
     event.stopPropagation();
     const menu = btn.nextElementSibling;
     const isOpen = menu.classList.toggle('open');
+    btn.setAttribute('aria-expanded', String(isOpen));
     document.querySelectorAll('.nav-dropdown-menu.open').forEach((otherMenu) => {
-      if (otherMenu !== menu) otherMenu.classList.remove('open');
+      if (otherMenu !== menu) {
+        otherMenu.classList.remove('open');
+        otherMenu.previousElementSibling?.setAttribute('aria-expanded', 'false');
+      }
     });
   });
 });
 
-document.addEventListener('click', () => {
+function closeAllDropdowns() {
   document.querySelectorAll('.nav-dropdown-menu.open').forEach((menu) => {
     menu.classList.remove('open');
+    menu.previousElementSibling?.setAttribute('aria-expanded', 'false');
   });
+}
+
+document.addEventListener('click', closeAllDropdowns);
+
+// Escape closes whichever nav UI is open, and returns focus somewhere sensible
+// rather than leaving it lost on a now-hidden element.
+document.addEventListener('keydown', (event) => {
+  if (event.key !== 'Escape') return;
+
+  const openDropdownBtn = document.querySelector('.nav-dropdown > button[aria-expanded="true"]');
+  if (openDropdownBtn) {
+    closeAllDropdowns();
+    openDropdownBtn.focus();
+    return;
+  }
+
+  if (navLinks?.classList.contains('open')) {
+    navLinks.classList.remove('open');
+    navToggle?.setAttribute('aria-expanded', 'false');
+    navToggle?.focus();
+  }
 });
 
 /* ---------- Scroll reveal ---------- */
@@ -63,7 +97,6 @@ if ('IntersectionObserver' in window) {
 const childrenContainer = document.getElementById('childrenContainer');
 const addChildBtn = document.getElementById('addChildBtn');
 let childCount = 1;
-const isFrench = document.documentElement.lang === 'fr';
 const childLabel = isFrench ? 'Enfant' : 'Child';
 const removeLabel = isFrench ? 'Supprimer' : 'Remove';
 
