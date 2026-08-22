@@ -1502,6 +1502,13 @@ img { max-width: 100%; display: block; }
   margin: 0 auto;
 }
 
+.director-bio picture {
+  flex-shrink: 0;
+  display: block;
+  width: 120px;
+  height: 120px;
+}
+
 .director-avatar {
   flex-shrink: 0;
   width: 120px;
