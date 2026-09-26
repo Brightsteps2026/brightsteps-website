@@ -30,7 +30,7 @@
 <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,600;1,9..144,600&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,700;1,8..60,400&family=Inter:wght@500;600&display=swap" rel="stylesheet" />
-<link rel="stylesheet" href="styles.css?v=6" />
+<link rel="stylesheet" href="styles.css?v=7" />
 </head>
 <body>
 <a class="skip-link" href="#main">Passer au contenu principal</a>
@@ -95,6 +95,31 @@
   <p>Nourrir le corps est un élément essentiel du bien être global des enfants. Notre cantine sur place propose des repas équilibrés et sains, préparés avec soin dans un environnement sûr et accueillant.</p>
 </section>
 
+<section class="section container weekly-menu" id="weekly-menu" style="padding-top:0">
+  <div class="section-head reveal">
+    <p class="eyebrow">Cantine</p>
+    <h2>Menu de la semaine</h2>
+    <p>Notre chef prépare un déjeuner équilibré pour chaque jour d'école, accompagné d'un fruit frais ou d'un dessert fait maison. Le menu est mis à jour chaque semaine. Touchez le menu pour l'ouvrir en grand format.</p>
+  </div>
+  <div class="menu-board reveal">
+    <a class="menu-board-link" href="weekly-menu-lg.jpg" target="_blank" rel="noopener" aria-label="Ouvrir le menu de la semaine en grand format dans un nouvel onglet"><picture><source type="image/avif" srcset="weekly-menu-sm.avif 760w, weekly-menu-lg.avif 1312w" sizes="(max-width: 900px) 100vw, 900px" /><source type="image/webp" srcset="weekly-menu-sm.webp 760w, weekly-menu-lg.webp 1312w" sizes="(max-width: 900px) 100vw, 900px" /><img src="weekly-menu-sm.jpg" srcset="weekly-menu-sm.jpg 760w, weekly-menu-lg.jpg 1312w" sizes="(max-width: 900px) 100vw, 900px" alt="Menu hebdomadaire des déjeuners de BrightSteps, du lundi au vendredi, en anglais et en français. Le menu complet est présenté plus bas." width="1312" height="1199" loading="eager" decoding="async" /></picture></a>
+    <details class="menu-text">
+      <summary>Lire le menu en texte</summary>
+      <table class="menu-table">
+            <thead><tr><th scope="col">Jour</th><th scope="col">Déjeuner</th><th scope="col">Dessert</th></tr></thead>
+            <tbody>
+            <tr><th scope="row">Lundi</th><td>Purée de pommes de terre, boulettes de poisson à la sauce au poivre</td><td>Clémentine</td></tr>
+            <tr><th scope="row">Mardi</th><td>Macaroni carbonara, émincé de bœuf</td><td>Pastèque</td></tr>
+            <tr><th scope="row">Mercredi</th><td>Alloco, mini brochettes de poulet</td><td>Pomme</td></tr>
+            <tr><th scope="row">Jeudi</th><td>Riz cantonais, poulet rôti au four</td><td>Banane</td></tr>
+            <tr><th scope="row">Vendredi</th><td>Hamburger, frites</td><td>Gâteau nuage japonais</td></tr>
+            </tbody>
+          </table>
+    </details>
+  </div>
+</section>
+
+
 <section class="section container">
   <div class="values-grid reveal">
     <div class="photo-card" style="--swatch-color: var(--color-sky)">
@@ -146,7 +171,7 @@
           </div>
         </div>
         <p class="canteen-pricing-note">Les repas doivent être confirmés avant vendredi pour la semaine suivante, ou la veille pour le repas du lendemain. Le paiement se fait à l'avance par chèque, Mobile Money, ou directement au bureau de l'administration.</p>
-        <a class="btn btn-primary" href="https://docs.google.com/document/d/1jWV-U4l8p7Y507LQrYNfOG4L2IQpTADkOBXsDt43Wfk/edit?usp=sharing">Voir le menu de la semaine</a>
+        <a class="btn btn-primary" href="#weekly-menu">Voir le menu de la semaine</a>
       </div>
       <div class="hero-photo reveal">
         <picture><source type="image/avif" srcset="garden-okra-sm.avif 700w, garden-okra-lg.avif 1400w" sizes="(max-width: 700px) 100vw, (max-width: 1100px) 50vw, 33vw" /><source type="image/webp" srcset="garden-okra-sm.webp 700w, garden-okra-lg.webp 1400w" sizes="(max-width: 700px) 100vw, (max-width: 1100px) 50vw, 33vw" /><img src="garden-okra-sm.jpg" srcset="garden-okra-sm.jpg 700w, garden-okra-lg.jpg 1400w" sizes="(max-width: 700px) 100vw, (max-width: 1100px) 50vw, 33vw" alt="Plant de gombo poussant dans le jardin scolaire" width="1400" height="1750" loading="lazy" decoding="async" /></picture>
@@ -219,6 +244,6 @@
   <svg viewBox="0 0 32 32" fill="currentColor" aria-hidden="true"><path d="M16.02 3C9.4 3 4 8.37 4 14.98c0 2.36.68 4.55 1.86 6.42L4 29l7.8-1.82a12.9 12.9 0 0 0 4.22.7h.01c6.62 0 12.02-5.37 12.02-11.98C28.05 8.37 22.65 3 16.02 3zm0 21.86h-.01a10.8 10.8 0 0 1-3.7-.66l-.53-.2-4.63 1.08 1.1-4.5-.34-.55a9.86 9.86 0 0 1-1.51-5.05c0-5.47 4.46-9.92 9.94-9.92 5.47 0 9.92 4.45 9.92 9.92 0 5.47-4.45 9.88-9.94 9.88zm5.43-7.4c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.17-.17.2-.35.22-.65.07-.3-.15-1.25-.46-2.38-1.47a8.9 8.9 0 0 1-1.65-2.05c-.17-.3-.02-.46.13-.6.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.07-.15-.67-1.6-.91-2.2-.24-.57-.49-.5-.67-.5h-.57c-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.47 0 1.46 1.06 2.87 1.21 3.07.15.2 2.09 3.2 5.07 4.48.71.31 1.26.49 1.69.63.71.22 1.36.19 1.87.12.57-.09 1.76-.72 2.01-1.41.25-.7.25-1.29.17-1.41-.07-.13-.27-.2-.57-.35z"/></svg>
   <span class="whatsapp-bubble-label">Discutez avec nous</span>
 </a>
-<script src="script.js?v=2"></script>
+<script src="script.js?v=3"></script>
 </body>
 </html>

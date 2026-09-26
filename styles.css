@@ -1373,6 +1373,7 @@ img { max-width: 100%; display: block; }
 .date-card-holiday { border-left-color: var(--color-marigold); }
 .date-card-break { border-left-color: #6E9E7C; }
 .date-card-pd { border-left-color: var(--color-sky); }
+.date-card-school { border-left-color: var(--color-berry); }
 
 .date-badge {
   flex-shrink: 0;
@@ -1388,6 +1389,7 @@ img { max-width: 100%; display: block; }
 .date-card-holiday .date-badge { background: rgba(239, 144, 34, 0.16); }
 .date-card-break .date-badge { background: rgba(110, 158, 124, 0.16); }
 .date-card-pd .date-badge { background: rgba(42, 147, 213, 0.14); }
+.date-card-school .date-badge { background: rgba(92, 18, 32, 0.10); }
 
 .date-day {
   font-family: var(--font-display);
@@ -1419,6 +1421,7 @@ img { max-width: 100%; display: block; }
 .date-tag-holiday { background: var(--color-marigold); color: var(--color-ink); }
 .date-tag-break { background: #6E9E7C; }
 .date-tag-pd { background: var(--color-sky); }
+.date-tag-school { background: var(--color-berry); }
 
 .date-info h3 {
   margin: 0;
@@ -2022,4 +2025,92 @@ img { max-width: 100%; display: block; }
 }
 .life-card-body li {
   margin-bottom: 0.3em;
+}
+
+/* ---------- Weekly canteen menu ---------- */
+.weekly-menu { scroll-margin-top: 110px; }
+.menu-board { max-width: 900px; margin: 0 auto; }
+.menu-board-link {
+  display: block;
+  border-radius: var(--radius-card);
+  overflow: hidden;
+  box-shadow: var(--shadow-card);
+  border: 1px solid var(--color-line);
+}
+.menu-board-link picture, .menu-board-link img { display: block; width: 100%; height: auto; }
+.menu-text { margin-top: 18px; }
+.menu-text summary {
+  cursor: pointer;
+  font-family: var(--font-nav);
+  font-weight: 600;
+  font-size: 0.95rem;
+  color: var(--color-ink);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  padding: 6px 0;
+}
+.menu-table { width: 100%; border-collapse: collapse; margin-top: 10px; font-size: 0.95rem; }
+.menu-table th, .menu-table td {
+  text-align: left;
+  vertical-align: top;
+  padding: 10px 12px;
+  border-bottom: 1px solid var(--color-line);
+}
+.menu-table thead th {
+  font-family: var(--font-nav);
+  font-size: 0.8rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+@media (max-width: 560px) {
+  .menu-table th, .menu-table td { padding: 8px 6px; font-size: 0.88rem; }
+}
+
+/* ---------- Featured news post with photo gallery ---------- */
+.life-card-feature { grid-column: 1 / -1; }
+.life-card-feature .life-card-photo::before { padding-top: 50%; }
+.life-card-feature .life-card-body { padding: 28px; max-width: 860px; }
+.life-card-feature .life-card-body h2 { font-size: 1.4rem; }
+.life-gallery {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+  margin: 6px 0 4px;
+  padding: 0;
+  list-style: none;
+}
+.life-gallery li { margin: 0; }
+.life-gallery figure { margin: 0; }
+.life-gallery picture { display: block; border-radius: 12px; overflow: hidden; aspect-ratio: 4 / 5; }
+.life-gallery img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.life-gallery figcaption {
+  font-family: var(--font-nav);
+  font-size: 0.8rem;
+  line-height: 1.4;
+  margin-top: 6px;
+  color: rgba(27, 27, 47, 0.7);
+}
+@media (max-width: 700px) {
+  .life-card-feature .life-card-photo::before { padding-top: 62.5%; }
+  .life-card-feature .life-card-body { padding: 22px; }
+  .life-gallery { gap: 8px; }
+  .life-gallery figcaption { font-size: 0.72rem; }
+}
+
+/* Two part hero announcement: stacks neatly on phones */
+@media (max-width: 700px) {
+  .hero-banner-announce { border-radius: 16px; line-height: 1.45; padding: 8px 14px; }
+  .hero-banner-announce .announce-sep { display: none; }
+  .hero-banner-announce span { display: block; }
+}
+.weekly-menu .section-head { max-width: 900px; margin-left: auto; margin-right: auto; }
+
+/* Fix: .section shorthand padding was wiping .container side padding,
+   so text touched the screen edge on phones. Restore the gutters. */
+.section.container {
+  padding-left: clamp(24px, 5vw, 48px);
+  padding-right: clamp(24px, 5vw, 48px);
+}
+@media (max-width: 480px) {
+  .section.container { padding-left: 28px; padding-right: 28px; }
 }

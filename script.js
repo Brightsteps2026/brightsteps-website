@@ -646,7 +646,7 @@ if (calDatesBlockEl) {
   const CAL_EVENTS = [
     { start: '2026-08-17', end: '2026-08-25', type: 'pd', en: 'Faculty Orientation', fr: 'Orientation du personnel' },
     { start: '2026-08-26', end: '2026-08-26', type: 'holiday', en: "Prophet's Birthday", fr: 'Anniversaire du Prophète' },
-    { start: '2026-08-27', end: '2026-08-27', type: 'pd', en: 'First Day of School', fr: 'Rentrée scolaire' },
+    { start: '2026-09-07', end: '2026-09-07', type: 'school', en: 'First Day of School', fr: 'Rentrée scolaire' },
     { start: '2026-10-19', end: '2026-10-23', type: 'break', en: 'October Break', fr: "Vacances d'octobre" },
     { start: '2026-11-01', end: '2026-11-01', type: 'holiday', en: "All Saints' Day", fr: 'Toussaint' },
     { start: '2026-11-15', end: '2026-11-15', type: 'holiday', en: 'Peace Day', fr: 'Journée de la paix' },
@@ -655,27 +655,29 @@ if (calDatesBlockEl) {
     { start: '2026-12-16', end: '2027-01-08', type: 'break', en: 'December Break', fr: 'Vacances de décembre' },
     { start: '2026-12-25', end: '2026-12-25', type: 'holiday', en: 'Christmas Day', fr: 'Noël' },
     { start: '2027-01-01', end: '2027-01-01', type: 'holiday', en: "New Year's Day", fr: 'Jour de l\u2019An' },
-    { start: '2027-01-11', end: '2027-01-11', type: 'pd', en: 'Resume School', fr: 'Reprise des cours' },
+    { start: '2027-01-11', end: '2027-01-11', type: 'school', en: 'Resume School', fr: 'Reprise des cours' },
     { start: '2027-02-18', end: '2027-02-19', type: 'break', en: 'February Break', fr: 'Vacances de février' },
     { start: '2027-03-06', end: '2027-03-06', type: 'holiday', en: 'Laylat al-Qadr (TBD)', fr: 'Nuit du Destin (à confirmer)' },
     { start: '2027-03-09', end: '2027-03-09', type: 'holiday', en: 'Eid al-Fitr (TBD)', fr: 'Aïd el-Fitr (à confirmer)' },
     { start: '2027-03-22', end: '2027-03-26', type: 'break', en: 'Spring Break', fr: 'Vacances de printemps' },
     { start: '2027-03-28', end: '2027-03-28', type: 'holiday', en: 'Easter', fr: 'Pâques' },
     { start: '2027-03-29', end: '2027-03-29', type: 'holiday', en: 'Easter Monday', fr: 'Lundi de Pâques' },
-    { start: '2027-04-05', end: '2027-04-05', type: 'pd', en: 'School Resumes', fr: 'Reprise des cours' },
+    { start: '2027-04-05', end: '2027-04-05', type: 'school', en: 'School Resumes', fr: 'Reprise des cours' },
     { start: '2027-05-01', end: '2027-05-01', type: 'holiday', en: 'Labor Day', fr: 'Fête du Travail' },
     { start: '2027-05-06', end: '2027-05-06', type: 'holiday', en: 'Ascension', fr: 'Ascension' },
     { start: '2027-05-17', end: '2027-05-17', type: 'holiday', en: 'Pentecost Monday', fr: 'Lundi de Pentecôte' },
-    { start: '2027-06-08', end: '2027-06-08', type: 'pd', en: 'Last Day of School', fr: "Dernier jour d'école" },
+    { start: '2027-06-08', end: '2027-06-08', type: 'school', en: 'Last Day of School', fr: "Dernier jour d'école" },
   ];
 
-  // Only show August and September 2026 for now.
-  const WINDOW_START = '2026-08-01';
-  const WINDOW_END = '2026-09-30';
-  const visibleEvents = CAL_EVENTS.filter((ev) => ev.start <= WINDOW_END && ev.end >= WINDOW_START);
+  // Show the next few upcoming dates, based on today's date.
+  const todayDate = new Date();
+  const TODAY_ISO = `${todayDate.getFullYear()}-${String(todayDate.getMonth() + 1).padStart(2, '0')}-${String(todayDate.getDate()).padStart(2, '0')}`;
+  const UPCOMING_COUNT = 6;
+  const visibleEvents = CAL_EVENTS.filter((ev) => ev.end >= TODAY_ISO).slice(0, UPCOMING_COUNT);
 
   const TYPE_LABEL = {
     pd: { en: 'No Students', fr: 'Pas de cours' },
+    school: { en: 'School Day', fr: 'Jour de classe' },
     holiday: { en: 'Holiday', fr: 'Jour férié' },
     break: { en: 'School Break', fr: 'Congé scolaire' },
   };
