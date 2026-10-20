@@ -518,12 +518,17 @@ const heroText = {
 // (which is already painted via its plain, dependency-free inline style)
 // once the page is idle, rather than downloading all five full-size images
 // up front.
+// Phones get the lighter -sm versions of the slideshow photos.
+const heroSize = window.innerWidth < 900 ? '-sm.' : '-lg.';
+function heroUrl(u) { return u ? u.replace('-lg.', heroSize) : u; }
+
 function loadHeroBackground(slide) {
-  const jpg = slide.dataset.bgJpg;
+  if (!slide) return;
+  const jpg = heroUrl(slide.dataset.bgJpg);
   if (!jpg) return; // already loaded (or is the eager first slide)
   if (supportsImageSet) {
-    const avif = slide.dataset.bgAvif;
-    const webp = slide.dataset.bgWebp;
+    const avif = heroUrl(slide.dataset.bgAvif);
+    const webp = heroUrl(slide.dataset.bgWebp);
     slide.style.backgroundImage =
       `image-set(url('${avif}') type('image/avif'), url('${webp}') type('image/webp'), url('${jpg}') type('image/jpeg'))`;
   } else {
@@ -534,8 +539,9 @@ function loadHeroBackground(slide) {
   delete slide.dataset.bgAvif;
 }
 
+// Only the next photo is fetched ahead of time, not the whole slideshow.
 function loadRemainingHeroBackgrounds() {
-  heroSlides.forEach(loadHeroBackground);
+  loadHeroBackground(heroSlides[1]);
 }
 
 if (heroSlides.length) {
@@ -550,6 +556,7 @@ function showHeroSlide(i) {
   if (!heroSlides.length) return;
   heroIndex = (i + heroSlides.length) % heroSlides.length;
   loadHeroBackground(heroSlides[heroIndex]); // ensure the incoming slide is ready even if idle callback hasn't run yet
+  loadHeroBackground(heroSlides[(heroIndex + 1) % heroSlides.length]); // and fetch the one after it
   heroSlides.forEach((slide, idx) => slide.classList.toggle('active', idx === heroIndex));
   heroDots.forEach((dot, idx) => dot.classList.toggle('active', idx === heroIndex));
 }
