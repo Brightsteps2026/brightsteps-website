@@ -29,8 +29,10 @@
 <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16.png" />
 <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,600;1,9..144,600&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,700;1,8..60,400&family=Inter:wght@500;600&display=swap" rel="stylesheet" />
-<link rel="stylesheet" href="styles.css?v=7" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
+<link rel="preload" as="image" href="whiteboard-writing-lg.jpg" />
+<link rel="stylesheet" href="site.css?v=1" />
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -58,9 +60,9 @@
 <a class="skip-link" href="#main">Skip to main content</a>
 
 <header class="site-header" id="top">
-  <nav class="nav">
-    <a class="nav-brand" href="#top">
-      <img src="bis-logo.png" alt="BrightSteps International School logo" width="240" height="240" decoding="async" />
+  <nav class="nav" aria-label="Main">
+    <a class="nav-brand" href="index.html" aria-label="BrightSteps International School, home">
+      <img src="bis-logo.png" alt="" width="240" height="240" decoding="async" />
       <span class="nav-brand-text">
         <span class="name">BrightSteps</span>
         <span class="sub">International School</span>
@@ -102,216 +104,181 @@
         </div>
       </li>
       <li><a href="contact-us.html">Contact</a></li>
-      <li class="nav-actions"><a href="https://hub.bischoolci.org" target="_blank" rel="noopener" class="nav-portal-link">Parents Portal</a><a href="index-fr.html" class="nav-lang-link">FR</a></li>
+      <li class="nav-actions"><a href="https://hub.bischoolci.org" target="_blank" rel="noopener" class="nav-portal-link">Parents Portal</a><a href="index-fr.html" class="nav-lang-link" lang="fr" aria-label="Version française">FR</a></li>
     </ul>
     <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false" aria-controls="navLinks">
-      <svg width="16" height="16" viewBox="0 0 20 20" fill="none" class="nav-toggle-arrow"><path d="M5 7L10 13L15 7" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      <span class="nav-toggle-bars" aria-hidden="true"></span>
     </button>
   </nav>
 </header>
 
-<!-- ============ HERO BANNER ============ -->
-<section class="hero-banner" id="heroBanner">
-  <div class="hero-slide active" style="background-image:url('campus-pool-lg.jpg')"></div>
-  <div class="hero-slide" data-bg-jpg="student-portrait-lg.jpg" data-bg-webp="student-portrait-lg.webp" data-bg-avif="student-portrait-lg.avif"></div>
-  <div class="hero-slide" data-bg-jpg="reading-corner-lg.jpg" data-bg-webp="reading-corner-lg.webp" data-bg-avif="reading-corner-lg.avif"></div>
-  <div class="hero-slide" data-bg-jpg="classroom-collab-lg.jpg" data-bg-webp="classroom-collab-lg.webp" data-bg-avif="classroom-collab-lg.avif"></div>
-  <div class="hero-slide" data-bg-jpg="art-class-lg.jpg" data-bg-webp="art-class-lg.webp" data-bg-avif="art-class-lg.avif"></div>
-
-  <div class="hero-banner-content reveal">
-    <p class="eyebrow">Grand-Bassam, Côte d'Ivoire</p>
-    <h1 class="hero-banner-slogan">Learn. Grow. Lead.</h1>
-    <p class="hero-banner-announce"><span>The 2026 to 2027 school year is underway</span><span class="announce-sep" aria-hidden="true"> · </span><span>Enrollment inquiries welcome</span></p>
-    <div class="hero-banner-actions">
-      <a class="btn btn-primary" href="enroll.html">Start an enrollment inquiry</a>
-      <a class="btn btn-ghost" style="border-color:var(--color-paper); color:var(--color-paper)" href="about-us.html">Meet the school</a>
-    </div>
-    <div class="hero-dots" role="group" aria-label="Choose slide">
-      <button type="button" class="hero-dot active" data-slide="0" aria-label="Show slide 1 of 5"></button>
-      <button type="button" class="hero-dot" data-slide="1" aria-label="Show slide 2 of 5"></button>
-      <button type="button" class="hero-dot" data-slide="2" aria-label="Show slide 3 of 5"></button>
-      <button type="button" class="hero-dot" data-slide="3" aria-label="Show slide 4 of 5"></button>
-      <button type="button" class="hero-dot" data-slide="4" aria-label="Show slide 5 of 5"></button>
-      <button type="button" class="hero-playpause" id="heroPlayPause" aria-label="Pause slideshow" aria-pressed="false">&#10074;&#10074;</button>
-    </div>
-  </div>
-</section>
-
-
 <main id="main">
 
-  <!-- ============ STATS ============ -->
-  <section class="stats">
-    <div class="container stats-grid">
-      <div class="reveal">
-        <div class="stat-number">12+</div>
-        <div class="stat-label">Qualified Teachers</div>
+  <!-- ============ HERO ============ -->
+  <section class="hero" id="heroBanner" aria-label="Welcome">
+    <div class="hero-text">
+      <h1 class="hero-slogan"><span>Learn.</span><span>Grow.</span><span>Lead.</span></h1>
+      <p class="hero-lede">An English medium international school in Grand-Bassam, Côte d'Ivoire, for children from Pre Nursery through Grade 7.</p>
+      <div class="hero-actions">
+        <a class="btn btn-light" href="enroll.html">Start an enrollment inquiry</a>
+        <a class="btn btn-outline-light" href="about-us.html">Meet the school</a>
       </div>
-      <div class="reveal">
-        <div class="stat-number">20+</div>
-        <div class="stat-label">Years Average Teaching Experience</div>
-      </div>
-      <div class="reveal">
-        <div class="stat-number">15:1</div>
-        <div class="stat-label">Student to Teacher Ratio</div>
+      <p class="hero-note">The 2026 to 2027 school year is underway, and enrollment inquiries are welcome throughout the year.</p>
+    </div>
+    <div class="hero-media">
+    <div class="hero-slide active" style="background-image:url('whiteboard-writing-lg.jpg');background-position:40% 50%"></div>
+    <div class="hero-slide" style="background-position:62% 45%" data-bg-jpg="classroom-portrait-lg.jpg" data-bg-webp="classroom-portrait-lg.webp" data-bg-avif="classroom-portrait-lg.avif"></div>
+    <div class="hero-slide" style="background-position:50% 50%" data-bg-jpg="desk-smile-lg.jpg" data-bg-webp="desk-smile-lg.webp" data-bg-avif="desk-smile-lg.avif"></div>
+    <div class="hero-slide" style="background-position:38% 50%" data-bg-jpg="singing-together-lg.jpg" data-bg-webp="singing-together-lg.webp" data-bg-avif="singing-together-lg.avif"></div>
+    <div class="hero-slide" style="background-position:50% 35%" data-bg-jpg="garden-tomatoes-lg.jpg" data-bg-webp="garden-tomatoes-lg.webp" data-bg-avif="garden-tomatoes-lg.avif"></div>
+      <div class="hero-controls" role="group" aria-label="Photo slideshow">
+      <button type="button" class="hero-dot active" data-slide="0" aria-label="Show photo 1 of 5"></button>
+      <button type="button" class="hero-dot" data-slide="1" aria-label="Show photo 2 of 5"></button>
+      <button type="button" class="hero-dot" data-slide="2" aria-label="Show photo 3 of 5"></button>
+      <button type="button" class="hero-dot" data-slide="3" aria-label="Show photo 4 of 5"></button>
+      <button type="button" class="hero-dot" data-slide="4" aria-label="Show photo 5 of 5"></button>
+        <button type="button" class="hero-playpause" id="heroPlayPause" aria-label="Pause slideshow" aria-pressed="false">&#10074;&#10074;</button>
       </div>
     </div>
   </section>
 
-  <!-- ============ ABOUT ============ -->
-  <section class="section container">
-    <div class="two-col" id="about">
-      <div class="section-head reveal" style="margin:0">
-        <p class="eyebrow">About BrightSteps</p>
+  <!-- ============ STATEMENT ============ -->
+  <section class="section" id="about">
+    <div class="wrap statement">
+      <div>
+        <p class="kicker">About BrightSteps</p>
         <h2>Where every child is known, valued, and challenged</h2>
-        <p>Our mission is to nurture lifelong learners and global citizens through a high quality, student centered education that inspires curiosity, builds confidence, and empowers every child to reach their full potential.</p>
-        <a class="btn btn-ghost" href="about-us.html" style="margin-top:12px">Learn more about us</a>
+        <p class="statement-body">Our mission is to nurture lifelong learners and global citizens through a high quality, student centered education that inspires curiosity, builds confidence, and empowers every child to reach their full potential.</p>
+        <a class="text-link" href="about-us.html">Learn more about us</a>
       </div>
-      <div class="hero-photo reveal">
-        <picture><source type="image/avif" srcset="classroom-collab-sm.avif 700w, classroom-collab-lg.avif 1400w" sizes="(max-width: 700px) 100vw, (max-width: 1100px) 50vw, 33vw" /><source type="image/webp" srcset="classroom-collab-sm.webp 700w, classroom-collab-lg.webp 1400w" sizes="(max-width: 700px) 100vw, (max-width: 1100px) 50vw, 33vw" /><img src="classroom-collab-sm.jpg" srcset="classroom-collab-sm.jpg 700w, classroom-collab-lg.jpg 1400w" sizes="(max-width: 700px) 100vw, (max-width: 1100px) 50vw, 33vw" alt="Two BrightSteps students working together at a desk" width="1400" height="1750" loading="lazy" decoding="async" /></picture>
-      </div>
+      <ul class="facts">
+        <li><strong>12+</strong><span>Qualified teachers</span></li>
+        <li><strong>20+</strong><span>Years average teaching experience</span></li>
+        <li><strong>15:1</strong><span>Student to teacher ratio</span></li>
+        <li><strong>10</strong><span>Levels, from Pre Nursery to Grade 7</span></li>
+      </ul>
     </div>
   </section>
 
-  <!-- ============ VALUES ============ -->
-  <section class="section section-alt" id="values">
-    <div class="container">
-      <div class="section-head reveal">
-        <p class="eyebrow">Our Approach</p>
+  <!-- ============ APPROACH ============ -->
+  <section class="section section-stone" id="values">
+    <div class="wrap approach">
+      <figure class="approach-photo" style="margin:0">
+        <picture><source type="image/avif" srcset="garden-seeds-sm.avif 700w, garden-seeds-lg.avif 1400w" sizes="(max-width: 860px) 100vw, 45vw" /><source type="image/webp" srcset="garden-seeds-sm.webp 700w, garden-seeds-lg.webp 1400w" sizes="(max-width: 860px) 100vw, 45vw" /><img src="garden-seeds-sm.jpg" srcset="garden-seeds-sm.jpg 700w, garden-seeds-lg.jpg 1400w" sizes="(max-width: 860px) 100vw, 45vw" alt="A BrightSteps student planting seeds in the school garden" width="1400" height="1750" loading="lazy" decoding="async" /></picture>
+      </figure>
+      <div>
+        <p class="kicker">Our approach</p>
         <h2>An inquiry driven education</h2>
-        <p>Our program combines inquiry based learning with the clarity and structure of rigorous academic standards, taught in English with French as a strong second language.</p>
-      </div>
-      <div class="values-grid">
-        <div class="value-card reveal" style="--swatch-color: var(--color-sky)">
-          <h3>Inquiry Based Learning</h3>
-          <p>Students ask questions, explore ideas, and make real world connections rather than memorize facts.</p>
-        </div>
-        <div class="value-card reveal" style="--swatch-color: var(--color-berry)">
-          <h3>Academic Rigor</h3>
-          <p>A clear, structured curriculum builds strong foundations in literacy, mathematics, and critical thinking.</p>
-        </div>
-        <div class="value-card reveal" style="--swatch-color: var(--color-marigold)">
-          <h3>A Strong Foundation in French</h3>
-          <p>English medium instruction paired with French as a second language from the earliest years.</p>
-        </div>
+        <p class="approach-intro">Our program combines inquiry based learning with the clarity and structure of rigorous academic standards, taught in English with French as a strong second language.</p>
+        <ul class="pillars">
+          <li><h3>Inquiry based learning</h3><p>Students ask questions, explore ideas, and make real world connections rather than memorize facts.</p></li>
+          <li><h3>Academic rigor</h3><p>A clear, structured curriculum builds strong foundations in literacy, mathematics, and critical thinking.</p></li>
+          <li><h3>A strong foundation in French</h3><p>English medium instruction paired with French as a second language from the earliest years.</p></li>
+        </ul>
+        <p style="margin:32px 0 0"><a class="text-link" href="academic-approach.html">Explore our academic approach</a></p>
       </div>
     </div>
   </section>
 
-  <!-- ============ PROGRAMS ============ -->
-  <section class="section container" id="programs">
-    <div class="section-head reveal">
-      <p class="eyebrow">Programs</p>
-      <h2>From first words to first drafts</h2>
-      <p>Ten levels, one continuous journey. Admissions are open throughout the year.</p>
-    </div>
-    <div class="programs-grid">
-      <div class="program-card reveal block-sky">
+  <!-- ============ JOURNEY ============ -->
+  <section class="section" id="programs">
+    <div class="wrap">
+      <div class="journey-head">
         <div>
-          <span>Ages 2 to 5</span>
-          <h3>Pre Nursery, Pre Kindergarten, and Kindergarten</h3>
+          <p class="kicker">Programs</p>
+          <h2>From first words to first drafts</h2>
         </div>
-        <span>Play based early learning</span>
+        <p>Ten levels, one continuous journey. Admissions are open throughout the year.</p>
       </div>
-      <div class="program-card reveal block-berry">
-        <div>
-          <span>Grades 1 to 3</span>
-          <h3>Lower Primary</h3>
-        </div>
-        <span>Building strong foundations</span>
-      </div>
-      <div class="program-card reveal block-marigold">
-        <div>
-          <span>Grades 4 and 5</span>
-          <h3>Upper Primary</h3>
-        </div>
-        <span>Independent, confident thinkers</span>
-      </div>
-      <div class="program-card reveal" style="background:var(--color-ink)">
-        <div>
-          <span>Grades 6 and 7</span>
-          <h3>Middle School</h3>
-        </div>
-        <span>Character and academic depth</span>
-      </div>
+      <ol class="journey">
+        <li><span class="age">Ages 2 to 5</span><h3>Early Years</h3><p>Pre Nursery, Pre Kindergarten, and Kindergarten. Play based early learning.</p></li>
+        <li><span class="age">Grades 1 to 3</span><h3>Lower Primary</h3><p>Building strong foundations.</p></li>
+        <li><span class="age">Grades 4 and 5</span><h3>Upper Primary</h3><p>Independent, confident thinkers.</p></li>
+        <li><span class="age">Grades 6 and 7</span><h3>Middle School</h3><p>Character and academic depth.</p></li>
+      </ol>
+      <p style="margin:56px 0 0"><a class="text-link" href="academic-program.html">See the academic program</a></p>
     </div>
   </section>
 
   <!-- ============ CAMPUS ============ -->
-  <section class="section section-alt">
-    <div class="container">
-      <div class="two-col">
-        <div class="hero-photo reveal">
-          <picture><source type="image/avif" srcset="campus-pool-sm.avif 700w, campus-pool-lg.avif 1400w" sizes="(max-width: 860px) 100vw, 50vw" /><source type="image/webp" srcset="campus-pool-sm.webp 700w, campus-pool-lg.webp 1400w" sizes="(max-width: 860px) 100vw, 50vw" /><img src="campus-pool-sm.jpg" srcset="campus-pool-sm.jpg 700w, campus-pool-lg.jpg 1400w" sizes="(max-width: 860px) 100vw, 50vw" alt="BrightSteps International School campus with swimming pool" width="1400" height="1750" loading="lazy" decoding="async" /></picture>
-        </div>
-        <div class="section-head reveal" style="margin:0">
-          <p class="eyebrow">Our Campus</p>
-          <h2>A bright, welcoming space to grow</h2>
-          <p>Our Grand-Bassam campus is built for children to explore safely, from the pool used for our swimming activities to bright, colorful classrooms designed for hands on learning.</p>
-        </div>
-      </div>
+  <section class="campus" aria-labelledby="campusTitle">
+    <figure class="campus-figure">
+      <picture><source type="image/avif" srcset="pool-edge-sm.avif 800w, pool-edge-lg.avif 1512w" sizes="100vw" /><source type="image/webp" srcset="pool-edge-sm.webp 800w, pool-edge-lg.webp 1512w" sizes="100vw" /><img src="pool-edge-sm.jpg" srcset="pool-edge-sm.jpg 800w, pool-edge-lg.jpg 1512w" sizes="100vw" alt="Young BrightSteps swimmers sitting at the edge of the school pool" width="1512" height="756" loading="lazy" decoding="async" /></picture>
+    </figure>
+    <div class="wrap campus-text">
+      <h2 id="campusTitle">A bright, welcoming space to grow</h2>
+      <p>Our Grand-Bassam campus is built for children to explore safely, from the pool used for our swimming activities to bright, colorful classrooms designed for hands on learning.</p>
     </div>
   </section>
 
-  <!-- ============ TESTIMONIAL ============ -->
-  <section class="section section-alt">
-    <div class="container">
-      <div class="section-head reveal">
-        <p class="eyebrow">From Our Families</p>
+  <!-- ============ FAMILIES ============ -->
+  <section class="section">
+    <div class="wrap families">
+      <div>
+        <p class="kicker">From our families</p>
         <h2>Hear from a BrightSteps parent</h2>
+        <p class="families-sub">A parent shares what BrightSteps means for their family.</p>
       </div>
-      <div class="video-wrap reveal">
-        <button type="button" class="video-poster-btn" id="videoPosterBtn" data-video-id="XLPoGndwifc" data-video-title="A BrightSteps parent testimonial" aria-label="Play video: A BrightSteps parent testimonial">
-          <img src="video-poster.jpg" alt="" width="1280" height="720" loading="lazy" decoding="async" />
-          <span class="video-play-icon" aria-hidden="true">&#9654;</span>
-        </button>
+      <div>
+        <div class="video-wrap">
+          <button type="button" class="video-poster-btn" id="videoPosterBtn" data-video-id="XLPoGndwifc" data-video-title="A BrightSteps parent testimonial" aria-label="Play video: A BrightSteps parent testimonial">
+            <img src="video-poster.jpg" alt="" width="1280" height="720" loading="lazy" decoding="async" />
+          </button>
+        </div>
+        <p class="video-privacy-note">Playing this video loads content from YouTube and connects to Google's servers. <a href="privacy-policy.html">Privacy Policy</a></p>
       </div>
-      <p class="video-privacy-note">Playing this video loads content from YouTube and connects to Google's servers. <a href="privacy-policy.html">Privacy Policy</a></p>
     </div>
   </section>
 
-  <!-- ============ ENROLL CTA ============ -->
-  <section class="section section-alt" id="enroll">
-    <div class="container" style="text-align:center">
-      <div class="section-head reveal" style="margin:0 auto">
-        <p class="eyebrow">Admissions</p>
+  <!-- ============ ENROLL ============ -->
+  <section class="enroll" id="enroll">
+    <div class="wrap enroll-inner">
+      <div>
+        <p class="kicker" style="color:var(--porcelain);opacity:.75">Admissions</p>
         <h2>Ready to enroll?</h2>
-        <p>Start your child's enrollment inquiry in just a few minutes.</p>
       </div>
-      <a class="btn btn-primary reveal" href="enroll.html" style="margin-top:12px">Start an enrollment inquiry</a>
+      <div class="enroll-actions">
+        <p>Start your child's enrollment inquiry in just a few minutes.</p>
+        <a class="btn btn-light" href="enroll.html">Start an enrollment inquiry</a>
+        <a class="text-link" href="https://wa.me/2250710110133?text=Hello%20BrightSteps%2C%20I%20have%20a%20question%20about%20enrollment." target="_blank" rel="noopener">Ask a question on WhatsApp</a>
+      </div>
     </div>
   </section>
 
 </main>
 
-
 <footer class="site-footer" id="contact">
-  <div class="container">
-    <div class="footer-grid">
+  <div class="wrap">
+    <div class="footer-top">
       <div>
-        <a class="nav-brand" href="#top" style="color:var(--color-paper)">
-          <img src="bis-logo.png" alt="BrightSteps International School logo" width="240" height="240" loading="lazy" decoding="async" />
-          <span class="nav-brand-text">
-            <span class="name">BrightSteps</span>
-            <span class="sub">International School</span>
-          </span>
+        <a class="nav-brand" href="index.html" aria-label="BrightSteps International School, home">
+          <img src="bis-logo.png" alt="" width="240" height="240" loading="lazy" decoding="async" />
+          <span class="nav-brand-text"><span class="name">BrightSteps</span><span class="sub">International School</span></span>
         </a>
-        <p style="margin-top:14px;max-width:36ch;color:rgba(254,253,251,0.7)">Grand-Bassam, Côte d'Ivoire</p>
-        <p class="footer-slogan">Learn. Grow. Lead.</p>
+        <p class="footer-address">Grand-Bassam, Côte d'Ivoire<br /><a href="tel:+2250710110133">+225 07 10 11 01 33</a><br /><a href="mailto:info@bischoolci.org">info@bischoolci.org</a></p>
       </div>
       <div>
-        <h2>Quick Links</h2>
+        <h2>About</h2>
         <ul>
           <li><a href="about-us.html">About Us</a></li>
           <li><a href="mission-vision.html">Mission and Vision</a></li>
-          <li><a href="admissions.html">Admissions</a></li>
           <li><a href="careers.html">Careers</a></li>
+          <li><a href="safeguarding.html">Safeguarding</a></li>
+        </ul>
+      </div>
+      <div>
+        <h2>Learning</h2>
+        <ul>
+          <li><a href="academic-approach.html">Academic Approach</a></li>
+          <li><a href="academic-program.html">Academic Program</a></li>
+          <li><a href="learning-support.html">Learning Support</a></li>
+          <li><a href="admissions.html">Admissions</a></li>
         </ul>
       </div>
       <div>
         <h2>School Life</h2>
         <ul>
-          <li><a href="blog.html">News & Events</a></li>
+          <li><a href="blog.html">News &amp; Events</a></li>
           <li><a href="school-calendar.html">School Calendar</a></li>
           <li><a href="asa.html">After School Activities</a></li>
           <li><a href="canteen.html">Canteen</a></li>
@@ -326,17 +293,15 @@
           <li><a href="https://instagram.com/brightstepssch">Instagram</a></li>
           <li><a href="https://tiktok.com/@brightstepssch">TikTok</a></li>
           <li><a href="https://wa.me/+2250710110133">WhatsApp</a></li>
-        </ul>
-      </div>
-      <div>
-        <h2>Legal</h2>
-        <ul>
-          <li><a href="privacy-policy.html">Privacy Policy</a></li>
-          <li><a href="terms-of-use.html">Terms of Use</a></li>
+          <li><a href="contact-us.html">Contact</a></li>
         </ul>
       </div>
     </div>
-    <div class="footer-bottom">© 2026 BrightSteps International School. All rights reserved.</div>
+    <div class="footer-bottom">
+      <span>© 2026 BrightSteps International School. All rights reserved.</span>
+      <span><a href="privacy-policy.html">Privacy Policy</a> &nbsp; <a href="terms-of-use.html">Terms of Use</a></span>
+      <span class="footer-slogan">Learn. Grow. Lead.</span>
+    </div>
   </div>
 </footer>
 
