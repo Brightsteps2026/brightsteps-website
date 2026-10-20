@@ -139,7 +139,7 @@ h3 { font-size: var(--step-2); letter-spacing: -0.01em; line-height: 1.15; }
 .nav-links > li > a,
 .nav-dropdown > button {
   display: inline-flex; align-items: center; gap: 6px;
-  height: 44px; padding: 0 14px;
+  height: 44px; padding: 0 clamp(8px, 0.9vw, 14px); white-space: nowrap;
   background: none; border: 0; font: inherit; color: var(--ink);
   text-decoration: none; cursor: pointer;
 }
@@ -198,7 +198,7 @@ h3 { font-size: var(--step-2); letter-spacing: -0.01em; line-height: 1.15; }
 .nav-toggle[aria-expanded="true"] .nav-toggle-bars::before { transform: translateY(6px) rotate(45deg); }
 .nav-toggle[aria-expanded="true"] .nav-toggle-bars::after { transform: translateY(-6px) rotate(-45deg); }
 
-@media (max-width: 1100px) {
+@media (max-width: 1260px) {
   :root { --header-h: 72px; }
   .nav-brand img { width: 44px; height: 44px; }
   .nav-brand-text .name { font-size: 1.4rem; }
