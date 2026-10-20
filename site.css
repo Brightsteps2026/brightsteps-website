@@ -30,7 +30,7 @@
   --step-2: clamp(1.5rem, 1.2rem + 1vw, 1.875rem);
   --step-3: clamp(2rem, 1.4rem + 2.2vw, 3rem);
   --step-4: clamp(2.5rem, 1.6rem + 3.6vw, 4.5rem);
-  --step-hero: clamp(4.25rem, 2rem + 9vw, 10.5rem);
+  --step-hero: clamp(3.5rem, 1.5rem + 5vw, 6.5rem);
 
   /* Space */
   --gutter: clamp(20px, 5vw, 64px);
@@ -235,13 +235,13 @@ h3 { font-size: var(--step-2); letter-spacing: -0.01em; line-height: 1.15; }
   background: var(--maroon);
   color: var(--porcelain);
   display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(0, 1.05fr);
-  min-height: min(calc(100svh - var(--header-h)), 900px);
+  grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
+  min-height: min(calc(100svh - var(--header-h)), 680px);
 }
 
 .hero-text {
   display: flex; flex-direction: column; justify-content: flex-end;
-  padding: clamp(48px, 7vw, 104px) var(--gutter) clamp(40px, 6vw, 88px);
+  padding: clamp(40px, 5vw, 64px) var(--gutter) clamp(36px, 4vw, 56px);
   padding-left: max(var(--gutter), calc((100vw - var(--max)) / 2 + var(--gutter)));
 }
 
@@ -250,19 +250,20 @@ h3 { font-size: var(--step-2); letter-spacing: -0.01em; line-height: 1.15; }
   line-height: 0.88;
   letter-spacing: -0.045em;
   font-weight: 400;
-  margin: 0 0 clamp(28px, 4vw, 48px);
+  margin: 0 0 clamp(20px, 2.5vw, 32px);
 }
 .hero-slogan span { display: block; }
 
 .hero-lede {
-  font-size: var(--step-1); line-height: 1.5; max-width: 30ch;
-  color: var(--porcelain); opacity: 0.88; margin-bottom: 32px;
+  font-size: 1.125rem; line-height: 1.5; max-width: 34ch;
+  color: var(--porcelain); opacity: 0.88; margin-bottom: 24px;
 }
 
-.hero-actions { display: flex; flex-wrap: wrap; gap: 12px; }
+.hero-actions { display: flex; flex-wrap: wrap; gap: 10px; }
+.hero-actions .btn { padding: 0 22px; }
 
 .hero-note {
-  margin: clamp(32px, 4vw, 56px) 0 0; padding-top: 20px;
+  margin: clamp(24px, 3vw, 36px) 0 0; padding-top: 16px;
   border-top: 1px solid var(--line-light);
   font-size: var(--step--1); opacity: 0.8; max-width: 44ch;
 }
@@ -271,7 +272,7 @@ h3 { font-size: var(--step-2); letter-spacing: -0.01em; line-height: 1.15; }
 .hero-slide {
   position: absolute; inset: 0;
   background-size: cover; background-position: center;
-  opacity: 0; transform: scale(1.04);
+  opacity: 0; transform: scale(1.015);
   transition: opacity 1.4s ease, transform 7s ease;
 }
 .hero-slide.active { opacity: 1; transform: scale(1); }
@@ -304,7 +305,7 @@ h3 { font-size: var(--step-2); letter-spacing: -0.01em; line-height: 1.15; }
 
 @media (max-width: 900px) {
   .hero { grid-template-columns: 1fr; min-height: 0; }
-  .hero-media { order: -1; aspect-ratio: 4 / 3; }
+  .hero-media { order: -1; aspect-ratio: 3 / 2; }
   .hero-text { padding: 44px var(--gutter) 48px; }
   .hero-slogan { line-height: 0.9; }
 }
@@ -391,7 +392,7 @@ h3 { font-size: var(--step-2); letter-spacing: -0.01em; line-height: 1.15; }
 /* Campus band */
 .campus { background: var(--maroon-ink); color: var(--porcelain); }
 .campus-figure { margin: 0; position: relative; }
-.campus-figure img { width: 100%; height: clamp(360px, 52vw, 720px); object-fit: cover; }
+.campus-figure img { width: 100%; height: auto; aspect-ratio: 1400 / 385; min-height: 200px; object-fit: cover; object-position: center 70%; }
 .campus-text {
   display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: clamp(32px, 6vw, 96px);
   padding-top: clamp(48px, 6vw, 88px); padding-bottom: var(--section);
