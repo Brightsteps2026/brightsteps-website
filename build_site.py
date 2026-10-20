@@ -21,7 +21,7 @@ import sys
 from pathlib import Path
 
 SITE_CSS_V = 7
-PAGES_CSS_V = 5
+PAGES_CSS_V = 6
 
 ROOT = Path(__file__).resolve().parent
 FONTS = ('<link rel="preconnect" href="https://fonts.googleapis.com" />\n'
