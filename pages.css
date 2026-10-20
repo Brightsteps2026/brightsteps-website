@@ -1283,3 +1283,20 @@ h2 { text-wrap: balance; }
 @media (max-width: 1100px) { .values-grid-photos { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
 @media (max-width: 860px) { .values-grid-photos { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 @media (max-width: 560px) { .values-grid-photos { grid-template-columns: 1fr; } }
+
+/* Inquiry cycle on Academic Approach: a real sequence, so it is numbered */
+.inquiry-steps { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 0; border-top: 1px solid var(--ink); }
+.inquiry-steps li { padding: 28px 24px 8px 0; border-right: 1px solid var(--line); margin-right: 24px; }
+.inquiry-steps li:last-child { border-right: 0; margin-right: 0; }
+.inquiry-num { display: block; font-family: var(--serif); font-size: var(--step-3); line-height: 1; color: var(--maroon); margin-bottom: 18px; }
+.inquiry-steps h3 { font-size: var(--step-1); margin-bottom: 8px; }
+.inquiry-steps p { color: var(--ink-soft); margin: 0; font-size: 0.97rem; }
+@media (max-width: 900px) {
+  .inquiry-steps { grid-template-columns: 1fr; }
+  .inquiry-steps li { display: grid; grid-template-columns: 56px 1fr; column-gap: 12px; border-right: 0; margin-right: 0; padding: 20px 0; border-bottom: 1px solid var(--line); }
+  .inquiry-num { grid-row: span 2; margin: 0; }
+}
+.approach-beyond { align-items: center; }
+.approach-beyond figure { margin: 0; }
+.approach-beyond img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; }
+.approach-beyond h2 { font-size: var(--step-3); }
