@@ -389,17 +389,18 @@ h3 { font-size: var(--step-2); letter-spacing: -0.01em; line-height: 1.15; }
   .journey li::before { left: -36px; top: 6px; }
 }
 
-/* Campus band */
-.campus { background: var(--maroon-ink); color: var(--porcelain); }
-.campus-figure { margin: 0; position: relative; }
-.campus-figure img { width: 100%; height: auto; max-height: 600px; aspect-ratio: 12 / 5; min-height: 220px; object-fit: cover; object-position: center 45%; }
-.campus-text {
-  display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: clamp(32px, 6vw, 96px);
-  padding-top: clamp(48px, 6vw, 88px); padding-bottom: var(--section);
+/* Campus band: text beside the entrance photo, shown whole */
+.campus { background: var(--maroon-ink); color: var(--porcelain); padding: var(--section) 0; }
+.campus-inner { display: grid; grid-template-columns: minmax(0, 6fr) minmax(0, 5fr); gap: clamp(40px, 7vw, 112px); align-items: center; }
+.campus-text h2 { margin: 0 0 28px; max-width: 13ch; }
+.campus-text p { color: rgba(253, 252, 250, 0.82); font-size: var(--step-1); line-height: 1.55; margin: 0; max-width: 44ch; }
+.campus-figure { margin: 0; }
+.campus-figure img { width: 100%; height: auto; max-height: 680px; aspect-ratio: 1260 / 1567; object-fit: cover; object-position: center bottom; }
+@media (max-width: 860px) {
+  .campus-inner { grid-template-columns: 1fr; }
+  .campus-figure { order: -1; }
+  .campus-figure img { max-height: 520px; }
 }
-.campus-text h2 { margin: 0; max-width: 13ch; }
-.campus-text p { color: rgba(253, 252, 250, 0.82); font-size: var(--step-1); line-height: 1.55; margin: 0; max-width: 44ch; align-self: end; }
-@media (max-width: 860px) { .campus-text { grid-template-columns: 1fr; } }
 
 /* Families */
 .families { display: grid; grid-template-columns: minmax(0, 4fr) minmax(0, 7fr); gap: clamp(40px, 6vw, 96px); align-items: center; }
