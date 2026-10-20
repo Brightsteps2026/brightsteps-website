@@ -422,7 +422,7 @@ h3 { font-size: var(--step-2); letter-spacing: -0.01em; line-height: 1.15; }
 /* ---------- Footer ---------- */
 
 .site-footer { background: var(--maroon-ink); color: rgba(253, 252, 250, 0.78); padding: clamp(64px, 8vw, 112px) 0 32px; font-size: 0.97rem; }
-.footer-top { display: grid; grid-template-columns: minmax(0, 4fr) repeat(4, minmax(0, 2fr)); gap: 40px; }
+.footer-top { display: grid; grid-template-columns: minmax(0, 3fr) repeat(5, minmax(0, 2fr)); gap: 36px; }
 .site-footer .nav-brand { color: var(--porcelain); }
 .site-footer .nav-brand-text .sub { color: rgba(253, 252, 250, 0.6); }
 .footer-address { margin: 24px 0 0; line-height: 1.7; }
@@ -438,7 +438,8 @@ h3 { font-size: var(--step-2); letter-spacing: -0.01em; line-height: 1.15; }
   display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; font-size: var(--step--1);
 }
 .footer-slogan { font-family: var(--serif); color: var(--porcelain); font-size: 1.05rem; }
-@media (max-width: 980px) { .footer-top { grid-template-columns: repeat(2, minmax(0, 1fr)); } .footer-top > :first-child { grid-column: 1 / -1; } }
+@media (max-width: 1100px) { .footer-top { grid-template-columns: repeat(3, minmax(0, 1fr)); } .footer-top > :first-child { grid-column: 1 / -1; } }
+@media (max-width: 640px) { .footer-top { grid-template-columns: repeat(2, minmax(0, 1fr)); } .footer-top > :first-child { grid-column: 1 / -1; } }
 
 /* ---------- WhatsApp ---------- */
 
