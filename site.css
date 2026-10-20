@@ -392,7 +392,7 @@ h3 { font-size: var(--step-2); letter-spacing: -0.01em; line-height: 1.15; }
 /* Campus band */
 .campus { background: var(--maroon-ink); color: var(--porcelain); }
 .campus-figure { margin: 0; position: relative; }
-.campus-figure img { width: 100%; height: auto; aspect-ratio: 1400 / 385; min-height: 200px; object-fit: cover; object-position: center 70%; }
+.campus-figure img { width: 100%; height: auto; max-height: 600px; aspect-ratio: 12 / 5; min-height: 220px; object-fit: cover; object-position: center 45%; }
 .campus-text {
   display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: clamp(32px, 6vw, 96px);
   padding-top: clamp(48px, 6vw, 88px); padding-bottom: var(--section);
