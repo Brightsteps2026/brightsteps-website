@@ -1300,3 +1300,6 @@ h2 { text-wrap: balance; }
 .approach-beyond figure { margin: 0; }
 .approach-beyond img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; }
 .approach-beyond h2 { font-size: var(--step-3); }
+
+/* Academic Approach: "Learning at every stage" photos are portrait so whole students fit */
+.stage-grid .photo-card picture::before { padding-top: 125%; }
