@@ -20,7 +20,7 @@ import re
 import sys
 from pathlib import Path
 
-SITE_CSS_V = 14
+SITE_CSS_V = 15
 PAGES_CSS_V = 8
 
 ROOT = Path(__file__).resolve().parent
