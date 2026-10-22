@@ -393,6 +393,20 @@ h3 { font-size: var(--step-2); letter-spacing: -0.01em; line-height: 1.15; }
   .campus-figure img { max-height: 520px; }
 }
 
+/* Parent voices strip */
+.voices { background: var(--stone); padding: clamp(36px, 5vw, 64px) 0; }
+.voices-inner { display: grid; grid-template-columns: minmax(0, 2fr) minmax(0, 8fr) auto; gap: clamp(24px, 4vw, 56px); align-items: center; }
+.voices-inner .kicker { margin: 0; }
+.voices-list { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: clamp(24px, 4vw, 48px); }
+.voice { margin: 0; padding-left: 18px; border-left: 3px solid var(--maroon); }
+.voice blockquote { margin: 0; }
+.voice blockquote p { font-family: var(--serif); font-size: var(--step-1); line-height: 1.4; color: var(--ink); margin: 0; }
+.voice figcaption { margin-top: 10px; font-size: var(--step--1); color: var(--ink-soft); }
+.voices-inner .text-link { white-space: nowrap; }
+#families { scroll-margin-top: var(--header-h); }
+@media (max-width: 1000px) { .voices-inner { grid-template-columns: 1fr; gap: 20px; } .voices-inner .text-link { justify-self: start; } }
+@media (max-width: 640px) { .voices-list { grid-template-columns: 1fr; gap: 20px; } }
+
 /* Families */
 .families { display: grid; grid-template-columns: minmax(0, 4fr) minmax(0, 7fr); gap: clamp(40px, 6vw, 96px); align-items: center; }
 .families h2 { max-width: 12ch; }
