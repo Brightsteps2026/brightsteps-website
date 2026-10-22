@@ -526,14 +526,9 @@ function loadHeroBackground(slide) {
   if (!slide) return;
   const jpg = heroUrl(slide.dataset.bgJpg);
   if (!jpg) return; // already loaded (or is the eager first slide)
-  if (supportsImageSet) {
-    const avif = heroUrl(slide.dataset.bgAvif);
-    const webp = heroUrl(slide.dataset.bgWebp);
-    slide.style.backgroundImage =
-      `image-set(url('${avif}') type('image/avif'), url('${webp}') type('image/webp'), url('${jpg}') type('image/jpeg'))`;
-  } else {
-    slide.style.backgroundImage = `url('${jpg}')`;
-  }
+  // Plain JPEG on purpose: some browsers report image-set() support but then
+  // fail to show the AVIF/WebP choice, leaving blank slides.
+  slide.style.backgroundImage = `url('${jpg}')`;
   delete slide.dataset.bgJpg;
   delete slide.dataset.bgWebp;
   delete slide.dataset.bgAvif;
