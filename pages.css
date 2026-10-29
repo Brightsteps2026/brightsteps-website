@@ -907,6 +907,23 @@
   font-weight: 500;
 }
 
+.tuition-table tbody tr.tuition-group,
+.tuition-table tbody tr.tuition-group:hover {
+  background: var(--color-paper);
+}
+
+.tuition-table tr.tuition-group th {
+  padding: 18px 26px 8px;
+  font-family: var(--font-nav);
+  font-weight: 600;
+  font-size: 0.74rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: rgba(27, 27, 47, 0.85);
+  background: transparent;
+  border-bottom: 1px solid var(--color-line);
+}
+
 /* ---------- Canteen pricing ---------- */
 
 .canteen-pricing {
