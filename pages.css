@@ -1323,7 +1323,8 @@ h2 { text-wrap: balance; }
 
 /* Three column tuition tables: section, grade, amount */
 .tuition-table th.tuition-division {
-  vertical-align: top;
+  vertical-align: middle;
+  text-align: center;
   font-family: var(--font-nav);
   font-weight: 600;
   font-size: 0.74rem;
