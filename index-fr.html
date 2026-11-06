@@ -31,8 +31,9 @@
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
-<link rel="preload" as="image" href="student-portrait-lg.jpg" />
-<link rel="stylesheet" href="site.css?v=15" />
+<link rel="preload" as="image" href="student-portrait-sm.jpg" media="(max-width: 899px)" />
+<link rel="preload" as="image" href="student-portrait-lg.jpg" media="(min-width: 900px)" />
+<link rel="stylesheet" href="site.css?v=16" />
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -45,9 +46,11 @@
   "telephone": "+225 07 10 11 01 33",
   "address": {
     "@type": "PostalAddress",
+    "streetAddress": "Mockeyville, near the Château d'Eau",
     "addressLocality": "Grand-Bassam",
     "addressCountry": "CI"
   },
+  "openingHours": "Mo-Fr 08:00-15:00",
   "sameAs": [
     "https://facebook.com/brightstepssch",
     "https://instagram.com/brightstepssch",
@@ -127,7 +130,7 @@
       </div>
     </div>
     <div class="hero-media">
-    <div class="hero-slide active" style="background-image:url('student-portrait-lg.jpg');background-position:50% 0%"></div>
+    <div class="hero-slide hero-slide-first active" style="background-position:50% 0%"></div>
     <div class="hero-slide" style="background-position:50% 40%" data-bg-jpg="books-reader-lg.jpg" data-bg-webp="books-reader-lg.webp" data-bg-avif="books-reader-lg.avif"></div>
     <div class="hero-slide" style="background-position:62% 45%" data-bg-jpg="classroom-portrait-lg.jpg" data-bg-webp="classroom-portrait-lg.webp" data-bg-avif="classroom-portrait-lg.avif"></div>
     <div class="hero-slide" style="background-position:50% 50%" data-bg-jpg="desk-smile-lg.jpg" data-bg-webp="desk-smile-lg.webp" data-bg-avif="desk-smile-lg.avif"></div>

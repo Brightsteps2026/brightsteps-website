@@ -479,3 +479,7 @@ h3 { font-size: var(--step-2); letter-spacing: -0.01em; line-height: 1.15; }
   .whatsapp-bubble { width: 56px; height: 56px; padding: 0; justify-content: center; border-radius: 50%; }
   .whatsapp-bubble-label { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }
 }
+
+/* First homepage slide: small photo on phones, large on wider screens */
+.hero-slide-first { background-image: url('student-portrait-sm.jpg'); }
+@media (min-width: 900px) { .hero-slide-first { background-image: url('student-portrait-lg.jpg'); } }

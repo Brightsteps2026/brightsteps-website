@@ -351,7 +351,7 @@
 .form-privacy-note {
   font-family: var(--font-mono);
   font-size: 0.78rem;
-  color: rgba(27, 27, 47, 0.62);
+  color: rgba(27, 27, 47, 0.72);
   max-width: 52ch;
   line-height: 1.5;
   margin: 14px 0 0;
@@ -643,7 +643,7 @@
   font-family: var(--font-mono);
   font-size: 0.65rem;
   letter-spacing: 0.08em;
-  color: rgba(27, 27, 47, 0.6);
+  color: rgba(27, 27, 47, 0.72);
   margin-top: 2px;
 }
 
@@ -779,7 +779,7 @@
   font-family: var(--font-nav);
   font-style: normal;
   font-size: 0.8rem;
-  color: rgba(27, 27, 47, 0.6);
+  color: rgba(27, 27, 47, 0.72);
   letter-spacing: 0.04em;
   text-transform: none;
 }
@@ -822,7 +822,7 @@
   border: none;
   font-family: var(--font-nav);
   font-size: 0.78rem;
-  color: rgba(27, 27, 47, 0.5);
+  color: rgba(27, 27, 47, 0.72);
   cursor: pointer;
   text-decoration: underline;
 }
@@ -889,7 +889,7 @@
   font-weight: 500;
   font-size: 0.78rem;
   letter-spacing: 0.04em;
-  color: rgba(27, 27, 47, 0.55);
+  color: rgba(27, 27, 47, 0.72);
   background: var(--color-sky-tint);
 }
 
@@ -980,7 +980,7 @@
   font-weight: 500;
   font-size: 0.7rem;
   letter-spacing: 0.04em;
-  color: rgba(27, 27, 47, 0.55);
+  color: rgba(27, 27, 47, 0.72);
   margin-left: 3px;
 }
 
@@ -992,7 +992,7 @@
   font-size: 0.78rem;
   letter-spacing: 0.04em;
   text-transform: none;
-  color: rgba(27, 27, 47, 0.65);
+  color: rgba(27, 27, 47, 0.72);
 }
 
 .canteen-pricing-note {
@@ -1115,7 +1115,7 @@
 .life-card-date {
   font-family: var(--font-mono);
   font-size: 0.78rem;
-  color: rgba(27, 27, 47, 0.55);
+  color: rgba(27, 27, 47, 0.72);
 }
 
 .life-card-body h2 {
@@ -1349,3 +1349,10 @@ h2 { text-wrap: balance; }
   .tuition-table th, .tuition-table td { padding: 12px 12px; }
   .tuition-table th.tuition-division { white-space: normal; font-size: 0.68rem; }
 }
+
+/* Audit Nov 2026: accessible contrast for the Event tag and text only activity cards */
+.life-tag-event { background: #1F6FA3; }
+.photo-card-text { background: var(--color-sky-tint); }
+.photo-card-text .photo-card-body { padding: 30px 26px 34px; }
+.table-scroll:focus-visible { outline: 2px solid var(--maroon); outline-offset: 2px; }
+.date-tag-break { background: #4A7558; }

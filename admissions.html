@@ -31,8 +31,8 @@
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
-<link rel="stylesheet" href="site.css?v=15" />
-<link rel="stylesheet" href="pages.css?v=11" />
+<link rel="stylesheet" href="site.css?v=16" />
+<link rel="stylesheet" href="pages.css?v=12" />
 </head>
 <body>
 <a class="skip-link" href="#main">Skip to main content</a>
@@ -117,7 +117,7 @@
 
     <div class="tuition-card reveal">
       <div class="tuition-card-header"><span class="plan-name">Annual Tuition</span><span class="plan-note">Standard rate, before any discount</span></div>
-      <div class="table-scroll">
+      <div class="table-scroll" tabindex="0" role="region" aria-label="Fee table, scrolls sideways">
       <table class="tuition-table">
         <thead>
           <tr><th scope="col">Section</th><th>Grade</th><th>Annual Tuition (FCFA)</th></tr>
@@ -149,7 +149,7 @@
 
     <div class="tuition-card reveal">
       <div class="tuition-card-header"><span class="plan-name">Full Payment</span><span class="plan-note">5% discount, tuition only</span></div>
-      <div class="table-scroll">
+      <div class="table-scroll" tabindex="0" role="region" aria-label="Fee table, scrolls sideways">
       <table class="tuition-table">
         <thead><tr><th scope="col">Section</th><th>Grade</th><th>Full Tuition Payment (FCFA)</th></tr></thead>
         <tbody>
@@ -165,24 +165,24 @@
         </tbody>
       </table>
       </div>
-      <p style="padding:0 26px 20px;font-family:var(--font-nav);font-size:0.8rem;color:rgba(27,27,47,0.6)">Plus the registration fee: 150,000 FCFA for new students, 125,000 FCFA for returning students.</p>
+      <p style="padding:0 26px 20px;font-family:var(--font-nav);font-size:0.8rem;color:rgba(27,27,47,0.72)">Plus the registration fee: 150,000 FCFA for new students, 125,000 FCFA for returning students.</p>
     </div>
 
     <div class="tuition-card reveal">
       <div class="tuition-card-header"><span class="plan-name">2 Installments</span><span class="plan-note">3% discount</span></div>
-      <div class="table-scroll">
+      <div class="table-scroll" tabindex="0" role="region" aria-label="Fee table, scrolls sideways">
       <table class="tuition-table">
         <thead><tr><th scope="col">Section</th><th>Grade</th><th>Payment 1, at Registration (FCFA)</th><th>Payment 2, January 30 (FCFA)</th></tr></thead>
         <tbody>
-          <tr class="group-start"><th scope="rowgroup" rowspan="3" class="tuition-division">ECC</th><td class="grade">Pre Nursery</td><td>825,000</td><td>675,000</td></tr>
-          <tr><td class="grade">Pre K</td><td>875,000</td><td>725,000</td></tr>
-          <tr><td class="grade">Kindergarten</td><td>925,000</td><td>775,000</td></tr>
-          <tr class="group-start"><th scope="rowgroup" rowspan="5" class="tuition-division">Primary</th><td class="grade">Grade 1</td><td>975,000</td><td>825,000</td></tr>
-          <tr><td class="grade">Grade 2</td><td>1,025,000</td><td>875,000</td></tr>
-          <tr><td class="grade">Grade 3</td><td>1,075,000</td><td>925,000</td></tr>
-          <tr><td class="grade">Grade 4</td><td>1,125,000</td><td>975,000</td></tr>
-          <tr><td class="grade">Grade 5</td><td>1,150,000</td><td>1,000,000</td></tr>
-          <tr class="group-start"><th scope="rowgroup" rowspan="1" class="tuition-division">Middle School</th><td class="grade">Grade 6 and Grade 7</td><td>1,250,000</td><td>1,100,000</td></tr>
+          <tr class="group-start"><th scope="rowgroup" rowspan="3" class="tuition-division">ECC</th><td class="grade">Pre Nursery</td><td>805,000</td><td>654,500</td></tr>
+          <tr><td class="grade">Pre K</td><td>853,500</td><td>703,000</td></tr>
+          <tr><td class="grade">Kindergarten</td><td>902,000</td><td>751,500</td></tr>
+          <tr class="group-start"><th scope="rowgroup" rowspan="5" class="tuition-division">Primary</th><td class="grade">Grade 1</td><td>950,500</td><td>800,000</td></tr>
+          <tr><td class="grade">Grade 2</td><td>999,000</td><td>848,500</td></tr>
+          <tr><td class="grade">Grade 3</td><td>1,047,500</td><td>897,000</td></tr>
+          <tr><td class="grade">Grade 4</td><td>1,096,000</td><td>945,500</td></tr>
+          <tr><td class="grade">Grade 5</td><td>1,120,000</td><td>970,000</td></tr>
+          <tr class="group-start"><th scope="rowgroup" rowspan="1" class="tuition-division">Middle School</th><td class="grade">Grade 6 and Grade 7</td><td>1,217,000</td><td>1,067,000</td></tr>
         </tbody>
       </table>
       </div>
@@ -190,19 +190,19 @@
 
     <div class="tuition-card reveal">
       <div class="tuition-card-header"><span class="plan-name">3 Installments</span><span class="plan-note">2% discount</span></div>
-      <div class="table-scroll">
+      <div class="table-scroll" tabindex="0" role="region" aria-label="Fee table, scrolls sideways">
       <table class="tuition-table">
-        <thead><tr><th scope="col">Section</th><th>Grade</th><th>Payment 1, at Registration (FCFA)</th><th>Payment 2, October 30 (FCFA)</th><th>Payment 3, January 30 (FCFA)</th></tr></thead>
+        <thead><tr><th scope="col">Section</th><th>Grade</th><th>Payment 1, at Registration (FCFA)</th><th>Payment 2, October 31 (FCFA)</th><th>Payment 3, January 30 (FCFA)</th></tr></thead>
         <tbody>
-          <tr class="group-start"><th scope="rowgroup" rowspan="3" class="tuition-division">ECC</th><td class="grade">Pre Nursery</td><td>600,000</td><td>450,000</td><td>450,000</td></tr>
-          <tr><td class="grade">Pre K</td><td>633,000</td><td>483,000</td><td>483,000</td></tr>
-          <tr><td class="grade">Kindergarten</td><td>666,500</td><td>516,500</td><td>516,500</td></tr>
-          <tr class="group-start"><th scope="rowgroup" rowspan="5" class="tuition-division">Primary</th><td class="grade">Grade 1</td><td>700,000</td><td>550,000</td><td>550,000</td></tr>
-          <tr><td class="grade">Grade 2</td><td>733,000</td><td>583,000</td><td>583,000</td></tr>
-          <tr><td class="grade">Grade 3</td><td>766,500</td><td>616,500</td><td>616,500</td></tr>
-          <tr><td class="grade">Grade 4</td><td>800,000</td><td>650,000</td><td>650,000</td></tr>
-          <tr><td class="grade">Grade 5</td><td>816,500</td><td>666,500</td><td>666,500</td></tr>
-          <tr class="group-start"><th scope="rowgroup" rowspan="1" class="tuition-division">Middle School</th><td class="grade">Grade 6 and Grade 7</td><td>883,000</td><td>733,000</td><td>733,000</td></tr>
+          <tr class="group-start"><th scope="rowgroup" rowspan="3" class="tuition-division">ECC</th><td class="grade">Pre Nursery</td><td>591,000</td><td>441,000</td><td>441,000</td></tr>
+          <tr><td class="grade">Pre K</td><td>624,000</td><td>473,500</td><td>473,500</td></tr>
+          <tr><td class="grade">Kindergarten</td><td>657,000</td><td>506,000</td><td>506,000</td></tr>
+          <tr class="group-start"><th scope="rowgroup" rowspan="5" class="tuition-division">Primary</th><td class="grade">Grade 1</td><td>689,000</td><td>539,000</td><td>539,000</td></tr>
+          <tr><td class="grade">Grade 2</td><td>722,000</td><td>571,500</td><td>571,500</td></tr>
+          <tr><td class="grade">Grade 3</td><td>755,000</td><td>604,000</td><td>604,000</td></tr>
+          <tr><td class="grade">Grade 4</td><td>787,000</td><td>637,000</td><td>637,000</td></tr>
+          <tr><td class="grade">Grade 5</td><td>804,000</td><td>653,000</td><td>653,000</td></tr>
+          <tr class="group-start"><th scope="rowgroup" rowspan="1" class="tuition-division">Middle School</th><td class="grade">Grade 6 and Grade 7</td><td>869,000</td><td>718,500</td><td>718,500</td></tr>
         </tbody>
       </table>
       </div>
@@ -210,7 +210,7 @@
 
     <div class="tuition-card reveal">
       <div class="tuition-card-header"><span class="plan-name">4 Installments</span><span class="plan-note">No discount</span></div>
-      <div class="table-scroll">
+      <div class="table-scroll" tabindex="0" role="region" aria-label="Fee table, scrolls sideways">
       <table class="tuition-table">
         <thead><tr><th scope="col">Section</th><th>Grade</th><th>Payment 1, at Registration (FCFA)</th><th>Payment 2, October 31 (FCFA)</th><th>Payment 3, January 30 (FCFA)</th><th>Payment 4, March 31 (FCFA)</th></tr></thead>
         <tbody>
