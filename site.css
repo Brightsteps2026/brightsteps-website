@@ -484,3 +484,14 @@ h3 { font-size: var(--step-2); letter-spacing: -0.01em; line-height: 1.15; }
 .hero-slide-first { background-image: url('student-portrait-sm.jpg'); }
 @media (min-width: 900px) { .hero-slide-first { background-image: url('student-portrait-lg.jpg'); } }
 .video-poster-btn picture { display: block; width: 100%; height: 100%; }
+
+/* ---------- Brand bands (Nov 2026): white pages, deep maroon moments, gold accents ---------- */
+:root { --gold: #E9B872; --line-on-dark: rgba(253, 252, 250, 0.24); }
+.voices { background: var(--porcelain); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+.section-maroon { background: var(--maroon); color: var(--porcelain); }
+.section-maroon .kicker { color: var(--gold); }
+.section-maroon h2, .section-maroon h3 { color: var(--porcelain); }
+.section-maroon p, .section-maroon .approach-intro, .section-maroon .pillars p { color: rgba(253, 252, 250, 0.84); }
+.section-maroon .pillars li { border-color: var(--line-on-dark); }
+.section-maroon .text-link { color: var(--porcelain); }
+.section-maroon a:focus-visible { outline-color: var(--gold); }

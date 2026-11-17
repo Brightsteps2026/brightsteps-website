@@ -1370,3 +1370,7 @@ h2 { text-wrap: balance; }
 .fee-plans[open] > summary::after { content: '\2212'; }
 .fee-plans > summary:hover { background: var(--maroon); color: var(--porcelain); }
 .fee-plans[open] > summary { margin-bottom: 28px; }
+
+/* Nov 2026: alternate sections are white, separated by fine rules (maroon is reserved for hero, key bands and footer) */
+.section-alt { background: var(--porcelain); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+.section-alt + .section-alt { border-top: 0; }
