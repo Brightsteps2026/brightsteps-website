@@ -483,3 +483,4 @@ h3 { font-size: var(--step-2); letter-spacing: -0.01em; line-height: 1.15; }
 /* First homepage slide: small photo on phones, large on wider screens */
 .hero-slide-first { background-image: url('student-portrait-sm.jpg'); }
 @media (min-width: 900px) { .hero-slide-first { background-image: url('student-portrait-lg.jpg'); } }
+.video-poster-btn picture { display: block; width: 100%; height: 100%; }

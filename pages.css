@@ -1356,3 +1356,17 @@ h2 { text-wrap: balance; }
 .photo-card-text .photo-card-body { padding: 30px 26px 34px; }
 .table-scroll:focus-visible { outline: 2px solid var(--maroon); outline-offset: 2px; }
 .date-tag-break { background: #4A7558; }
+
+/* Admissions: payment plan tables folded behind one toggle */
+.fee-plans { margin: 8px 0 40px; }
+.fee-plans > summary {
+  list-style: none; cursor: pointer; display: inline-flex; align-items: center; gap: 10px;
+  padding: 12px 20px; border: 1px solid var(--maroon); color: var(--maroon);
+  font-family: var(--sans); font-weight: 600; font-size: 0.95rem; border-radius: 4px;
+  transition: background 0.15s ease, color 0.15s ease;
+}
+.fee-plans > summary::-webkit-details-marker { display: none; }
+.fee-plans > summary::after { content: '+'; font-size: 1.2rem; line-height: 1; }
+.fee-plans[open] > summary::after { content: '\2212'; }
+.fee-plans > summary:hover { background: var(--maroon); color: var(--porcelain); }
+.fee-plans[open] > summary { margin-bottom: 28px; }
