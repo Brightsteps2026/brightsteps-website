@@ -495,3 +495,4 @@ h3 { font-size: var(--step-2); letter-spacing: -0.01em; line-height: 1.15; }
 .section-maroon .pillars li { border-color: var(--line-on-dark); }
 .section-maroon .text-link { color: var(--porcelain); }
 .section-maroon a:focus-visible { outline-color: var(--gold); }
+.whatsapp-bubble { box-shadow: 0 0 0 2px rgba(253, 252, 250, 0.95), 0 14px 30px -12px rgba(42, 7, 14, 0.55); }
