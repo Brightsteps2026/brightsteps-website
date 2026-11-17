@@ -1374,3 +1374,18 @@ h2 { text-wrap: balance; }
 /* Nov 2026: alternate sections are white, separated by fine rules (maroon is reserved for hero, key bands and footer) */
 .section-alt { background: var(--porcelain); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
 .section-alt + .section-alt { border-top: 0; }
+
+/* Admissions: next school year notice */
+.next-year-note {
+  margin: 0 0 56px; padding: clamp(24px, 4vw, 40px);
+  background: var(--porcelain); border: 1px solid var(--line); border-left: 4px solid var(--maroon);
+}
+.next-year-note .next-year-tag {
+  display: inline-block; margin: 0 0 12px; padding: 4px 12px;
+  background: var(--maroon); color: var(--porcelain);
+  font-family: var(--sans); font-size: 0.8rem; font-weight: 600; letter-spacing: 0.04em; text-transform: uppercase;
+}
+.next-year-note h2 { margin: 0 0 12px; font-size: var(--step-2); }
+.next-year-note p { margin: 0 0 18px; color: var(--ink-soft); max-width: 62ch; }
+.next-year-note .text-link { color: var(--maroon); }
+.nowrap { white-space: nowrap; }
