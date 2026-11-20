@@ -31,8 +31,8 @@
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
-<link rel="stylesheet" href="site.css?v=20" />
-<link rel="stylesheet" href="pages.css?v=15" />
+<link rel="stylesheet" href="site.css?v=21" />
+<link rel="stylesheet" href="pages.css?v=16" />
 </head>
 <body>
 <a class="skip-link" href="#main">Aller au contenu principal</a>
@@ -84,7 +84,7 @@
         </div>
       </li>
       <li><a href="contact-us-fr.html">Contactez-nous</a></li>
-      <li class="nav-actions"><a href="https://hub.bischoolci.org" target="_blank" rel="noopener" class="nav-portal-link">Portail Parents</a><a href="enroll.html" class="nav-lang-link" lang="en" aria-label="English version">EN</a></li>
+      <li class="nav-actions"><a href="enroll-fr.html" class="nav-apply-link">S'inscrire</a><a href="https://hub.bischoolci.org" target="_blank" rel="noopener" class="nav-portal-link">Portail Parents</a><a href="enroll.html" class="nav-lang-link" lang="en" aria-label="English version">EN</a></li>
     </ul>
     <button class="nav-toggle" id="navToggle" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="navLinks">
       <span class="nav-toggle-bars" aria-hidden="true"></span>
@@ -96,91 +96,46 @@
 
 <section class="page-hero">
   <div class="wrap">
-  <p class="eyebrow">Inscriptions</p>
-  <h1>Démarrez la demande d'inscription de votre enfant</h1>
-  <p>Parlez-nous un peu de votre famille et nous vous recontacterons pour organiser une visite et vous accompagner dans les étapes d'admission.</p>
+  <p class="eyebrow">Inscriptions 2027–2028</p>
+  <h1>S'inscrire à BrightSteps</h1>
+  <p>Inscrivez votre enfant en ligne en une dizaine de minutes, ou réservez d'abord une visite pour découvrir l'école et rencontrer notre équipe. Les deux mènent à notre page d'admission sécurisée.</p>
   </div>
 </section>
 
 <section class="section section-tight-top container">
-  <form class="enroll-wrap reveal" id="enrollForm" novalidate>
-    <!-- Piège à robots (honeypot) : invisible pour les visiteurs réels. -->
-    <div class="hp-field" aria-hidden="true">
-      <label for="enrollCompany">Laissez ce champ vide</label>
-      <input type="text" id="enrollCompany" name="company" tabindex="-1" autocomplete="off" />
-    </div>
-    <input type="hidden" id="enrollLoadedAt" name="loaded_at" value="" />
-
-    <div class="form-grid">
-      <div class="field">
-        <label for="parentName">Nom complet du parent ou tuteur</label>
-        <input type="text" id="parentName" name="parentName" autocomplete="name" required minlength="2" maxlength="100" aria-describedby="parentName-error" />
-        <span class="field-error" id="parentName-error" role="alert"></span>
-      </div>
-      <div class="field">
-        <label for="parentEmail">Adresse e-mail</label>
-        <input type="email" id="parentEmail" name="parentEmail" autocomplete="email" required maxlength="254" aria-describedby="parentEmail-error" />
-        <span class="field-error" id="parentEmail-error" role="alert"></span>
-      </div>
-      <div class="field full">
-        <label for="parentPhone">Numéro de téléphone</label>
-        <input type="tel" id="parentPhone" name="parentPhone" placeholder="+225 01 23 45 67 89" autocomplete="tel" required maxlength="20" aria-describedby="parentPhone-error" />
-        <span class="field-error" id="parentPhone-error" role="alert"></span>
-      </div>
-    </div>
-
-    <div id="childrenContainer">
-      <fieldset class="child-block">
-        <legend class="child-block-label" id="childLabel_1">Enfant 1</legend>
-        <div class="form-grid">
-          <div class="field">
-            <label for="childName_1">Nom complet de l'enfant</label>
-            <input type="text" id="childName_1" name="childName_1" autocomplete="off" required minlength="2" maxlength="100" aria-describedby="childName_1-error" />
-            <span class="field-error" id="childName_1-error" role="alert"></span>
-          </div>
-          <div class="field">
-            <label for="childDob_1">Date de naissance de l'enfant</label>
-            <input type="date" id="childDob_1" name="childDob_1" autocomplete="bday" aria-describedby="childDob_1-error" />
-            <span class="field-error" id="childDob_1-error" role="alert"></span>
-          </div>
-          <div class="field full">
-            <label for="gradeLevel_1">Classe demandée</label>
-            <select id="gradeLevel_1" name="gradeLevel_1" required aria-describedby="gradeLevel_1-error">
-              <option value="" disabled selected>Sélectionnez un niveau</option>
-              <option>Petite Section</option>
-              <option>Moyenne Section</option>
-              <option>Grande Section</option>
-              <option>CP</option>
-              <option>CE1</option>
-              <option>CE2</option>
-              <option>CM1</option>
-              <option>CM2</option>
-              <option>6e</option>
-              <option>5e</option>
-            </select>
-            <span class="field-error" id="gradeLevel_1-error" role="alert"></span>
-          </div>
-        </div>
-      </fieldset>
-    </div>
-
-    <button type="button" class="btn btn-ghost" id="addChildBtn" style="margin:8px 0 20px">+ Ajouter un autre enfant</button>
-
-    <div class="form-grid">
-      <div class="field full">
-        <label for="message">Toute information que vous souhaitez partager</label>
-        <textarea id="message" name="message" rows="4" maxlength="2000" aria-describedby="message-error"></textarea>
-        <span class="field-error" id="message-error" role="alert"></span>
-      </div>
-    </div>
-    <div class="form-footer">
-      <button type="submit" class="btn btn-primary" id="submitBtn">Envoyer ma demande d'inscription</button>
-      <span class="form-status" id="formStatus" role="status" aria-live="polite"></span>
-    </div>
-    <p class="form-privacy-note">Nous utilisons les informations de ce formulaire uniquement pour répondre à votre demande d'inscription et, en cas d'inscription, pour ouvrir le dossier d'admission de votre enfant. Nous ne les vendons ni ne les partageons à des fins commerciales. Voir notre <a href="privacy-policy-fr.html">Politique de confidentialité</a>.</p>
-  </form>
+  <div class="apply-options reveal">
+    <a class="apply-card apply-card-main" href="https://hub.bischoolci.org/apply?lang=fr">
+      <span class="apply-card-step">01</span>
+      <h2>Inscription en ligne</h2>
+      <p>Présentez votre enfant, choisissez la classe pour l'année prochaine et joignez les documents. Vous recevez un e-mail de confirmation avec votre numéro de référence.</p>
+      <span class="btn btn-primary">Commencer l'inscription</span>
+    </a>
+    <a class="apply-card" href="https://hub.bischoolci.org/apply?lang=fr&amp;visit=1">
+      <span class="apply-card-step">02</span>
+      <h2>Réserver une visite</h2>
+      <p>Choisissez l'horaire qui vous convient pour visiter le campus, découvrir nos classes et poser vos questions.</p>
+      <span class="btn btn-ghost">Choisir un horaire</span>
+    </a>
+  </div>
+  <div class="apply-docs reveal">
+    <h2>Documents à préparer</h2>
+    <ul><li>Extrait d'acte de naissance</li><li>Dernier bulletin</li><li>Une photo récente de votre enfant</li><li>Carnet de vaccination</li></ul>
+    <p>Pas encore prêts ? Vous pouvez vous inscrire maintenant et les apporter lors de votre visite.</p>
+  </div>
 </section>
 
+<section class="section section-alt">
+  <div class="container">
+    <div class="section-head reveal"><h2>Les prochaines étapes</h2></div>
+    <div class="step-list reveal">
+      <div class="step-item"><span class="step-tag">01</span><div><h3 style="margin:0 0 6px">Inscription en ligne</h3><p style="margin:0">Envoyez votre demande et vos documents depuis votre téléphone ou ordinateur.</p></div></div>
+      <div class="step-item"><span class="step-tag">02</span><div><h3 style="margin:0 0 6px">Visite et rencontre</h3><p style="margin:0">Visitez l'école et rencontrez notre équipe avec votre enfant.</p></div></div>
+      <div class="step-item"><span class="step-tag">03</span><div><h3 style="margin:0 0 6px">Réception de l'offre</h3><p style="margin:0">Nous vous envoyons par e-mail une offre à accepter en ligne.</p></div></div>
+      <div class="step-item"><span class="step-tag">04</span><div><h3 style="margin:0 0 6px">Confirmation de la place</h3><p style="margin:0">Réglez les frais d'inscription : bienvenue à BrightSteps.</p></div></div>
+    </div>
+    <p class="apply-help" style="margin-top:28px">Des questions ? <a href="https://wa.me/2250710110133?text=Bonjour%20BrightSteps%2C%20j%27ai%20une%20question%20sur%20les%20inscriptions." target="_blank" rel="noopener">Écrivez-nous sur WhatsApp</a> ou appelez le <a href="tel:+2250710110133">+225 07 10 11 01 33</a>.</p>
+  </div>
+</section>
 </main>
 
 <footer class="site-footer" id="contact">
